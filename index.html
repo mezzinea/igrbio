@@ -48,7 +48,7 @@ https://templatemo.com/tm-559-zay-shop
 
 
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
         <div class="container d-flex justify-content-between align-items-center">
 
             <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
@@ -76,123 +76,45 @@ https://templatemo.com/tm-559-zay-shop
                         </li>
                     </ul>
                 </div>
-                <div class="navbar align-self-center d-flex">
-                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                            <div class="input-group-text">
-                                <i class="fa fa-fw fa-search"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                    </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">0</span>
-                    </a>
+            </div>
+            <div class="navbar align-self-center d-flex">
+                <div class="dropdown px-3">
+                    <button class="btn btn-light rounded-pill dropdown-toggle d-flex align-items-center" 
+                            type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://flagcdn.com/16x12/us.png" class="me-2" alt="English" id="selected-flag">
+                        <span id="selected-lang">English</span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                        <li>
+                        <a class="dropdown-item d-flex align-items-center" href="#" data-lang="en" data-flag="https://flagcdn.com/16x12/us.png">
+                            <img src="https://flagcdn.com/16x12/us.png" class="me-2" alt="English"> English
+                        </a>
+                        </li>
+                        <li>
+                        <a class="dropdown-item d-flex align-items-center" href="#" data-lang="fr" data-flag="https://flagcdn.com/16x12/fr.png">
+                            <img src="https://flagcdn.com/16x12/fr.png" class="me-2" alt="Français"> Français
+                        </a>
+                        </li>
+                        <li>
+                        <a class="dropdown-item d-flex align-items-center" href="#" data-lang="ar" data-flag="https://flagcdn.com/16x12/sa.png">
+                            <img src="https://flagcdn.com/16x12/sa.png" class="me-2" alt="العربية"> العربية
+                        </a>
+                        </li>
+                    </ul>
                 </div>
+            </div>
+            <div class="px-2">
+                <a class="nav-icon position-relative text-decoration-none" href="#">
+                    <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">0</span>
+                </a>
             </div>
 
         </div>
     </nav>
     <!-- Close Header -->
 
-    <!-- Modal -->
-    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="w-100 pt-1 mb-5 text-right">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="" method="get" class="modal-content modal-body border-0 p-0">
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-                    <button type="submit" class="input-group-text bg-success text-light">
-                        <i class="fa fa-fw fa-search text-white"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-
-
-    <!-- Start Banner Hero -->
-    <!-- <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="col-md-8 col-lg-6 order-lg-last d-flex justify-content-center">
-                            <img class="img-fluid" src="./assets/img/igrBio/pngtree-beekeeping-apiary-and-beekeeper-design-png-image_13005487.png" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>igrBio</b> Company</h1>
-                                <h4 class="h2">The Official Sponsor of Happiness</h4>
-                                <p>
-                                    On the road to happiness, you’ll find us waiting for you... Breathe in the essence of our products and feel life... Authenticity, heritage, and purity... #igrBio and happiness for all 🌹 igrBio, the official sponsor of happiness.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="col-md-8 col-lg-6 order-lg-last d-flex justify-content-center">
-                            <img class="img-fluid" src="./assets/img/igrBio/pngtree-watercolor-bee-farm-element-png-image_11679392.png" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1">Proident occaecat</h1>
-                                <h3 class="h2">Aliquip ex ea commodo consequat</h3>
-                                <p>
-                                    You are permitted to use this igrBio CSS template for your commercial websites. 
-                                    You are <strong>not permitted</strong> to re-distribute the template ZIP file in any kind of template collection websites.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="col-md-8 col-lg-6 order-lg-last d-flex justify-content-center">
-                            <img class="img-fluid" src="./assets/img/igrBio/pngtree-fresh-green-rosemary-and-sage-in-oil-bottles-png-image_11870865.png" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1">Repr in voluptate</h1>
-                                <h3 class="h2">Ullamco laboris nisi ut </h3>
-                                <p>
-                                    We bring you 100% free CSS templates for your websites. 
-                                    If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
-            <i class="fas fa-chevron-left"></i>
-        </a>
-        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
-            <i class="fas fa-chevron-right"></i>
-        </a>
-    </div> -->
-    <!-- End Banner Hero -->
-
-
+    
     <!-- Start Categories of The Month -->
     <section class="container py-5">
         <div class="row text-center pt-3">
@@ -203,7 +125,7 @@ https://templatemo.com/tm-559-zay-shop
                 </p>
             </div>
         </div>
-        <div class="row">
+        <div class="row py-3">
             <div class="col-md-3">
                 <div class="card mb-4 product-wap rounded-0">
                     <div class="card rounded-0">
@@ -218,7 +140,7 @@ https://templatemo.com/tm-559-zay-shop
                     </div>
                     <div class="card-body">
                         <a href="shop-single.html" class="text-decoration-none">Amlou timoulay</a>
-                        <p>MAD 250.00 <small class="text-decoration-line-through text-muted">300.00</small></p>
+                        <p><small>MAD </small><b>250.00</b> <small class="text-decoration-line-through text-muted">300.00</small></p>
                         <div class="row">
                             <div class="col-lg-9"> 
                                 <small class="badge rounded-pill bg-light text-dark">1 Kilogram</small>
@@ -231,7 +153,7 @@ https://templatemo.com/tm-559-zay-shop
                     </div>
                     <div class="card-footer p-3">
                         <div class="text-center">
-                            <a href="shop-single.html" class="h4 text-decoration-none text-success"><i class="fas fa-cart-plus"></i><small>  Add to pannel</small></a>
+                            <a href="shop-single.html" class="h4 text-decoration-none text-success"><i class="fas fa-cart-plus"></i><small>  Add to cart</small></a>
                         </div>   
                     </div>
                 </div>
@@ -250,7 +172,7 @@ https://templatemo.com/tm-559-zay-shop
                     </div>
                     <div class="card-body">
                         <a href="shop-single.html" class="text-decoration-none">Agran n souss</a>
-                        <p>MAD 550.00</p>
+                        <p><small>MAD</small> <b>550.00</b></p>
                         <div class="row">
                             <div class="col-lg-9"> 
                                 <small class="badge rounded-pill bg-light text-dark">1 Kilogram</small>
@@ -265,7 +187,7 @@ https://templatemo.com/tm-559-zay-shop
                         <div class="text-center">
                             <a href="shop-single.html" class="h4 text-decoration-none text-success">
                                 <i class="fas fa-cart-plus"></i>
-                                <small> Add to pannel</small></a>
+                                <small> Add to cart</small></a>
                         </div>   
                     </div>
                 </div>
@@ -284,7 +206,7 @@ https://templatemo.com/tm-559-zay-shop
                     </div>
                     <div class="card-body">
                         <a href="shop-single.html" class="text-decoration-none">Daghmouss n souss</a>
-                        <p>MAD 600.00</p>
+                        <p><small>MAD</small> <b>600.00</b></p>
                         <div class="row">
                             <div class="col-lg-9"> 
                                 <small class="badge rounded-pill bg-light text-dark">2 Kilo</small>
@@ -297,7 +219,7 @@ https://templatemo.com/tm-559-zay-shop
                     </div>
                     <div class="card-footer p-3">
                         <div class="text-center">
-                            <a href="shop-single.html" class="h4 text-decoration-none text-success"><i class="fas fa-cart-plus"></i><small>  Add to pannel</small></a>
+                            <a href="shop-single.html" class="h4 text-decoration-none text-success"><i class="fas fa-cart-plus"></i><small>  Add to cart</small></a>
                         </div>   
                     </div>
                 </div>
@@ -316,7 +238,7 @@ https://templatemo.com/tm-559-zay-shop
                     </div>
                     <div class="card-body">
                         <a href="shop-single.html" class="text-decoration-none">Idaoutanan honey</a>
-                        <p>MAD 350.00</p>
+                        <p><small>MAD</small> <b>350.00</b></p>
                         <div class="row">
                             <div class="col-lg-9"> 
                                 <small class="badge rounded-pill bg-light text-dark">1 Kilogram</small>
@@ -329,20 +251,24 @@ https://templatemo.com/tm-559-zay-shop
                     </div>
                     <div class="card-footer p-3">
                         <div class="text-center">
-                            <a href="shop-single.html" class="h4 text-decoration-none text-success"><i class="fas fa-cart-plus"></i><small>  Add to pannel</small></a>
+                            <a href="shop-single.html" class="h4 text-decoration-none text-success"><i class="fas fa-cart-plus"></i><small>  Add to cart</small></a>
                         </div>   
                     </div>
                 </div>
         </div>
         <div div="row">
-            <ul class="pagination pagination-lg justify-content-end">
+            <div class="text-center justify-content-center">
+                <a class="btn btn-success py-3 px-5 rounded-pill" href="shop.html">see all products</a>
+            </div>
+            
+            <!-- <ul class="pagination pagination-lg ">
                 <li class="page-item">
                     <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="shop.html">see all products</a>
                 </li>
                 <li class="page-item">
                     <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="shop.html" tabindex="-1"><i class="far fa-eye"></i></a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </section>
     <!-- End Categories of The Month -->
@@ -353,32 +279,30 @@ https://templatemo.com/tm-559-zay-shop
         <div class="py-3">
             <div class="text-center">
                 <div class="col-lg-6 m-auto">
-                    <h1 class="h1">Products of The Month</h1>
+                    <h1 class="h1">Our Packs</h1>
                     <p>
                         deserunt mollit anim id est laborum.
                     </p>
                 </div>
             </div>
         </div>
-        <div class="py-5 px-5">
-            <div class="row py-3" style="background-color: white; border-radius: 20px; box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.10); margin-bottom: 100px;">
-                    <div class="col-md-5 px-3">
-                        <img src="./assets/img/igrBio/Amelou-min.jpg" class="card-img-top" alt="..." style="border-radius: 15px;">
+        <div class="px-5">
+            <div class="row py-3" style="background-color: none; box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.10); border-radius: 20px; margin-bottom: 100px;">
+                    <div class="col-md-5">
+                        <img src="./assets/img/igrBio/3vhEihamIkRCTUfXXWVdO6ku3.jpg" class="card-img-top" alt="..." style="border-radius: 15px;">
                     </div>
-                    <div class="col-md-6 py-5 px-3" style="text-align: left;">
-                        <b>
-                            <h2 class="h1">Khalta mana3ya</h2>
-                        </b>
-                        <p>
-                            <p><b>Contents:</b>
-                                2 jars of Amlou with Almonds, Argan Oil, and Eucalyptus Honey (700 g each): 
-                                Authentic Amlou with a rich texture and irresistible taste.
-                            </p>
-                            <br>500 g Thyme Honey: Wild honey with a strong herbal flavor and renowned health benefits.
-                            <br>500 g Eucalyptus Honey: Natural honey with a distinctive flavor and refreshing touch.
-                            <br>Price: 550 Dirhams, including delivery.
-                            <br>For orders & inquiries: +212 661 817 876
-                        </p>
+                    <div class="col-md-7 py-3 px-5" style="text-align: left;">
+                        <h2>Pack souss</h2>
+                        <div class="py-3">
+                            <b>Description</b>
+                            <br>The Niemah Bundle is a luxurious selection of Morocco’s natural treasures, crafted to enrich your table or to be offered as a meaningful gift. A perfect harmony of authentic flavors and natural benefits.
+                            <br><b>Contents:</b>
+                            <br>* 2 jars of Amlou with Almonds, Argan Oil, and Eucalyptus Honey (700 g each): Authentic Amlou with a rich texture and irresistible taste.
+                            <br>* 500 g Thyme Honey: Wild honey with a strong herbal flavor and renowned health benefits.
+                            <br>* 500 g Eucalyptus Honey: Natural honey with a distinctive flavor and refreshing touch.
+                            <br><b>Price:</b> 550 Dirhams, including delivery.
+                            <br><b>For orders & inquiries:</b> +212 651 811 xxx
+                        </div>
                         <hr>
                         <div class="card-body">
                             <ul class="list-unstyled d-flex justify-content-between">
@@ -386,16 +310,20 @@ https://templatemo.com/tm-559-zay-shop
                                     <i class="text-warning fa fa-star"></i>
                                     <i class="text-warning fa fa-star"></i>
                                     <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted">Reviews (48)</i>
                                 </li>
-                                <li class="text-muted text-right">$480.00</li>
+                                <li class="text-right">MAD 480.00 <small class="text-decoration-line-through text-muted"> 600.00</small></li>
                             </ul>
                             <a href="shop-single.html" class="h2 text-decoration-none text-dark">Cloud Nike Shoes</a>
                             <p class="card-text">
                                 Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.
                             </p>
-                            <p class="text-muted">Reviews (48)</p>
+                            
+                        </div>
+                        <div>
+                            <a class="btn btn-warning rounded-pill py-3 px-5" href="#"><i class="fas fa-cart-plus px-2"></i> Add to cart</a>
                         </div>
                     </div>
             </div>
@@ -412,8 +340,8 @@ https://templatemo.com/tm-559-zay-shop
                                         <i class="text-warning fa fa-star"></i>
                                         <i class="text-warning fa fa-star"></i>
                                         <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
                                     </li>
                                     <li class="text-muted text-right">$240.00</li>
                                 </ul>
@@ -436,7 +364,7 @@ https://templatemo.com/tm-559-zay-shop
                                         <i class="text-warning fa fa-star"></i>
                                         <i class="text-warning fa fa-star"></i>
                                         <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
                                         <i class="text-muted fa fa-star"></i>
                                     </li>
                                     <li class="text-muted text-right">$480.00</li>
@@ -484,8 +412,8 @@ https://templatemo.com/tm-559-zay-shop
                                         <i class="text-warning fa fa-star"></i>
                                         <i class="text-warning fa fa-star"></i>
                                         <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
                                     </li>
                                     <li class="text-muted text-right">$240.00</li>
                                 </ul>
@@ -504,24 +432,7 @@ https://templatemo.com/tm-559-zay-shop
     <!-- End Featured Product -->
      
     <!-- About -->
-    <div class="modal fade bg-white" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="w-100 pt-1 mb-5 text-right">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="" method="get" class="modal-content modal-body border-0 p-0">
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-                    <button type="submit" class="input-group-text bg-success text-light">
-                        <i class="fa fa-fw fa-search text-white"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-    
     <div class="w-100 bg-black py-3"  id="about"></div>
-
     <section class="bg-success py-5">
         <div class="container">
             <div class="row align-items-center py-5">
@@ -552,30 +463,23 @@ https://templatemo.com/tm-559-zay-shop
                 </p>
             </div>
         </div>
-        <div class="row">
+        <div class="row justify-content-center">
 
-            <div class="col-md-6 col-lg-3 pb-5">
+            <div class="col-md-3 pb-5">
                 <div class="h-100 py-5 services-icon-wap shadow">
                     <div class="h1 text-success text-center"><i class="fa fa-truck fa-lg"></i></div>
                     <h2 class="h5 mt-4 text-center">Delivery Services</h2>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-3 pb-5">
+            <div class="col-md-3 pb-5">
                 <div class="h-100 py-5 services-icon-wap shadow">
                     <div class="h1 text-success text-center"><i class="fas fa-exchange-alt"></i></div>
                     <h2 class="h5 mt-4 text-center">Shipping & Return</h2>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-3 pb-5">
-                <div class="h-100 py-5 services-icon-wap shadow">
-                    <div class="h1 text-success text-center"><i class="fa fa-percent"></i></div>
-                    <h2 class="h5 mt-4 text-center">Promotion</h2>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3 pb-5">
+            <div class="col-md-3 pb-5">
                 <div class="h-100 py-5 services-icon-wap shadow">
                     <div class="h1 text-success text-center"><i class="fa fa-user"></i></div>
                     <h2 class="h5 mt-4 text-center">24 Hours Service</h2>
@@ -585,182 +489,75 @@ https://templatemo.com/tm-559-zay-shop
     </section>
     <!-- End Section -->
 
-    <!-- Start Brands -->
-    <section class="bg-light py-5">
-        <div class="container my-4">
-            <div class="row text-center py-3">
-                <div class="col-lg-6 m-auto">
-                    <h1 class="h1">Our Brands</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        Lorem ipsum dolor sit amet.
-                    </p>
-                </div>
-                <div class="col-lg-9 m-auto tempaltemo-carousel">
-                    <div class="row d-flex flex-row">
-                        <!--Controls-->
-                        <div class="col-1 align-self-center">
-                            <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="prev">
-                                <i class="text-light fas fa-chevron-left"></i>
-                            </a>
-                        </div>
-                        <!--End Controls-->
-
-                        <!--Carousel Wrapper-->
-                        <div class="col">
-                            <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="templatemo-slide-brand" data-bs-ride="carousel">
-                                <!--Slides-->
-                                <div class="carousel-inner product-links-wap" role="listbox">
-
-                                    <!--First slide-->
-                                    <div class="carousel-item active">
-                                        <div class="row">
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End First slide-->
-
-                                    <!--Second slide-->
-                                    <div class="carousel-item">
-                                        <div class="row">
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End Second slide-->
-
-                                    <!--Third slide-->
-                                    <div class="carousel-item">
-                                        <div class="row">
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End Third slide-->
-
-                                </div>
-                                <!--End Slides-->
-                            </div>
-                        </div>
-                        <!--End Carousel Wrapper-->
-
-                        <!--Controls-->
-                        <div class="col-1 align-self-center">
-                            <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="next">
-                                <i class="text-light fas fa-chevron-right"></i>
-                            </a>
-                        </div>
-                        <!--End Controls-->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--End Brands-->
-
 
     <!-- Start Footer -->
     <footer class="bg-dark" id="tempaltemo_footer">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">igrBio Shop</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li>
-                            <i class="fas fa-map-marker-alt fa-fw"></i>
-                            123 Consectetur at ligula 10660
-                        </li>
-                        <li>
-                            <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="#">Luxury</a></li>
-                        <li><a class="text-decoration-none" href="#">Sport Wear</a></li>
-                        <li><a class="text-decoration-none" href="#">Men's Shoes</a></li>
-                        <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
+        <div class="container py-5">
+            <div class="row pt-5 justify-content-center">
+                <div class="col-md-3 offset-md-2">
+                    <h3 class="text-light border-light">Navigation</h3>
                     <ul class="list-unstyled text-light footer-link-list">
                         <li><a class="text-decoration-none" href="#">Home</a></li>
-                        <li><a class="text-decoration-none" href="#">About Us</a></li>
                         <li><a class="text-decoration-none" href="#">Shop</a></li>
-                        <li><a class="text-decoration-none" href="#">Contact</a></li>
+                        <li><a class="text-decoration-none" href="#">About</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h3 class="text-light border-light">Legal</h3>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="#">Privacy Policy</a></li>
+                        <li><a class="text-decoration-none" href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-3">
+                    <h3 class="text-light border-light">Contact us</h3>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                        </li>
+                        <li>
+                            <a class="text-decoration-none" href="#">Contact</a>
+                        </li>
                     </ul>
                 </div>
 
             </div>
 
-            <div class="row text-light mb-4">
-                <div class="col-12 mb-3">
-                    <div class="w-100 my-3 border-top border-light"></div>
+            <div class="row">
+                <div class="row text-light text-center">
+                    <div class="">
+                        <ul class="list-inline text-center footer-icons">
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                            </li>
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                            </li>
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-auto me-auto">
-                    <ul class="list-inline text-left footer-icons">
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
-                        </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
-                        </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
-                        </li>
-                    </ul>
+            </div>
+            
+            <div class="row">
+                <div class="text-center">
+                    <a class="px-2 text-light text-decoration-none" href="#">Français</a>
+                    <a class="px-2 text-light text-decoration-none" href="#">English</a>
+                    <a class="px-2 text-light text-decoration-none" href="#">العربية</a>
                 </div>
             </div>
         </div>
-
-        <div class="w-100 bg-black py-3">
+        
+        <div class="bg-black pt-3">
             <div class="container">
-                <div class="row pt-2">
+                <div class="row">
                     <div class="col-12">
-                        <p class="text-left text-light">
-                            igrBio Shop | Designed by IGRBIO 
+                        <p class="text-center text-light">
+                            © 2025 igrBio. All rights reserved 
                         </p>
                     </div>
                 </div>
