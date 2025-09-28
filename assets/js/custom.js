@@ -36,5 +36,4 @@ function loadHTML(elementId, filePath) {
 document.addEventListener('DOMContentLoaded', function() {
     loadHTML('header', 'global/header.html');
     loadHTML('footer', 'global/footer.html');
-    loadHTML('head', 'global/head.html');
 });
