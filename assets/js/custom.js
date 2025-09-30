@@ -52,6 +52,18 @@ function parseCSV(text) {
   });
 }
 
+// Wait until the entire page (images, scripts, etc.) is loaded
+window.addEventListener("load", function() {
+    const preloader = document.getElementById("preloader");
+    const content = document.querySelector(".content");
+
+    // Hide preloader
+    preloader.classList.add("hidden");
+
+    // Show main content
+    content.style.display = "block";
+});
+
 // Function to load products from CSV and display them
 fetch("assets/data/product.csv")
 .then(response => response.text())

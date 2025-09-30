@@ -2,60 +2,85 @@
 Custom Css
 */
 
-
+/* pack */
 .product-container {
-      background: #fff;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin: 30px auto;
-      max-width: 1100px;
-    }
-    .badge-offer {
-      background-color: #ff6600;
-      color: #fff;
-      font-size: 0.8rem;
-      padding: 6px 10px;
-      border-radius: 20px;
-    }
-    .badge-discount {
-      background-color: #f7b731;
-      border-radius: 50%;
-      width: 70px;
-      height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-weight: bold;
-      position: absolute;
-      top: -10px;
-      left: -10px;
-    }
-    .price {
-      font-size: 1.8rem;
-      color: #c0392b;
-      font-weight: bold;
-    }
-    .old-price {
-      text-decoration: line-through;
-      color: #888;
-      margin-right: 10px;
-    }
-    .check-list li::before {
-      content: "✔ ";
-      color: #ff6600;
-      font-weight: bold;
-    }
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin: 30px auto;
+    max-width: 1100px;
+}
+.badge-offer {
+    background-color: #ff6600;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    border-radius: 20px;
+}
+.badge-discount {
+    background-color: #f7b731;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
+.price {
+    font-size: 1.8rem;
+    color: #c0392b;
+    font-weight: bold;
+}
+.old-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 10px;
+}
+.check-list li::before {
+    content: "✔ ";
+    color: #ff6600;
+    font-weight: bold;
+}
 
-    /* 🔎 Zoom effect for image */
-    .image-wrapper {
-      overflow: hidden;
-      border-radius: 10px;
-    }
-    .image-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.1); /* zoom in */
-    }
+/* 🔎 Zoom effect for image */
+.image-wrapper {
+    overflow: hidden;
+    border-radius: 10px;
+}
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1); /* zoom in */
+}
+    
+/* Preloader styles */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #469562; /* Green background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Ensure it’s always on top */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#preloader img {
+    width: 120px; /* adjust size of your logo */
+    height: auto;
+}
