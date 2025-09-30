@@ -53,16 +53,13 @@ function parseCSV(text) {
 }
 
 // Wait until the entire page (images, scripts, etc.) is loaded
-window.addEventListener("load", function() {
+  document.addEventListener("DOMContentLoaded", function() {
     const preloader = document.getElementById("preloader");
-    const content = document.querySelector(".content");
-
-    // Hide preloader
-    preloader.classList.add("hidden");
-
-    // Show main content
-    content.style.display = "block";
-});
+    // Show preloader for at least 1 second
+    setTimeout(() => {
+      preloader.classList.add("hidden");
+    }, 500); // 1 second
+  });
 
 // Function to load products from CSV and display them
 fetch("assets/data/product.csv")
