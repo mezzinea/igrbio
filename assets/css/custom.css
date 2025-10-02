@@ -84,3 +84,29 @@ Custom Css
     width: 120px; /* adjust size of your logo */
     height: auto;
 }
+
+
+/* cart */
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -400px; /* hidden by default */
+  width: 400px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  transition: right 0.3s ease;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-sidebar.active {
+  left: 0;
+}
+
+.cart-items {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 150px);
+}

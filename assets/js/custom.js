@@ -53,13 +53,16 @@ function parseCSV(text) {
 }
 
 // Wait until the entire page (images, scripts, etc.) is loaded
-  document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     const preloader = document.getElementById("preloader");
     // Show preloader for at least 1 second
     setTimeout(() => {
-      preloader.classList.add("hidden");
+        preloader.classList.add("hidden");
     }, 500); // 1 second
-  });
+    setTimeout(() => {
+        updateCartCount(); // used to fix content flash issue on page load
+    }, 1000); // 1.5 seconds
+});
 
 // Function to load products from CSV and display them
 fetch("assets/data/product.csv")
@@ -80,9 +83,9 @@ fetch("assets/data/product.csv")
             <img class="card-img rounded-0 img-fluid" src="assets/img/igrBio/${product.image}" alt="${product.title}">
             <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                 <ul class="list-unstyled">
-                <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                <li><a class="btn btn-success text-white"><i class="far fa-heart"></i></a></li>
+                <li><a class="btn btn-success text-white mt-2"><i class="far fa-eye"></i></a></li>
+                <li data-id=${product.id}><a onclick="addToCart(this)" class="btn btn-success text-white mt-2"><i class="fas fa-cart-plus"></i></a></li>
                 </ul>
             </div>
             </div>
@@ -100,8 +103,8 @@ fetch("assets/data/product.csv")
             </div>
             </div>
             <div class="card-footer p-3">
-            <div class="text-center">
-                <a href="shop-single.html" class="h4 text-decoration-none text-success">
+            <div data-id=${product.id} class="text-center">
+                <a onclick="addToCart(this)" class="h4 text-decoration-none text-success" href="#">
                 <i class="fas fa-cart-plus"></i><small> Add to cart</small>
                 </a>
             </div>   
@@ -113,3 +116,143 @@ fetch("assets/data/product.csv")
     container.innerHTML += card;
     });
 });
+
+
+function addToCart(element) {
+    // Get product ID from data-id attribute
+    const productId = element.closest("[data-id]").getAttribute("data-id");
+
+    // Retrieve current cart from sessionStorage
+    let cart = sessionStorage.getItem("cart");
+    cart = cart ? JSON.parse(cart) : [];
+
+    // Check if product already exists in cart
+    const existingProduct = cart.find(item => item.id === productId);
+
+    if (existingProduct) {
+        existingProduct.quantity += 1; // increase quantity
+    } else {
+        // Retrieve product details from DOM (you can also pull directly from your product object)
+        const card = element.closest(".card");
+        const title = card.querySelector(".card-body a").textContent;
+        const price = card.querySelector(".card-body b").textContent;
+        const image = card.querySelector("img").getAttribute("src");
+
+        cart.push({
+            id: productId,
+            title,
+            price,
+            image,
+            quantity: 1
+        });
+    }
+
+    // Save back to sessionStorage
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+
+    console.log("New product added to cart :", cart);
+    updateCartCount();
+}
+
+
+
+// Toggle cart sidebar
+function toggleCart() {
+    document.getElementById("cart-sidebar").classList.toggle("active");
+    loadCart(); // refresh view
+}
+
+// Load cart from sessionStorage and render
+function loadCart() {
+    let cart = sessionStorage.getItem("cart");
+    cart = cart ? JSON.parse(cart) : [];
+
+    const container = document.getElementById("cart-items");
+    const totalContainer = document.getElementById("cart-total");
+
+    container.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        const itemTotal = parseFloat(item.price) * item.quantity;
+        total += itemTotal;
+
+        container.innerHTML += `
+          <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-2">
+            <img src="${item.image}" width="50" height="50" class="rounded">
+            <div class="flex-grow-1 mx-2">
+              <p class="mb-0 fw-bold">${item.title}</p>
+              <small>${item.price} x ${item.quantity}</small>
+            </div>
+            <div class="d-flex align-items-center">
+              <button onclick="updateQuantity(${index}, -1)" class="btn btn-sm btn-outline-secondary">-</button>
+              <span class="mx-2">${item.quantity}</span>
+              <button onclick="updateQuantity(${index}, 1)" class="btn btn-sm btn-outline-secondary">+</button>
+            </div>
+            <span class="mx-2">${itemTotal.toFixed(2)}</span>
+            <button onclick="removeItem(${index})" class="btn btn-sm btn-danger">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        `;
+    });
+
+    totalContainer.textContent = total.toFixed(2);
+}
+
+// update Cart Count
+function updateCartCount() {
+    let cart = sessionStorage.getItem("cart");
+    cart = cart ? JSON.parse(cart) : [];
+
+    let itemCount = 0;
+    cart.forEach(item => itemCount += item.quantity);
+    
+    console.log("Cart count :", itemCount);
+    const cartCount = document.getElementById("cart-count");
+   
+    if (cartCount) {
+        if (itemCount > 0) {
+            cartCount.textContent = itemCount;
+            cartCount.style.display = "inline-block";
+        }
+        else {
+            cartCount.style.display = "none";
+        }
+    }
+}
+
+// Update quantity
+function updateQuantity(index, change) {
+    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    if (!cart[index]) return;
+
+    cart[index].quantity += change;
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+    }
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+    loadCart();
+    updateCartCount();
+}
+
+// Remove item
+function removeItem(index) {
+    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    cart.splice(index, 1);
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+    loadCart();
+    updateCartCount();
+}
+
+// Clear cart
+function clearCart() {
+    sessionStorage.removeItem("cart");
+    loadCart();
+    updateCartCount();
+}
+
+window.onload = () => {
+    loadCart();
+};
