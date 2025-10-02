@@ -151,6 +151,7 @@ function addToCart(element) {
     sessionStorage.setItem("cart", JSON.stringify(cart));
 
     console.log("New product added to cart :", cart);
+    loadCart();
     updateCartCount();
 }
 
