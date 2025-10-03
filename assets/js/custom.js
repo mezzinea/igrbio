@@ -224,8 +224,7 @@ function updateCartCount() {
     }
 }
 
-// Update quantity
-function updateQuantity(index, change) {
+function updateQuantity(index, change, fromCartPage = false) {
     let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
     if (!cart[index]) return;
 
@@ -234,18 +233,32 @@ function updateQuantity(index, change) {
         cart.splice(index, 1);
     }
     sessionStorage.setItem("cart", JSON.stringify(cart));
-    loadCart();
+
     updateCartCount();
+    if (fromCartPage) {
+        loadCartPage();
+        updateCartCount();
+    } else {
+        loadCart();
+        updateCartCount();
+    }
 }
 
-// Remove item
-function removeItem(index) {
+function removeItem(index, fromCartPage = false) {
     let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
     cart.splice(index, 1);
     sessionStorage.setItem("cart", JSON.stringify(cart));
-    loadCart();
+
     updateCartCount();
+    if (fromCartPage) {
+        loadCartPage();
+        updateCartCount();
+    } else {
+        loadCart();
+        updateCartCount();
+    }
 }
+
 
 // Clear cart
 function clearCart() {
@@ -257,3 +270,111 @@ function clearCart() {
 window.onload = () => {
     loadCart();
 };
+
+
+// load cart page details
+function loadCartPage() {
+    let cart = sessionStorage.getItem("cart");
+    cart = cart ? JSON.parse(cart) : [];
+
+    const container = document.getElementById("cart-page-items");
+    container.innerHTML = "";
+
+    let subtotal = 0;
+
+    cart.forEach((item, index) => {
+        const itemTotal = parseFloat(item.price) * item.quantity;
+        subtotal += itemTotal;
+
+        container.innerHTML += `
+          <div class="mb-3 p-3 d-flex flex-row justify-content-between align-items-center shadow-sm bg-white rounded">
+            <div class="d-flex align-items-center">
+              <img src="${item.image}" width="80" height="80" class="rounded me-3">
+              <div>
+                <h6 class="mb-1">${item.title}</h6>
+                <small class="mb-1 text-muted">${item.price} MAD each</small>
+              </div>
+            </div>
+            <small class="d-flex align-items-center">
+              <button onclick="updateQuantity(${index}, -1, true)" class="btn btn-sm btn-outline-secondary">-</button>
+              <span class="mx-2">${item.quantity}</span>
+              <button onclick="updateQuantity(${index}, 1, true)" class="btn btn-sm btn-outline-secondary">+</button>
+            </small>
+            <span class="mx-3">${itemTotal.toFixed(2)} MAD</span>
+            <button onclick="removeItem(${index}, true)" class="btn btn-sm btn-outline-danger">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        `;
+    });
+
+    // Update summary
+    document.getElementById("summary-subtotal").textContent = subtotal.toFixed(2) + " MAD";
+    document.getElementById("summary-discount").textContent = appliedDiscount.toFixed(2) + " MAD";
+    document.getElementById("summary-total").textContent = (subtotal - appliedDiscount).toFixed(2) + " MAD";
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadCartPage();
+});
+
+
+
+// Discount code logic
+let appliedDiscount = 0;
+
+function applyCoupon() {
+    const code = document.getElementById("coupon-code").value.trim().toUpperCase();
+    let subtotal = 0;
+    let cart = sessionStorage.getItem("cart");
+    cart = cart ? JSON.parse(cart) : [];
+
+    cart.forEach(item => {
+        subtotal += parseFloat(item.price) * item.quantity;
+    });
+
+    if (code === "DISCOUNT10") {
+        appliedDiscount = subtotal * 0.10; // 10% off
+    } else if (code === "DISCOUNT50") {
+        appliedDiscount = 50; // fixed amount
+    } else {
+        appliedDiscount = 0;
+        alert("Invalid coupon code");
+    }
+
+    loadCartPage(); // refresh totals
+}
+
+// Show checkout form & hide cart items
+function showCheckoutForm() {
+    document.getElementById("orderItems").classList.remove("show");
+    document.getElementById("checkout-form").style.display = "block";
+    document.getElementById("order-items-header").style.display = "block";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const orderItems = document.getElementById("orderItems");
+  const toggleIcon = document.getElementById("orderToggleIcon");
+
+  // Bootstrap collapse events
+  orderItems.addEventListener("show.bs.collapse", function () {
+    toggleIcon.classList.remove("fa-chevron-down");
+    toggleIcon.classList.add("fa-chevron-up");
+  });
+
+  orderItems.addEventListener("hide.bs.collapse", function () {
+    toggleIcon.classList.remove("fa-chevron-up");
+    toggleIcon.classList.add("fa-chevron-down");
+  });    
+  
+});
+
+// Handle form submit
+document.getElementById("orderForm")?.addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Order placed successfully ✅");
+    // Here you could: 
+    // - Save data to backend
+    // - Or send via email / webhook
+});
