@@ -64,85 +64,117 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 1000); // 1.5 seconds
 });
 
+
+let products = []; // global variable to hold products
+
+// Function to load products from CSV and display them
 // Function to load products from CSV and display them
 fetch("assets/data/product.csv")
 .then(response => response.text())
 .then(text => {
-    const products = parseCSV(text);
-    const container = document.getElementById("product-list");
+    products = parseCSV(text);
+    const container = document.getElementById("shop-product-list");
+    const typeSelector = document.getElementById("type-selector");
+    // const suggestedSelector = document.getElementById("suggested-selector");
 
-    products.forEach(product => {
-    const tags = product.tags.split("|").map(tag => 
-        `<small class="badge rounded-pill bg-light text-dark">${tag}</small>`
-    ).join(" ");
-
-    const card = `
-        <div class="col-md-3">
-        <div class="card mb-4 product-wap rounded-0">
-            <div class="card rounded-0">
-            <img class="card-img rounded-0 img-fluid" src="assets/img/igrBio/${product.image}" alt="${product.title}">
-            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                <ul class="list-unstyled">
-                <li><a class="btn btn-success text-white"><i class="far fa-heart"></i></a></li>
-                <li><a class="btn btn-success text-white mt-2"><i class="far fa-eye"></i></a></li>
-                <li data-id=${product.id}><a onclick="addToCart(this)" class="btn btn-success text-white mt-2"><i class="fas fa-cart-plus"></i></a></li>
-                </ul>
-            </div>
-            </div>
-            <div class="card-body">
-            <a href="shop-single.html" class="text-decoration-none">${product.title}</a>
-            <p><small>MAD </small><b>${product.price}.00</b></p>
-            <div class="row">
-                <div class="col-lg-9"> 
-                <small class="badge rounded-pill bg-light text-dark">${product.quantity}</small>
-                ${tags}
+    function renderProducts(list) {
+        container.innerHTML = "";
+        list.forEach(product => {
+            const tags = product.tags.split("|").map(tag => 
+                `<small class="badge rounded-pill bg-light text-dark">${tag}</small>`
+            ).join(" ");
+            const card = `
+                <div class="col-md-3" data-id=${product.id}>
+                    <div class="card mb-4 product-wap rounded-0">
+                        <div class="card rounded-0">
+                        <img class="card-img rounded-0 img-fluid" src="assets/img/igrBio/${product.image}" alt="${product.title}">
+                        <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul class="list-unstyled">
+                            <li><a class="btn btn-success text-white"><i class="far fa-heart"></i></a></li>
+                            <li><a class="btn btn-success text-white mt-2"><i class="far fa-eye"></i></a></li>
+                            <li><button onclick="addToCart(this)" class="btn btn-success text-white mt-2"><i class="fas fa-cart-plus"></i></button></li>
+                            </ul>
+                        </div>
+                        </div>
+                        <div class="card-body">
+                        <a href="shop-single.html" class="text-decoration-none">${product.title}</a>
+                        <p><small>MAD </small><b>${product.price}.00</b></p>
+                        <div class="row">
+                            <div class="col-lg-9"> 
+                            <small class="badge rounded-pill bg-light text-dark">${product.quantity}</small>
+                            ${tags}
+                            </div>
+                            <div class="col-lg-3">
+                            <a class="btn" href="#"><i class="far fa-heart"></i></a>
+                            </div>
+                        </div>
+                        </div>
+                        <div onclick="addToCart(this)" class="card-footer p-3">
+                        <div class="text-center">
+                            <a class="h4 text-decoration-none text-success" href="#">
+                            <i class="fas fa-cart-plus"></i><small> Add to cart</small>
+                            </a>
+                        </div>   
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-3">
-                <a class="btn" href="#"><i class="far fa-heart"></i></a>
-                </div>
-            </div>
-            </div>
-            <div class="card-footer p-3">
-            <div data-id=${product.id} class="text-center">
-                <a onclick="addToCart(this)" class="h4 text-decoration-none text-success" href="#">
-                <i class="fas fa-cart-plus"></i><small> Add to cart</small>
-                </a>
-            </div>   
-            </div>
-        </div>
-        </div>
-    `;
+            `;
 
-    container.innerHTML += card;
+            container.innerHTML += card;
+        });
+    }
+
+    // Initial render (all products)
+    renderProducts(products);
+
+    // On dropdown change, filter products
+    typeSelector.addEventListener("change", () => {
+        const type = typeSelector.value;
+        if (type) {
+            renderProducts(products.filter(p => p.type === type));
+        } else {
+            renderProducts(products); // all
+        }
     });
+    // suggestedSelector.addEventListener("change", () => {
+    //     const type = suggestedSelector.value;
+    //     if (type) {
+    //         renderProducts(products.filter(p => p.suggested === 1));
+    //     } else {
+    //         renderProducts(products); // all
+    //     }
+    // });
+    
 });
 
 
 function addToCart(element) {
-    // Get product ID from data-id attribute
     const productId = element.closest("[data-id]").getAttribute("data-id");
 
-    // Retrieve current cart from sessionStorage
+    // Retrieve cart from sessionStorage
     let cart = sessionStorage.getItem("cart");
     cart = cart ? JSON.parse(cart) : [];
 
-    // Check if product already exists in cart
+    // Look up product directly from global products array
+    const product = products.find(p => p.id === productId);
+
+    if (!product) {
+        console.error("Product not found:", productId);
+        return;
+    }
+
+    // Check if product is already in cart
     const existingProduct = cart.find(item => item.id === productId);
 
     if (existingProduct) {
-        existingProduct.quantity += 1; // increase quantity
+        existingProduct.quantity += 1;
     } else {
-        // Retrieve product details from DOM (you can also pull directly from your product object)
-        const card = element.closest(".card");
-        const title = card.querySelector(".card-body a").textContent;
-        const price = card.querySelector(".card-body b").textContent;
-        const image = card.querySelector("img").getAttribute("src");
-
+        // Clone only the needed fields
         cart.push({
-            id: productId,
-            title,
-            price,
-            image,
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            image: product.image,
             quantity: 1
         });
     }
@@ -181,7 +213,7 @@ function loadCart() {
 
         container.innerHTML += `
           <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-2">
-            <img src="${item.image}" width="50" height="50" class="rounded">
+            <img src="assets/img/igrBio/${item.image}" width="50" height="50" class="rounded">
             <div class="flex-grow-1 mx-2">
               <p class="mb-0 fw-bold">${item.title}</p>
               <small>${item.price} x ${item.quantity}</small>
@@ -289,7 +321,7 @@ function loadCartPage() {
         container.innerHTML += `
           <div class="mb-3 p-3 d-flex flex-row justify-content-between align-items-center shadow-sm bg-white rounded">
             <div class="d-flex align-items-center">
-              <img src="${item.image}" width="80" height="80" class="rounded me-3">
+              <img src="assets/img/igrBio/${item.image}" width="80" height="80" class="rounded me-3">
               <div>
                 <h6 class="mb-1">${item.title}</h6>
                 <small class="mb-1 text-muted">${item.price} MAD each</small>
