@@ -76,37 +76,26 @@
                 <form id="orderForm">
                     <div class="row mb-3">
                         <div class="col-md-6">
-                        <small class="form-label">First name <span class="text-danger">*</span></small>
-                        <input type="text" class="form-control" required>
+                        <small class="form-label">Name <span class="text-danger">*</span></small>
+                        <input id="customerName" type="text" class="form-control" required>
                         </div>
-                        <div class="col-md-6">
-                        <small class="form-label">Last name <span class="text-danger">*</span></small>
-                        <input type="text" class="form-control" required>
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
                         <div class="col-md-6">
                         <small class="form-label">Phone <span class="text-danger">*</span></small>
-                        <input type="text" class="form-control" pattern="^(05|06|07)[0-9]{8}$" required>
-                        </div>
-                        <div class="col-md-6">
-                        <small class="form-label">City <span class="text-danger">*</span></small>
-                        <input type="text" class="form-control" required>
+                        <input id="customerPhone" type="text" class="form-control" pattern="^(05|06|07)[0-9]{8}$" required>
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <small class="form-label">Full Address <span class="text-danger">*</span></small>
-                        <input type="text" class="form-control" required>
+                        <input id="customerAddress" type="text" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <small class="form-label">Email (optional)</small>
-                        <input type="email" class="form-control">
+                        <input id="customerEmail" type="email" class="form-control">
                     </div>
 
-                    <button type="submit" class="btn btn-success w-100 py-3" >Place Order</button>
+                    <button id="placeOrderBtn" type="submit" class="btn btn-success w-100 py-3" >Place Order</button>
                 </form>
             </div>
             <!-- End Checkout Form -->

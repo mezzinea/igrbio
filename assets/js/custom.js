@@ -36,6 +36,7 @@ function loadHTML(elementId, filePath) {
 document.addEventListener('DOMContentLoaded', function() {
     loadHTML('header', 'global/header.html');
     loadHTML('footer', 'global/footer.html');
+    loadHTML('product-view', 'global/product-view.html');
 });
 
 // Function to parse CSV text into an array of objects
@@ -68,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function() {
 let products = []; // global variable to hold products
 
 // Function to load products from CSV and display them
-// Function to load products from CSV and display them
 fetch("assets/data/product.csv")
 .then(response => response.text())
 .then(text => {
@@ -87,34 +87,29 @@ fetch("assets/data/product.csv")
                 <div class="col-md-3" data-id=${product.id}>
                     <div class="card mb-4 product-wap rounded-0">
                         <div class="card rounded-0">
-                        <img class="card-img rounded-0 img-fluid" src="assets/img/igrBio/${product.image}" alt="${product.title}">
-                        <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                            <ul class="list-unstyled">
-                            <li><a class="btn btn-success text-white"><i class="far fa-heart"></i></a></li>
-                            <li><a class="btn btn-success text-white mt-2"><i class="far fa-eye"></i></a></li>
-                            <li><button onclick="addToCart(this)" class="btn btn-success text-white mt-2"><i class="fas fa-cart-plus"></i></button></li>
-                            </ul>
-                        </div>
-                        </div>
-                        <div class="card-body">
-                        <a href="shop-single.html" class="text-decoration-none">${product.title}</a>
-                        <p><small>MAD </small><b>${product.price}.00</b></p>
-                        <div class="row">
-                            <div class="col-lg-9"> 
-                            <small class="badge rounded-pill bg-light text-dark">${product.quantity}</small>
-                            ${tags}
+                            <img class="card-img rounded-0 img-fluid" src="assets/img/igrBio/${product.image}" alt="${product.title}">
+                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                <li><a class="btn btn-success text-white"><i class="far fa-heart"></i></a></li>
+                                <li><button class="btn btn-success text-white mt-2" onclick="openProductModal('${product.id}')"><i class="far fa-eye"></i></button></li>
+                                <li><button onclick="addToCart(this)" class="btn btn-success text-white mt-2"><i class="fas fa-cart-plus"></i></button></li>
+                                </ul>
                             </div>
-                            <div class="col-lg-3">
-                            <a class="btn" href="#"><i class="far fa-heart"></i></a>
                             </div>
-                        </div>
-                        </div>
-                        <div onclick="addToCart(this)" class="card-footer p-3">
-                        <div class="text-center">
-                            <a class="h4 text-decoration-none text-success" href="#">
-                            <i class="fas fa-cart-plus"></i><small> Add to cart</small>
-                            </a>
-                        </div>   
+                            <div class="card-body">
+                            <span onclick="openProductModal('${product.id}')" class="text-decoration-none">${product.title}</span>
+                            <p><small>MAD </small><b>${product.price}.00</b></p>
+                            <div class="row">
+                                <div class="col-lg-12"> 
+                                <small class="badge rounded-pill bg-light text-dark">${product.quantity}</small>
+                                <small class="badge rounded-pill bg-light text-dark">${product.type}</small>
+                                <a class="btn justify-content-right" href="#"><i class="far fa-heart"></i></a>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="btn btn-outline-success w-100 rounded" onclick="addToCart(this)">
+                                <i class="fas fa-cart-plus"></i><small> Add to cart</small>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -403,10 +398,121 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Handle form submit
-document.getElementById("orderForm")?.addEventListener("submit", function(e) {
-    e.preventDefault();
-    alert("Order placed successfully ✅");
-    // Here you could: 
-    // - Save data to backend
-    // - Or send via email / webhook
+document.getElementById("orderForm")?.addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const form = e.target;
+
+  // --- Read values reliably using FormData ---
+  const fd = new FormData(form);
+  const name = document.getElementById('customerName').value.trim();
+  const phone = document.getElementById('customerPhone').value.trim();
+  const address = document.getElementById('customerAddress').value.trim();
+  const email = document.getElementById('customerEmail').value.trim();
+  
+  console.log({ name, phone, address, email });
+
+  // Basic client-side validation
+  if (!name || !phone || !address) {
+    alert("Please fill in all required fields (Name, Phone, Address).");
+    return;
+  }
+  // Optional: additional phone format check
+  const phoneRegex = /^(05|06|07)[0-9]{8}$/;
+  if (!phoneRegex.test(phone)) {
+    alert("Phone number is invalid. It should start with 05/06/07 and be 10 digits.");
+    return;
+  }
+
+  // --- Get cart and compute products/total ---
+  let cart = JSON.parse(sessionStorage.getItem("cart") || "[]");
+  const productsText = cart.map(i => `${i.title} (x${i.quantity})`).join(", ");
+  const total = cart.reduce((s, i) => s + (Number(i.price) || 0) * (Number(i.quantity) || 0), 0);
+
+  const payload = {
+    name, phone, address, email,
+    products: productsText,
+    total
+  };
+
+  // disable button while submitting
+  const btn = document.getElementById("placeOrderBtn");
+  btn.disabled = true;
+  btn.textContent = "Placing order...";
+
+  try {
+    // replace with your Google Apps Script URL
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwUGiwcjRgLMNkXg3OMYIERe8w0d51JnPBy6fTa6SsS5uNemQ7x5HD4tgCLQS4Q8yNV/exec";
+
+    // NOTE: if you use mode: 'no-cors', you won't be able to read the response.
+    await fetch(SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      // mode: "no-cors" // avoid if you want to read response; otherwise Apps Script must allow CORS or use no-cors
+    });
+
+    alert("✅ Order placed successfully!");
+    sessionStorage.removeItem("cart");
+    form.reset();
+    // hide checkout form or reset UI as needed
+  } catch (err) {
+    console.error(err);
+    alert("⚠️ Failed to submit order. Please try again.");
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Place Order";
+  }
 });
+
+
+
+
+// Utility to get query parameters
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+// On product details page, load product based on ID from URL
+document.addEventListener("DOMContentLoaded", () => {
+    const productId = getQueryParam("product_id");
+    fetch("assets/data/product.csv")
+        .then(response => response.text())
+        .then(text => {
+            const products = parseCSV(text);
+        
+            // Find the product by ID
+            const product = products.find(p => p.id === productId);
+
+            // Render product details into your HTML
+            document.getElementById("single-product-title").textContent = product.title;
+            document.getElementById("single-product-image").textContent = product.image;
+            document.getElementById("single-product-description").textContent = product.description;
+            document.getElementById("single-product-price").textContent = product.price + " MAD";
+            document.getElementById("single-product-quantity").textContent = product.quantity;
+            document.getElementById("single-product-type").textContent = product.type;
+        });
+});
+
+
+// Modal logic (view product details in popup)
+function openProductModal(productId) {
+  const product = products.find(p => p.id === productId);
+  if (!product) return;
+
+  // Fill modal content
+  document.getElementById("modalTitle").textContent = product.title;
+  document.getElementById("modalImage").src = `assets/img/igrBio/${product.image}`;
+  document.getElementById("modalImage").alt = product.title;
+  document.getElementById("modalPrice").textContent = `MAD ${product.price}.00`;
+  document.getElementById("modalDescription").textContent = product.description;
+
+  document.getElementById("modalTags").innerHTML = product.tags
+    .split("|")
+    .map(tag => `<span class="badge bg-light text-dark me-1">${tag}</span>`)
+    .join("");
+
+  // Show the modal (Bootstrap 5)
+  const modal = new bootstrap.Modal(document.getElementById("productModal"));
+  modal.show();
+}
