@@ -8,7 +8,5 @@
 #5A3733 — Quincy
 
 
-AKfycbwUGiwcjRgLMNkXg3OMYIERe8w0d51JnPBy6fTa6SsS5uNemQ7x5HD4tgCLQS4Q8yNV
-https://script.google.com/macros/s/AKfycbwUGiwcjRgLMNkXg3OMYIERe8w0d51JnPBy6fTa6SsS5uNemQ7x5HD4tgCLQS4Q8yNV/exec
-
+https://script.google.com/macros/s/AKfycbz9l3bp8PVd3RR5gurVclSo1NTi4eg3xVjIOOkPIiWRwxTkZU7-HEtzvraPMxSh4DKv/exec
 

@@ -90,7 +90,6 @@ fetch("assets/data/product.csv")
                             <img class="card-img rounded-0 img-fluid" src="assets/img/igrBio/${product.image}" alt="${product.title}">
                             <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
-                                <li><a class="btn btn-success text-white"><i class="far fa-heart"></i></a></li>
                                 <li><button class="btn btn-success text-white mt-2" onclick="openProductModal('${product.id}')"><i class="far fa-eye"></i></button></li>
                                 <li><button onclick="addToCart(this)" class="btn btn-success text-white mt-2"><i class="fas fa-cart-plus"></i></button></li>
                                 </ul>
@@ -103,7 +102,6 @@ fetch("assets/data/product.csv")
                                 <div class="col-lg-12"> 
                                 <small class="badge rounded-pill bg-light text-dark">${product.quantity}</small>
                                 <small class="badge rounded-pill bg-light text-dark">${product.type}</small>
-                                <a class="btn justify-content-right" href="#"><i class="far fa-heart"></i></a>
                                 </div>
                             </div>
                             <br>
@@ -180,6 +178,23 @@ function addToCart(element) {
     console.log("New product added to cart :", cart);
     loadCart();
     updateCartCount();
+    showToast('Product added to your list ✅', 'success');
+}
+
+
+// Show toast
+function showToast(message, type = 'success') {
+  
+  const toast = document.getElementById('toast');
+  
+  // Set message and type
+  toast.textContent = message;
+  toast.classList.add(type, 'show');
+
+  // Hide automatically after 3 seconds
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 1500);
 }
 
 
@@ -284,6 +299,7 @@ function removeItem(index, fromCartPage = false) {
         loadCart();
         updateCartCount();
     }
+    showToast('Item removed from your list', 'error');
 }
 
 
@@ -292,6 +308,7 @@ function clearCart() {
     sessionStorage.removeItem("cart");
     loadCart();
     updateCartCount();
+    showToast('Cart cleared successfully', 'error');
 }
 
 window.onload = () => {
@@ -425,7 +442,7 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
 
   // --- Get cart and compute products/total ---
   let cart = JSON.parse(sessionStorage.getItem("cart") || "[]");
-  const productsText = cart.map(i => `${i.title} (x${i.quantity})`).join(", ");
+  const productsText = cart.map(i => `${i.id} - ${i.title} (x${i.quantity})`).join("\n");
   const total = cart.reduce((s, i) => s + (Number(i.price) || 0) * (Number(i.quantity) || 0), 0);
 
   const payload = {
@@ -441,14 +458,14 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
 
   try {
     // replace with your Google Apps Script URL
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwUGiwcjRgLMNkXg3OMYIERe8w0d51JnPBy6fTa6SsS5uNemQ7x5HD4tgCLQS4Q8yNV/exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxBl1pTLgIAycto9K726axq7780-Pl-3cBO2jtmYb8DWU5PwsrYBo6RLuDM4HOqBd4W/exec";
 
     // NOTE: if you use mode: 'no-cors', you won't be able to read the response.
     await fetch(SCRIPT_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
-      // mode: "no-cors" // avoid if you want to read response; otherwise Apps Script must allow CORS or use no-cors
+      mode: "no-cors" // avoid if you want to read response; otherwise Apps Script must allow CORS or use no-cors
     });
 
     alert("✅ Order placed successfully!");
@@ -464,35 +481,6 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
   }
 });
 
-
-
-
-// Utility to get query parameters
-function getQueryParam(param) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-}
-
-// On product details page, load product based on ID from URL
-document.addEventListener("DOMContentLoaded", () => {
-    const productId = getQueryParam("product_id");
-    fetch("assets/data/product.csv")
-        .then(response => response.text())
-        .then(text => {
-            const products = parseCSV(text);
-        
-            // Find the product by ID
-            const product = products.find(p => p.id === productId);
-
-            // Render product details into your HTML
-            document.getElementById("single-product-title").textContent = product.title;
-            document.getElementById("single-product-image").textContent = product.image;
-            document.getElementById("single-product-description").textContent = product.description;
-            document.getElementById("single-product-price").textContent = product.price + " MAD";
-            document.getElementById("single-product-quantity").textContent = product.quantity;
-            document.getElementById("single-product-type").textContent = product.type;
-        });
-});
 
 
 // Modal logic (view product details in popup)

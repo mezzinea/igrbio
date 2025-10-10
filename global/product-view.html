@@ -1,37 +1,59 @@
 <!-- Product Details Modal -->
-<div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true" >
   <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content rounded-3 shadow p-3">
+    <div class="modal-content rounded-3 shadow p-3 px-3">
       <small class="modal-header border-0">                                
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </small>
-      <div class="modal-body mb-3">
-        <div class="row">
-          <div class="col-md-6">
-            <img id="modalImage" src="" class="img-fluid rounded" alt="">
+      <div class="product-detail">
+          <div class="product-image">
+            <div style="text-align: center; color: #8d6e63; font-size: 100px;">
+                <!-- <i class="fas fa-oil-can"></i> -->
+                <img id="modalImage" src="" class="img-fluid rounded" alt="">
+            </div>
           </div>
-          <div class="col-md-6">
-            <h4 id="modalPrice" class="pt-3 text-success"></h4>
-            <h5 class="modal-title" id="modalTitle"></h5>
-            <small id="modalDescription"></small>
-            <br>
-            <div id="modalTags" class="mb-3"></div>
-            <ul class="list-unstyled d-flex justify-content-between">
-                <li>
-                    <i class="text-warning fa fa-star"></i>
-                    <i class="text-warning fa fa-star"></i>
-                    <i class="text-warning fa fa-star"></i>
-                    <i class="text-warning fa fa-star"></i>
-                    <i class="text-warning fa fa-star"></i>
-                    <small class="text-muted">Reviews (24)</small>
-                </li>
-            </ul>
-            <button id="modalAddToCart" class="btn btn-success">
-              <i class="fas fa-cart-plus"></i> Add to Cart
-            </button>
+
+          <div class="product-info">
+              <h1 id="modalTitle" class="product-title">Title</h1>
+              <div id="modalPrice" class="product-price">MAD 150.00</div>
+              <p id="modalDescription" class="product-description">
+                  Discover unique flavor.
+              </p>
+                              
+              <div id="modalTags" class="mb-3"></div>
+              
+              <div class="reviews">
+                  <div class="stars">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                  </div>
+                  <small class="review-count">Reviews (24)</small>
+              </div>
+
+              <div class="product-features">
+                  <div class="feature">
+                      <i class="fas fa-truck text-success"></i>
+                      <small>Free shipping on orders over MAD 300</small>
+                  </div>
+                  <div class="feature">
+                      <i class="fas fa-undo text-success"></i>
+                      <small>30-day money-back guarantee</small>
+                  </div>
+                  <div class="feature">
+                      <i class="fas fa-shield-alt text-success"></i>
+                      <small>100% authentic products guaranteed</small>
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
+
+        
     </div>
   </div>
 </div>
+
+
+<span id="toast" class="toast">Sample message</span>
