@@ -426,7 +426,7 @@ Custom Css
 /* Toast styling */
 .toast {
   position: fixed;
-  top: 150px;
+  top: 20px;
   right: -300px; /* start hidden outside the viewport on the right */
   background: #fcfcfc; /* bright white background */
   color: #222; /* dark text for contrast */

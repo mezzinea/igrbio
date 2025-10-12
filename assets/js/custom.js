@@ -75,13 +75,15 @@ fetch("assets/data/product.csv")
     products = parseCSV(text);
     const container = document.getElementById("shop-product-list");
     const typeSelector = document.getElementById("type-selector");
+    const suggestedSelector = document.getElementById("suggested-selector");
+
     // const suggestedSelector = document.getElementById("suggested-selector");
 
     function renderProducts(list) {
         container.innerHTML = "";
         list.forEach(product => {
             const tags = product.tags.split("|").map(tag => 
-                `<small class="badge rounded-pill bg-light text-dark">${tag}</small>`
+                `<span class="badge bg-light text-dark me-1">${tag}</span>`
             ).join(" ");
             const card = `
                 <div class="col-md-3" data-id=${product.id}>
@@ -100,8 +102,8 @@ fetch("assets/data/product.csv")
                             <p><small>MAD </small><b>${product.price}.00</b></p>
                             <div class="row">
                                 <div class="col-lg-12"> 
-                                <small class="badge rounded-pill bg-light text-dark">${product.quantity}</small>
-                                <small class="badge rounded-pill bg-light text-dark">${product.type}</small>
+                                <small class="badge bg-light text-dark me-1">${product.quantity}</small>
+                                <small class="badge bg-light text-dark me-1">${product.type}</small>
                                 </div>
                             </div>
                             <br>
@@ -119,7 +121,12 @@ fetch("assets/data/product.csv")
 
     // Initial render (all products)
     renderProducts(products);
-
+    
+    // suggested products
+    if(suggestedSelector) {
+      renderProducts(products.filter(p => p.suggested == 1));
+    }
+    
     // On dropdown change, filter products
     typeSelector.addEventListener("change", () => {
         const type = typeSelector.value;
@@ -129,14 +136,6 @@ fetch("assets/data/product.csv")
             renderProducts(products); // all
         }
     });
-    // suggestedSelector.addEventListener("change", () => {
-    //     const type = suggestedSelector.value;
-    //     if (type) {
-    //         renderProducts(products.filter(p => p.suggested === 1));
-    //     } else {
-    //         renderProducts(products); // all
-    //     }
-    // });
     
 });
 
@@ -495,10 +494,11 @@ function openProductModal(productId) {
   document.getElementById("modalPrice").textContent = `MAD ${product.price}.00`;
   document.getElementById("modalDescription").textContent = product.description;
 
-  document.getElementById("modalTags").innerHTML = product.tags
-    .split("|")
-    .map(tag => `<span class="badge bg-light text-dark me-1">${tag}</span>`)
-    .join("");
+  document.getElementById("modalTags").innerHTML = `
+      <small class="badge bg-light text-dark me-1">${product.quantity}</small>
+      <small class="badge bg-light text-dark me-1">${product.type}</small>
+    `
+
 
   // Show the modal (Bootstrap 5)
   const modal = new bootstrap.Modal(document.getElementById("productModal"));
