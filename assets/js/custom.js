@@ -118,6 +118,7 @@ fetch("assets/data/product.csv")
             container.innerHTML += card;
         });
     }
+    
 
     // Initial render (all products)
     renderProducts(products);
@@ -125,6 +126,14 @@ fetch("assets/data/product.csv")
     // suggested products
     if(suggestedSelector) {
       renderProducts(products.filter(p => p.suggested == 1));
+    }
+    
+    // type from URI
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get("type");
+    if (type) {
+        renderProducts(products.filter(p => p.type === type));
+        document.getElementById("type-selector").value = type;
     }
     
     // On dropdown change, filter products

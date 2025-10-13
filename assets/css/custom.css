@@ -463,3 +463,10 @@ Custom Css
 .zoomin:hover {
   transform: scale(1.02);
 }
+
+.products-container {
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), 
+    url('assets/img/igrBio/moroccan-B68GDzg_.webp') center/cover no-repeat;
+  padding: 2rem;
+}
