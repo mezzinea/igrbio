@@ -86,7 +86,7 @@ fetch("assets/data/product.csv")
                 `<span class="badge bg-light text-dark me-1">${tag}</span>`
             ).join(" ");
             const card = `
-                <div class="col-md-3" data-id=${product.id}>
+                <div class="col-md-3 zoomin" data-id=${product.id}>
                     <div class="card mb-4 product-wap rounded-0">
                         <div class="card rounded-0">
                             <img class="card-img rounded-0 img-fluid" src="assets/img/igrBio/${product.image}" alt="${product.title}">
