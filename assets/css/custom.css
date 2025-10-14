@@ -426,7 +426,7 @@ Custom Css
 /* Toast styling */
 .toast {
   position: fixed;
-  top: 20px;
+  top: 110px;
   right: -300px; /* start hidden outside the viewport on the right */
   background: #fcfcfc; /* bright white background */
   color: #222; /* dark text for contrast */
@@ -464,9 +464,34 @@ Custom Css
   transform: scale(1.02);
 }
 
-.products-container {
+/* .products-container {
   background: 
     linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), 
     url('assets/img/igrBio/moroccan-B68GDzg_.webp') center/cover no-repeat;
   padding: 2rem;
+} */
+
+/* Move navbar toggler to the right on small screens */
+@media (max-width: 991.98px) {
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Ensure brand stays on the left, toggler on the right */
+  .navbar-brand {
+    order: 0;
+  }
+
+  .navbar-toggler {
+    order: 3;
+    margin-left: auto;
+  }
+
+  /* Optional: make the dropdown and cart align properly below toggler */
+  .navbar .d-flex,
+  .navbar .px-3 {
+    order: 2;
+  }
 }
