@@ -150,19 +150,34 @@ fetch("assets/data/product.csv")
 
 
 function addToCart(element) {
+  
     const productId = element.closest("[data-id]").getAttribute("data-id");
-
-    // Retrieve cart from sessionStorage
-    let cart = sessionStorage.getItem("cart");
-    cart = cart ? JSON.parse(cart) : [];
-
-    // Look up product directly from global products array
-    const product = products.find(p => p.id === productId);
+    let product = {}; 
+    const pack = {
+          id: "pack",
+          title: "pack souss",
+          price: "550",
+          image: "3vhEihamIkRCTUfXXWVdO6ku3.jpg",
+          quantity: 1
+      }
+    
+    if(productId === "pack") {
+      // create pack object
+      product = pack
+    }
+    else {
+      // Look up product directly from global products array
+      product = products.find(p => p.id === productId); 
+    }
 
     if (!product) {
         console.error("Product not found:", productId);
         return;
     }
+    
+    // Retrieve cart from sessionStorage
+    let cart = sessionStorage.getItem("cart");
+    cart = cart ? JSON.parse(cart) : [];
 
     // Check if product is already in cart
     const existingProduct = cart.find(item => item.id === productId);
@@ -183,10 +198,9 @@ function addToCart(element) {
     // Save back to sessionStorage
     sessionStorage.setItem("cart", JSON.stringify(cart));
 
-    console.log("New product added to cart :", cart);
     loadCart();
     updateCartCount();
-    showToast('Product added to your list ✅', 'success');
+    showToast('Added successfully to your cart ✅', 'success');
 }
 
 
@@ -479,6 +493,10 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
     alert("✅ Order placed successfully!");
     sessionStorage.removeItem("cart");
     form.reset();
+    loadCart();
+    updateCartCount();
+    loadCartPage();
+    updateCartCount();
     // hide checkout form or reset UI as needed
   } catch (err) {
     console.error(err);

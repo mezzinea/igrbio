@@ -471,27 +471,3 @@ Custom Css
   padding: 2rem;
 } */
 
-/* Move navbar toggler to the right on small screens */
-@media (max-width: 991.98px) {
-  .navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  /* Ensure brand stays on the left, toggler on the right */
-  .navbar-brand {
-    order: 0;
-  }
-
-  .navbar-toggler {
-    order: 3;
-    margin-left: auto;
-  }
-
-  /* Optional: make the dropdown and cart align properly below toggler */
-  .navbar .d-flex,
-  .navbar .px-3 {
-    order: 2;
-  }
-}

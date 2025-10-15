@@ -13,6 +13,7 @@ extra :
 - background image for suggested products (home)
 - English/arabic
 - Pack types (amlou, oil, honey, wasafat a3chab) -- ok
+- add pack to cart -- ok
 - whatsapp icon with number
 - hearer (livraison gratuite 2 sec ...., move to next one and third one ...) like ikko
 - image illustrate our company (IGRBIO)
