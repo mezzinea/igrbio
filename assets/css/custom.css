@@ -384,6 +384,10 @@ Custom Css
     transform: translateY(-5px);
 }
 
+.card {
+    border: 0px;
+}
+
 .card-image {
     height: 180px;
     background: linear-gradient(135deg, #f9f5f0 0%, #f0e6d6 100%);
@@ -471,3 +475,12 @@ Custom Css
   padding: 2rem;
 } */
 
+.hero-back {
+  background-image: url('assets/img/igrBio/back1.png'); /* your image path */
+  /* background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center; */
+}
