@@ -107,7 +107,7 @@ fetch("assets/data/product.csv")
                                 </div>
                             </div>
                             <br>
-                            <div class="btn btn-outline-success w-100 rounded" onclick="addToCart(this)">
+                            <div class="btn btn-light w-100 rounded" onclick="addToCart(this)">
                                 <i class="fas fa-cart-plus"></i><small> Add to cart</small>
                             </div>
                         </div>

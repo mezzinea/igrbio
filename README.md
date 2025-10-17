@@ -10,8 +10,7 @@
 
 
 extra :
-- background image for suggested products (home)
-- English/arabic
+- background image for suggested products (home) -- ok
 - Pack types (amlou, oil, honey, wasafat a3chab) -- ok
 - add pack to cart -- ok
 - fix Map location -- ok
@@ -19,3 +18,4 @@ extra :
 - hearer (livraison gratuite 2 sec ...., move to next one and third one ...) like ikko
 - image illustrate our company (IGRBIO)
 - product with small padding (extra left/right space)
+- English/arabic
