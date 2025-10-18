@@ -86,14 +86,14 @@ fetch("assets/data/product.csv")
                 `<span class="badge bg-light text-dark me-1">${tag}</span>`
             ).join(" ");
             const card = `
-                <div class="col-md-3 zoomin" data-id=${product.id}>
+                <div class="col-md-3 zoomin">
                     <div class="card mb-4 product-wap rounded-0">
                         <div class="card rounded-0">
                             <img class="card-img rounded-0 img-fluid" src="assets/img/igrBio/${product.image}" alt="${product.title}">
                             <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
                                 <li><button class="btn btn-success text-white mt-2" onclick="openProductModal('${product.id}')"><i class="far fa-eye"></i></button></li>
-                                <li><button onclick="addToCart(this)" class="btn btn-success text-white mt-2"><i class="fas fa-cart-plus"></i></button></li>
+                                <li><button onclick="addToCart('${product.id}')" class="btn btn-success text-white mt-2"><i class="fas fa-cart-plus"></i></button></li>
                                 </ul>
                             </div>
                             </div>
@@ -107,7 +107,7 @@ fetch("assets/data/product.csv")
                                 </div>
                             </div>
                             <br>
-                            <div class="btn btn-light w-100 rounded" onclick="addToCart(this)">
+                            <div class="btn btn-light w-100 rounded" onclick="addToCart('${product.id}')">
                                 <i class="fas fa-cart-plus"></i><small> Add to cart</small>
                             </div>
                         </div>
@@ -132,7 +132,7 @@ fetch("assets/data/product.csv")
     const params = new URLSearchParams(window.location.search);
     const type = params.get("type");
     if (type) {
-        renderProducts(products.filter(p => p.type === type));
+        renderProducts(products.filter(p => p.type == type));
         document.getElementById("type-selector").value = type;
     }
     
@@ -140,7 +140,7 @@ fetch("assets/data/product.csv")
     typeSelector.addEventListener("change", () => {
         const type = typeSelector.value;
         if (type) {
-            renderProducts(products.filter(p => p.type === type));
+            renderProducts(products.filter(p => p.type == type));
         } else {
             renderProducts(products); // all
         }
@@ -149,25 +149,24 @@ fetch("assets/data/product.csv")
 });
 
 
-function addToCart(element) {
+function addToCart(productId) {
   
-    const productId = element.closest("[data-id]").getAttribute("data-id");
     let product = {}; 
     const pack = {
-          id: "pack",
+          id: -1,
           title: "pack souss",
           price: "550",
           image: "3vhEihamIkRCTUfXXWVdO6ku3.jpg",
           quantity: 1
       }
     
-    if(productId === "pack") {
+    if(productId == -1) {
       // create pack object
       product = pack
     }
     else {
       // Look up product directly from global products array
-      product = products.find(p => p.id === productId); 
+      product = products.find(p => p.id == productId); 
     }
 
     if (!product) {
@@ -180,7 +179,7 @@ function addToCart(element) {
     cart = cart ? JSON.parse(cart) : [];
 
     // Check if product is already in cart
-    const existingProduct = cart.find(item => item.id === productId);
+    const existingProduct = cart.find(item => item.id == productId);
 
     if (existingProduct) {
         existingProduct.quantity += 1;
@@ -400,9 +399,9 @@ function applyCoupon() {
         subtotal += parseFloat(item.price) * item.quantity;
     });
 
-    if (code === "DISCOUNT10") {
+    if (code == "DISCOUNT10") {
         appliedDiscount = subtotal * 0.10; // 10% off
-    } else if (code === "DISCOUNT50") {
+    } else if (code == "DISCOUNT50") {
         appliedDiscount = 50; // fixed amount
     } else {
         appliedDiscount = 0;
@@ -511,7 +510,7 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
 
 // Modal logic (view product details in popup)
 function openProductModal(productId) {
-  const product = products.find(p => p.id === productId);
+  const product = products.find(p => p.id == productId);
   if (!product) return;
 
   // Fill modal content
@@ -525,7 +524,12 @@ function openProductModal(productId) {
       <small class="badge bg-light text-dark me-1">${product.quantity}</small>
       <small class="badge bg-light text-dark me-1">${product.type}</small>
     `
-
+    
+  document.getElementById("addProductBtn").innerHTML = `
+      <div class="btn btn-outline-success w-100 rounded py-2" onclick="addToCart(${productId})">
+          <i class="fas fa-cart-plus"></i><small> Add to cart</small>
+      </div>
+    `
 
   // Show the modal (Bootstrap 5)
   const modal = new bootstrap.Modal(document.getElementById("productModal"));
