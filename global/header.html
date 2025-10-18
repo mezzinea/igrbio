@@ -22,16 +22,13 @@
         <!-- Header -->
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
-
+                
+                <!-- Left: Logo -->
                 <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
                     <img src="assets/img/igrBio/logo/logo R 01 Slim.png" alt="..." width="120">
                 </a>
-
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="align-self-center collapse navbar-collapse flex-fill d-lg-flex" id="templatemo_main_nav">
+                
+                <div class="align-items-center d-none d-lg-block">
                     <div class="flex-fill">
                         <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                             <li class="nav-item">
@@ -48,45 +45,78 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="navbar align-self-center d-flex">
-                        <div class="text-decoration-none">
-                            <div class="dropdown px-3">
-                                <button class="btn btn-light rounded-pill dropdown-toggle d-flex align-items-center" 
-                                        type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="https://flagcdn.com/16x12/us.png" class="me-2" alt="English" id="selected-flag">
-                                    <small id="selected-lang">English</small>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                                    <li>
-                                    <a class="dropdown-item d-flex align-items-center" href="#" data-lang="en" data-flag="https://flagcdn.com/16x12/us.png">
-                                        <img src="https://flagcdn.com/16x12/us.png" class="me-2" alt="English"> <small>English</small>
-                                    </a>
-                                    </li>
-                                    <li>
-                                    <a class="dropdown-item d-flex align-items-center" href="#" data-lang="fr" data-flag="https://flagcdn.com/16x12/fr.png">
-                                        <img src="https://flagcdn.com/16x12/fr.png" class="me-2" alt="Français"> <small>Français</small>
-                                    </a>
-                                    </li>
-                                    <li>
-                                    <a class="dropdown-item d-flex align-items-center" href="#" data-lang="ar" data-flag="https://flagcdn.com/16x12/sa.png">
-                                        <img src="https://flagcdn.com/16x12/sa.png" class="me-2" alt="العربية"> <small>العربية</small>
-                                    </a>
-                                    </li>
-                                </ul>
-                            </div>
+                </div>
+
+                <!-- Right: Language + Cart -->
+                <div class="navbar justify-content-end" id="templatemo_main_nav">
+                    <div class="navbar d-flex align-items-center">
+                        
+                        <!-- Language Dropdown -->
+                        <div class="dropdown me-3">
+                            <button class="btn btn-light rounded-pill dropdown-toggle d-flex align-items-center"
+                                type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://flagcdn.com/16x12/us.png" class="me-2" alt="English" id="selected-flag">
+                                <small id="selected-lang">English</small>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#" data-lang="en"
+                                    data-flag="https://flagcdn.com/16x12/us.png">
+                                    <img src="https://flagcdn.com/16x12/us.png" class="me-2" alt="English"> <small>English</small>
+                                </a>
+                                </li>
+                                <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#" data-lang="fr"
+                                    data-flag="https://flagcdn.com/16x12/fr.png">
+                                    <img src="https://flagcdn.com/16x12/fr.png" class="me-2" alt="Français"> <small>Français</small>
+                                </a>
+                                </li>
+                                <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#" data-lang="ar"
+                                    data-flag="https://flagcdn.com/16x12/sa.png">
+                                    <img src="https://flagcdn.com/16x12/sa.png" class="me-2" alt="العربية"> <small>العربية</small>
+                                </a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="text-decoration-none">
-                            <a onclick="toggleCart()" class="nav-icon position-relative text-decoration-none" href="#">
-                                <img src="assets/img/igrBio/shopping-bag.png" width="25px" alt="" class="text-dark mr-1">
-                                <small id="cart-count" class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-danger text-white" style="display: none;">0</small>
-                            </a>
-                        </div>
-    
+
+                        <!-- Cart Icon -->
+                        <a onclick="toggleCart()" class="nav-icon position-relative text-decoration-none" href="#">
+                            <img src="assets/img/igrBio/shopping-bag.png" width="25" alt="Cart" class="text-dark">
+                            <small id="cart-count"
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger text-white"
+                                style="display: none;">0</small>
+                        </a>
+
                     </div>
                 </div>
             </div>
         </nav>
         <!-- Close Header -->
+         
+        <!-- Fixed Bottom Navbar -->
+        <nav class="navbar navbar-light bg-white border-top shadow-sm fixed-bottom d-block d-lg-none">
+            <div class="container d-flex justify-content-around">
+                <a class="nav-link text-center text-dark" href="index.html">
+                <i class="bi bi-house-fill fs-4 d-block"></i>
+                <small>Home</small>
+                </a>
+                <a class="nav-link text-center text-dark" href="index.html#about">
+                <i class="bi bi-info-circle-fill fs-4 d-block"></i>
+                <small>About</small>
+                </a>
+                <a class="nav-link text-center text-dark" href="shop.html">
+                <i class="bi bi-bag-fill fs-4 d-block"></i>
+                <small>Shop</small>
+                </a>
+                <a class="nav-link text-center text-dark" href="contact.html">
+                <i class="bi bi-envelope-fill fs-4 d-block"></i>
+                <small>Contact</small>
+                </a>
+            </div>
+        </nav>
+        <!-- End of Fixed Bottom Navbar -->
+
      
     
     <!-- Cart Sidebar -->
