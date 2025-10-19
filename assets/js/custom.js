@@ -175,8 +175,8 @@ function addToCart(productId) {
         return;
     }
     
-    // Retrieve cart from sessionStorage
-    let cart = sessionStorage.getItem("cart");
+    // Retrieve cart from localStorage
+    let cart = localStorage.getItem("cart");
     cart = cart ? JSON.parse(cart) : [];
 
     // Check if product is already in cart
@@ -195,8 +195,8 @@ function addToCart(productId) {
         });
     }
 
-    // Save back to sessionStorage
-    sessionStorage.setItem("cart", JSON.stringify(cart));
+    // Save back to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
 
     loadCart();
     updateCartCount();
@@ -227,9 +227,9 @@ function toggleCart() {
     loadCart(); // refresh view
 }
 
-// Load cart from sessionStorage and render
+// Load cart from localStorage and render
 function loadCart() {
-    let cart = sessionStorage.getItem("cart");
+    let cart = localStorage.getItem("cart");
     cart = cart ? JSON.parse(cart) : [];
 
     const container = document.getElementById("cart-items");
@@ -268,7 +268,7 @@ function loadCart() {
 
 // update Cart Count
 function updateCartCount() {
-    let cart = sessionStorage.getItem("cart");
+    let cart = localStorage.getItem("cart");
     cart = cart ? JSON.parse(cart) : [];
 
     let itemCount = 0;
@@ -289,14 +289,14 @@ function updateCartCount() {
 }
 
 function updateQuantity(index, change, fromCartPage = false) {
-    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
     if (!cart[index]) return;
 
     cart[index].quantity += change;
     if (cart[index].quantity <= 0) {
         cart.splice(index, 1);
     }
-    sessionStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
 
     updateCartCount();
     if (fromCartPage) {
@@ -309,9 +309,9 @@ function updateQuantity(index, change, fromCartPage = false) {
 }
 
 function removeItem(index, fromCartPage = false) {
-    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
     cart.splice(index, 1);
-    sessionStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
 
     updateCartCount();
     if (fromCartPage) {
@@ -327,7 +327,7 @@ function removeItem(index, fromCartPage = false) {
 
 // Clear cart
 function clearCart() {
-    sessionStorage.removeItem("cart");
+    localStorage.removeItem("cart");
     loadCart();
     updateCartCount();
     showToast('Cart cleared successfully', 'error');
@@ -340,7 +340,7 @@ window.onload = () => {
 
 // load cart page details
 function loadCartPage() {
-    let cart = sessionStorage.getItem("cart");
+    let cart = localStorage.getItem("cart");
     cart = cart ? JSON.parse(cart) : [];
 
     const container = document.getElementById("cart-page-items");
@@ -393,7 +393,7 @@ let appliedDiscount = 0;
 function applyCoupon() {
     const code = document.getElementById("coupon-code").value.trim().toUpperCase();
     let subtotal = 0;
-    let cart = sessionStorage.getItem("cart");
+    let cart = localStorage.getItem("cart");
     cart = cart ? JSON.parse(cart) : [];
 
     cart.forEach(item => {
@@ -463,7 +463,7 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
   }
 
   // --- Get cart and compute products/total ---
-  let cart = JSON.parse(sessionStorage.getItem("cart") || "[]");
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
   const productsText = cart.map(i => `${i.id} - ${i.title} (x${i.quantity})`).join("\n");
   const total = cart.reduce((s, i) => s + (Number(i.price) || 0) * (Number(i.quantity) || 0), 0);
 
@@ -491,7 +491,7 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
     });
 
     alert("✅ Order placed successfully!");
-    sessionStorage.removeItem("cart");
+    localStorage.removeItem("cart");
     form.reset();
     loadCart();
     updateCartCount();
