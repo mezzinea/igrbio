@@ -15,7 +15,7 @@ extra :
 - add pack to cart -- ok
 - fix Map location -- ok
 - whatsapp icon with number -- ok
+- product with small padding (extra left/right space) -- ok + categorie type
 - hearer (livraison gratuite 2 sec ...., move to next one and third one ...) like ikko
 - image illustrate our company (IGRBIO)
-- product with small padding (extra left/right space)
 - English/arabic

@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadHTML('header', 'global/header.html');
     loadHTML('footer', 'global/footer.html');
     loadHTML('product-view', 'global/product-view.html');
+    loadHTML('our-offers', 'global/our-offers.html');
 });
 
 // Function to parse CSV text into an array of objects
