@@ -87,11 +87,11 @@ fetch("assets/data/product.csv")
                 `<span class="badge bg-light text-dark me-1">${tag}</span>`
             ).join(" ");
             const card = `
-                <div class="col-md-3 zoomin">
-                    <div class="card mb-4 product-wap rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/igrBio/${product.image}" alt="${product.title}">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                <div class="col-6 col-md-3 zoomin rounded-1">
+                    <div class="card mb-4 product-wap">
+                        <div class="card rounded-1">
+                            <img class="card-img rounded-1 img-fluid" src="assets/img/igrBio/${product.image}" alt="${product.title}">
+                            <div class="card-img-overlay rounded-1 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
                                 <li><button class="btn btn-success text-white mt-2" onclick="openProductModal('${product.id}')"><i class="far fa-eye"></i></button></li>
                                 <li><button onclick="addToCart('${product.id}')" class="btn btn-success text-white mt-2"><i class="fas fa-cart-plus"></i></button></li>
