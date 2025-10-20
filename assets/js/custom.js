@@ -100,14 +100,14 @@ fetch("assets/data/product.csv")
                             </div>
                             <div class="card-body">
                             <span onclick="openProductModal('${product.id}')" class="text-decoration-none">${product.title}</span>
-                            <p><small>MAD </small><b>${product.price}.00</b></p>
-                            <div class="row">
-                                <div class="col-lg-12"> 
-                                <small class="badge bg-light text-dark me-1">${product.quantity}</small>
-                                <small class="badge bg-light text-dark me-1">${product.type}</small>
-                                </div>
+                            
+                            <div class="row mb-2">
+                                <span class="col-lg-12" style="font-size: 13px;"> 
+                                  <small class="badge bg-light text-dark">${product.quantity}</small>
+                                  <small class="badge bg-light text-dark">${product.type}</small>
+                                </span>
                             </div>
-                            <br>
+                            <p><small>MAD </small><b>${product.price}.00</b></p>
                             <div class="btn btn-light w-100 rounded" onclick="addToCart('${product.id}')">
                                 <i class="fas fa-cart-plus"></i><small> Add to cart</small>
                             </div>
