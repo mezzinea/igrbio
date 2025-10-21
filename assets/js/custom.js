@@ -245,7 +245,7 @@ function loadCart() {
 
         container.innerHTML += `
           <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-2">
-            <img src="assets/img/igrBio/${item.image}" width="50" height="50" class="rounded">
+            <img src="assets/img/igrBio/${item.image}" width="80" height="80" class="rounded">
             <div class="flex-grow-1 mx-2">
               <p class="mb-0 fw-bold">${item.title}</p>
               <small>${item.price} x ${item.quantity}</small>
@@ -358,15 +358,15 @@ function loadCartPage() {
               <img src="assets/img/igrBio/${item.image}" width="80" height="80" class="rounded me-3">
               <div>
                 <h6 class="mb-1">${item.title}</h6>
-                <small class="mb-1 text-muted">${item.price} MAD each</small>
+                <small class="d-flex align-items-center pt-2">
+                <button onclick="updateQuantity(${index}, -1, true)" class="btn btn-sm btn-outline-secondary">-</button>
+                  <span class="mx-2">${item.quantity}</span>
+                  <button onclick="updateQuantity(${index}, 1, true)" class="btn btn-sm btn-outline-secondary">+</button>
+                </small>
               </div>
             </div>
-            <small class="d-flex align-items-center">
-              <button onclick="updateQuantity(${index}, -1, true)" class="btn btn-sm btn-outline-secondary">-</button>
-              <span class="mx-2">${item.quantity}</span>
-              <button onclick="updateQuantity(${index}, 1, true)" class="btn btn-sm btn-outline-secondary">+</button>
-            </small>
-            <span class="mx-3">${itemTotal.toFixed(2)} MAD</span>
+            <small class="mb-1 d-none d-lg-block">${item.price} MAD each</small>
+            <span class="mx-3"><b>${itemTotal.toFixed(2)}</b> <small>MAD</small></span>
             <button onclick="removeItem(${index}, true)" class="btn btn-sm btn-outline-danger">
               <i class="fas fa-times"></i>
             </button>
