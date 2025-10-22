@@ -124,54 +124,52 @@
          
         
         <!-- Bottom Navigation -->
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
         <nav class="navbar navbar-white bg-white fixed-bottom d-block d-lg-none py-2 navbar-bottom" style="box-shadow: 0 -1px 60px rgba(0, 0, 0, 0.06);">
-            <div class="container d-flex justify-content-around px-0 pt-2 col-10">
-                <a class="nav-link text-center p-0 active" href="index.html">
-                    <i class="fal fa-home fa-lg d-block" style="font-size: 1.2rem; color: #70777d;"></i>
-                    <small class="d-block pt-1" style="font-size: 0.6rem; color: #70777d;">Home</small>
-                </a>
-                <a class="nav-link text-center p-0" href="index.html#about">
-                    <i class="fal fa-info-circle fa-lg d-block" style="font-size: 1.2rem; color: #70777d;"></i>
-                    <small class="d-block pt-1" style="font-size: 0.6rem; color: #70777d;">About</small>
-                </a>
-                <a class="nav-link text-center p-0" href="shop.html">
-                    <i class="fal fa-shopping-bag fa-lg d-block" style="font-size: 1.2rem; color: #70777d;"></i>
-                    <small class="d-block pt-1" style="font-size: 0.6rem; color: #70777d;">Shop</small>
-                </a>
-                <a class="nav-link text-center p-0" href="contact.html">
-                    <i class="fal fa-envelope fa-lg d-block" style="font-size: 1.2rem; color: #70777d;"></i>
-                    <small class="d-block pt-1" style="font-size: 0.6rem; color: #70777d;">Contact</small>
-                </a>
-                <a class="nav-link text-center p-0" href="legal.html">
-                    <i class="fal fa-user-shield fa-lg d-block" style="font-size: 1.2rem; color: #70777d;"></i>
-                    <small class="d-block pt-1" style="font-size: 0.6rem; color: #70777d;">Legal</small>
-                </a>
-            </div>
+        <div class="container d-flex justify-content-around px-0 pt-2 col-10">
+            <a class="nav-link text-center p-0 text-dark" href="index.html" data-page="index.html">
+            <i class="fal fa-home fa-lg d-block" style="font-size: 1.2rem"></i>
+            <small class="d-block pt-1" style="font-size: 0.6rem">Home</small>
+            </a>
+            <a class="nav-link text-center p-0 text-dark" href="index.html#about" data-page="index.html#about">
+            <i class="fal fa-info-circle fa-lg d-block" style="font-size: 1.2rem"></i>
+            <small class="d-block pt-1" style="font-size: 0.6rem">About</small>
+            </a>
+            <a class="nav-link text-center p-0 text-dark" href="shop.html" data-page="shop.html">
+            <i class="fal fa-shopping-bag fa-lg d-block" style="font-size: 1.2rem"></i>
+            <small class="d-block pt-1" style="font-size: 0.6rem">Shop</small>
+            </a>
+            <a class="nav-link text-center p-0 text-dark" href="contact.html" data-page="contact.html">
+            <i class="fal fa-envelope fa-lg d-block" style="font-size: 1.2rem"></i>
+            <small class="d-block pt-1" style="font-size: 0.6rem">Contact</small>
+            </a>
+            <a class="nav-link text-center p-0 text-dark" href="legal.html" data-page="legal.html">
+            <i class="fal fa-user-shield fa-lg d-block" style="font-size: 1.2rem"></i>
+            <small class="d-block pt-1" style="font-size: 0.6rem">Legal</small>
+            </a>
+        </div>
         </nav>
         <!-- End of Fixed Bottom Navbar -->
-
-         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
-
     
-    <!-- Cart Sidebar -->
-    <div id="cart-sidebar" class="cart-sidebar">
-        <div class="cart-header d-flex justify-content-between align-items-center p-3 border-bottom">
-            <h5 class="m-0">Cart</h5>
-            <a href="#" onclick="clearCart()" class="text-danger text-decoration-none">Clear Cart</a>
-            <button onclick="toggleCart()" class="btn-close"></button>
-        </div>
-
-        <div id="cart-items" class="cart-items p-3"></div>
-
-        <div class="cart-footer border-top p-3">
-            <div class="d-flex justify-content-between mb-3">
-            <strong>Total</strong>
-            <strong id="cart-total">0.00</strong>
+        <!-- Cart Sidebar -->
+        <div id="cart-sidebar" class="cart-sidebar">
+            <div class="cart-header d-flex justify-content-between align-items-center p-3 border-bottom">
+                <h5 class="m-0">Cart</h5>
+                <a href="#" onclick="clearCart()" class="text-danger text-decoration-none">Clear Cart</a>
+                <button onclick="toggleCart()" class="btn-close"></button>
             </div>
-            <a href="cart.html" class="btn btn-outline-success w-100">View Cart & Checkout</a>
+
+            <div id="cart-items" class="cart-items p-3"></div>
+
+            <div class="cart-footer border-top p-3">
+                <div class="d-flex justify-content-between mb-3">
+                <strong>Total</strong>
+                <strong id="cart-total">0.00</strong>
+                </div>
+                <a href="cart.html" class="btn btn-outline-success w-100">View Cart & Checkout</a>
+            </div>
         </div>
-    </div>
-    <!-- End Cart Sidebar -->
-     
-    
-    <span id="toast" class="toast">Sample message</span>
+        <!-- End Cart Sidebar -->
+        
+        
+        <span id="toast" class="toast">Sample message</span>
