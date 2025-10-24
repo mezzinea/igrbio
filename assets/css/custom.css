@@ -90,19 +90,32 @@ Custom Css
 .cart-sidebar {
   position: fixed;
   top: 0;
-  right: -400px; /* hidden by default */
-  width: 400px;
+  left: -100%;
+  width: 400px; /* default for desktops */
+  max-width: 100%; /* ensures it never overflows */
   height: 100%;
   background: #fff;
-  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-  transition: right 0.3s ease;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1); /* shadow on the right side now */
+  transition: left 0.3s ease;
   z-index: 1050;
   display: flex;
   flex-direction: column;
 }
 
+/* Active state */
 .cart-sidebar.active {
   left: 0;
+}
+
+@media (max-width: 768px) {
+  .cart-sidebar {
+    width: 100%;
+    left: -100%;
+  }
+
+  .cart-sidebar.active {
+    left: 0;
+  }
 }
 
 .cart-items {
@@ -110,6 +123,7 @@ Custom Css
   overflow-y: auto;
   max-height: calc(100vh - 150px);
 }
+
 
 
 /* .container {
