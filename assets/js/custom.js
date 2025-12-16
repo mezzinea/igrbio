@@ -4,78 +4,17 @@ function setLanguage(lang) {
 
     if (lang == "ar") {
       // selectedLang.innerText = "العربية";
-      window.location.href = "/ar/index.html";
+      window.location.href = "../ar/index.html";
     }
     if (lang == "fr") {
       // selectedLang.innerText = "Français";
-      window.location.href = "/fr/index.html";
+      window.location.href = "../fr/index.html";
     }
     if (lang == "en") {
       // selectedLang.innerText = "English";
-      window.location.href = "/en/index.html";
+      window.location.href = "../en/index.html";
     }
 }
-      
-// On page load
-// document.addEventListener("DOMContentLoaded", () => {
-//   const savedLang = localStorage.getItem("lang");
-//   if (savedLang) {
-//     setLanguage(savedLang);
-//   } else {
-//     setLanguage("ar"); // Use browser language
-//   }
-// });
-
-        
-// Language translations
-const translations = {
-  ar: {
-    legal: "السياسات",
-    privacy_policy: "سياسة الخصوصية",
-    terms_of_service: "شروط الخدمة",
-    navigation: "التنقل",
-    home: "الرئيسية",
-    shop: "تسوق",
-    about: "من نحن",
-    contact_us: "اتصل بنا",
-    contact: "اتصال",
-    cart: "سلة التسوق",
-    clear_cart: "مسح السلة",
-    total: "الإجمالي",
-    view_cart_and_checkout: "عرض السلة وإتمام الدفع",
-  },
-  en: {
-    legal: "Legal",
-    privacy_policy: "Privacy Policy",
-    terms_of_service: "Terms of Service",
-    navigation: "Navigation",
-    home: "Home",
-    shop: "Shop",
-    about: "About",
-    contact_us: "Contact us",
-    contact: "Contact",
-    cart: "Cart",
-    clear_cart: "Clear Cart",
-    total: "Total",
-    view_cart_and_checkout: "View cart and checkout",
-  },
-  fr: {
-    legal: "Mentions légales",
-    privacy_policy: "Politique de confidentialité",
-    terms_of_service: "Conditions d'utilisation",
-    navigation: "Navigation",
-    home: "Accueil",
-    shop: "Boutique",
-    about: "À propos",
-    contact_us: "Contactez-nous",
-    contact: "Contact",
-    cart: "Panier",
-    clear_cart: "Vider le panier",
-    total: "Total",
-    view_cart_and_checkout: "Voir le panier et payer",
-  }
-};
-
 
 
 // Function to load HTML into an element
