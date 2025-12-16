@@ -1,18 +1,81 @@
+function setLanguage(lang) {
+    // Save language in localStorage
+    localStorage.setItem("lang", lang);
 
-// Language Selector
-document.querySelectorAll('.dropdown-item').forEach(item => {
-    item.addEventListener('click', function (e) {
-    e.preventDefault();
+    if (lang == "ar") {
+      // selectedLang.innerText = "العربية";
+      window.location.href = "/ar/index.html";
+    }
+    if (lang == "fr") {
+      // selectedLang.innerText = "Français";
+      window.location.href = "/fr/index.html";
+    }
+    if (lang == "en") {
+      // selectedLang.innerText = "English";
+      window.location.href = "/en/index.html";
+    }
+}
+      
+// On page load
+// document.addEventListener("DOMContentLoaded", () => {
+//   const savedLang = localStorage.getItem("lang");
+//   if (savedLang) {
+//     setLanguage(savedLang);
+//   } else {
+//     setLanguage("ar"); // Use browser language
+//   }
+// });
 
-    const langText = this.textContent.trim();
-    const langFlag = this.getAttribute('data-flag');
+        
+// Language translations
+const translations = {
+  ar: {
+    legal: "السياسات",
+    privacy_policy: "سياسة الخصوصية",
+    terms_of_service: "شروط الخدمة",
+    navigation: "التنقل",
+    home: "الرئيسية",
+    shop: "تسوق",
+    about: "من نحن",
+    contact_us: "اتصل بنا",
+    contact: "اتصال",
+    cart: "سلة التسوق",
+    clear_cart: "مسح السلة",
+    total: "الإجمالي",
+    view_cart_and_checkout: "عرض السلة وإتمام الدفع",
+  },
+  en: {
+    legal: "Legal",
+    privacy_policy: "Privacy Policy",
+    terms_of_service: "Terms of Service",
+    navigation: "Navigation",
+    home: "Home",
+    shop: "Shop",
+    about: "About",
+    contact_us: "Contact us",
+    contact: "Contact",
+    cart: "Cart",
+    clear_cart: "Clear Cart",
+    total: "Total",
+    view_cart_and_checkout: "View cart and checkout",
+  },
+  fr: {
+    legal: "Mentions légales",
+    privacy_policy: "Politique de confidentialité",
+    terms_of_service: "Conditions d'utilisation",
+    navigation: "Navigation",
+    home: "Accueil",
+    shop: "Boutique",
+    about: "À propos",
+    contact_us: "Contactez-nous",
+    contact: "Contact",
+    cart: "Panier",
+    clear_cart: "Vider le panier",
+    total: "Total",
+    view_cart_and_checkout: "Voir le panier et payer",
+  }
+};
 
-    // Update button
-    document.getElementById('selected-lang').textContent = langText;
-    document.getElementById('selected-flag').src = langFlag;
-    document.getElementById('selected-flag').alt = langText;
-    });
-});
 
 
 // Function to load HTML into an element
@@ -28,7 +91,7 @@ function loadHTML(elementId, filePath) {
             document.getElementById(elementId).innerHTML = data;
         })
         .catch(error => {
-            console.error('Error loading HTML:', error);
+            console.log('Error loading HTML:', error);
         });
 }
 
@@ -70,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function() {
 let products = []; // global variable to hold products
 
 // Function to load products from CSV and display them
-fetch("assets/data/product.csv")
+fetch("/assets/data/product.csv")
 .then(response => response.text())
 .then(text => {
     products = parseCSV(text);
@@ -90,7 +153,7 @@ fetch("assets/data/product.csv")
                 <div class="col-6 col-md-3 zoomin rounded-1">
                     <div class="card mb-4 product-wap">
                         <div class="card rounded-1">
-                            <img class="card-img rounded-1 img-fluid" src="assets/img/igrBio/${product.image}" alt="${product.title}">
+                            <img class="card-img rounded-1 img-fluid" src="/assets/img/igrBio/${product.image}" alt="${product.title}">
                             <div class="card-img-overlay rounded-1 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
                                 <li><button class="btn btn-success text-white mt-2" onclick="openProductModal('${product.id}')"><i class="far fa-eye"></i></button></li>
@@ -245,7 +308,7 @@ function loadCart() {
 
         container.innerHTML += `
           <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-2">
-            <img src="assets/img/igrBio/${item.image}" width="80" height="80" class="rounded">
+            <img src="/assets/img/igrBio/${item.image}" width="80" height="80" class="rounded">
             <div class="flex-grow-1 mx-2">
               <p class="mb-0 fw-bold">${item.title}</p>
               <small>${item.price} x ${item.quantity}</small>
@@ -274,7 +337,6 @@ function updateCartCount() {
     let itemCount = 0;
     cart.forEach(item => itemCount += item.quantity);
     
-    console.log("Cart count :", itemCount);
     const cartCount = document.getElementById("cart-count");
    
     if (cartCount) {
@@ -337,7 +399,6 @@ window.onload = () => {
     loadCart();
 };
 
-
 // load cart page details
 function loadCartPage() {
     let cart = localStorage.getItem("cart");
@@ -355,8 +416,8 @@ function loadCartPage() {
         container.innerHTML += `
           <div class="mb-3 p-3 d-flex flex-row justify-content-between align-items-center shadow-sm bg-white rounded">
             <div class="d-flex align-items-center">
-              <img src="assets/img/igrBio/${item.image}" width="80" height="80" class="rounded me-3">
-              <div>
+              <img src="/assets/img/igrBio/${item.image}" width="80" height="80" class="rounded">
+              <div class="me-3 ms-3">
                 <h6 class="mb-1">${item.title}</h6>
                 <small class="d-flex align-items-center pt-2">
                 <button onclick="updateQuantity(${index}, -1, true)" class="btn btn-sm btn-outline-secondary">-</button>
@@ -378,6 +439,7 @@ function loadCartPage() {
     document.getElementById("summary-subtotal").textContent = subtotal.toFixed(2) + " MAD";
     document.getElementById("summary-discount").textContent = appliedDiscount.toFixed(2) + " MAD";
     document.getElementById("summary-total").textContent = (subtotal - appliedDiscount).toFixed(2) + " MAD";
+    document.getElementById("summary-total-checkout").textContent = (subtotal - appliedDiscount).toFixed(2) + " MAD";
 }
 
 
@@ -403,7 +465,7 @@ function applyCoupon() {
     if (code == "DISCOUNT10") {
         appliedDiscount = subtotal * 0.10; // 10% off
     } else if (code == "DISCOUNT50") {
-        appliedDiscount = 50; // fixed amount
+        appliedDiscount = subtotal * 0.50; // 50% off
     } else {
         appliedDiscount = 0;
         alert("Invalid coupon code");
@@ -516,7 +578,7 @@ function openProductModal(productId) {
 
   // Fill modal content
   document.getElementById("modalTitle").textContent = product.title;
-  document.getElementById("modalImage").src = `assets/img/igrBio/${product.image}`;
+  document.getElementById("modalImage").src = `/assets/img/igrBio/${product.image}`;
   document.getElementById("modalImage").alt = product.title;
   document.getElementById("modalPrice").textContent = `MAD ${product.price}.00`;
   document.getElementById("modalDescription").textContent = product.description;

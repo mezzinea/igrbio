@@ -1,4 +1,3 @@
-    
         <!-- Start Top Nav -->
         <nav class="navbar navbar-expand-lg bg-dark navbar-light py-0" id="templatemo_nav_top">
             <div class="container text-light">
@@ -12,7 +11,7 @@
                     <div>
                         <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
                         <a class="text-light" href="https://www.instagram.com/igrbio?igsh=ZzRuMTlwcTZxbmFz" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-                        <a class="text-light" href="https://wa.me/212690099637" target="_blank"><i class="fab fa-whatsapp fa-sm fa-fw"></i></a>
+                        <a class="text-light" href="https://wa.me/212690099637" target="_blank"><i class="fab fa-whatsapp fa-sm fa-fw me-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -25,25 +24,25 @@
                 
                 <!-- Left: Logo -->
                 <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-                    <img src="assets/img/igrBio/logo/logo R 01 Slim.png" alt="..." width="120">
+                    <img src="/assets/img/igrBio/logo/logo R 01 Slim.png" alt="..." width="120">
                 </a>
                 
                 <div class="d-none d-lg-block">
                     <ul class="nav navbar-nav mx-lg-auto">
                         <li class="nav-item px-3">
-                            <a class="nav-link" href="index.html">Home</a>
+                            <a class="nav-link" href="index.html">الرئيسية</a>
                         </li>
                         <li class="nav-item px-3">
-                            <a class="nav-link" href="index.html#about">About</a>
+                            <a class="nav-link" href="index.html#about">من نحن</a>
                         </li>
                         <li class="nav-item px-3">
-                            <a class="nav-link" href="shop.html">Shop</a>
+                            <a class="nav-link" href="shop.html">المتجر</a>
                         </li>
                         <li class="nav-item px-3">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" href="contact.html">اتصل بنا</a>
                         </li>
                         <li class="nav-item px-3">
-                            <a class="nav-link" href="legal.html">Legal</a>
+                            <a class="nav-link" href="legal.html">قانوني</a>
                         </li>
                     </ul>
                 </div>
@@ -56,34 +55,31 @@
                         <div class="dropdown me-3">
                             <button class="btn btn-light rounded-pill dropdown-toggle d-flex align-items-center"
                                 type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fal fa-globe me-2 p-0" alt="English" id="selected-flag"></i>
-                                <small id="selected-lang">English</small>
+                                <i class="fal fa-globe" alt="العربية" id="selected-flag"></i>
+                                <small class="px-2" id="selected-lang">العربية</small>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                                <li>
-                                <a class="dropdown-item d-flex align-items-center" href="#" data-lang="en"
-                                    data-flag="https://flagcdn.com/16x12/us.png">
-                                    <img src="https://flagcdn.com/16x12/us.png" class="me-2" alt="English"> <small>English</small>
-                                </a>
+                                <li onclick="setLanguage('en')">
+                                    <a class="dropdown-item d-flex align-items-center" href="#" data-lang="en">
+                                        en - <small style="margin-left: 5px;">English</small>
+                                    </a>
                                 </li>
-                                <li>
-                                <a class="dropdown-item d-flex align-items-center" href="#" data-lang="fr"
-                                    data-flag="https://flagcdn.com/16x12/fr.png">
-                                    <img src="https://flagcdn.com/16x12/fr.png" class="me-2" alt="Français"> <small>Français</small>
-                                </a>
+                                <li onclick="setLanguage('ar')">
+                                    <a class="dropdown-item d-flex align-items-center" href="#" data-lang="ar">
+                                        ar - <small style="margin-left: 5px;">العربية</small>
+                                    </a>
                                 </li>
-                                <li>
-                                <a class="dropdown-item d-flex align-items-center" href="#" data-lang="ar"
-                                    data-flag="https://flagcdn.com/16x12/sa.png">
-                                    <img src="https://flagcdn.com/16x12/sa.png" class="me-2" alt="العربية"> <small>العربية</small>
-                                </a>
+                                <li onclick="setLanguage('fr')">
+                                    <a class="dropdown-item d-flex align-items-center" href="#" data-lang="ar">
+                                        fr - <small style="margin-left: 5px;">Français</small>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
 
                         <!-- Cart Icon -->
-                        <a onclick="toggleCart()" class="nav-icon position-relative text-decoration-none" href="#" style="margin-right: 8px;">
-                            <!-- <img src="assets/img/igrBio/shopping-bag.png" width="28" alt="Cart" class="text-dark"> -->
+                        <a onclick="toggleCart()" class="nav-icon position-relative text-decoration-none" href="#">
+                            <!-- <img src="assets/img/igrBio/shopping-bag.png" width="28" alt="سلة التسوق" class="text-dark"> -->
                             <i class="fal fa-shopping-bag fa-lg d-block"></i>
                             <small id="cart-count"
                                 class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger text-white"
@@ -101,23 +97,23 @@
             <div class="container d-flex justify-content-around px-0 pt-2 col-11">
                 <a class="nav-link text-center p-0" href="index.html">
                 <i class="fas fa-home fa-lg d-block" style="font-size: 1.2rem; color: #70777d;"></i>
-                <small class="d-block pt-1" style="font-size: 0.6rem; color: #70777d;">Home</small>
+                <small class="d-block pt-1" style="font-size: 0.6rem; color: #70777d;">الرئيسية</small>
                 </a>
                 <a class="nav-link text-center p-0" href="index.html#about">
                 <i class="fas fa-info-circle fa-lg d-block" style="font-size: 1.2rem; color: #70777d;"></i>
-                <small class="d-block pt-1" style="font-size: 0.6rem; color: #70777d;">About</small>
+                <small class="d-block pt-1" style="font-size: 0.6rem; color: #70777d;">من نحن</small>
                 </a>
                 <a class="nav-link text-center p-0" href="shop.html">
                 <i class="fas fa-shopping-bag fa-lg d-block" style="font-size: 1.2rem; color: #70777d;"></i>
-                <small class="d-block pt-1" style="font-size: 0.6rem; color: #70777d;">Shop</small>
+                <small class="d-block pt-1" style="font-size: 0.6rem; color: #70777d;">المتجر</small>
                 </a>
                 <a class="nav-link text-center p-0" href="contact.html">
                 <i class="fas fa-envelope fa-lg d-block" style="font-size: 1.2rem; color: #70777d;"></i>
-                <small class="d-block pt-1" style="font-size: 0.6rem; color: #70777d;">Contact</small>
+                <small class="d-block pt-1" style="font-size: 0.6rem; color: #70777d;">اتصل بنا</small>
                 </a>
                 <a class="nav-link text-center p-0" href="legal.html">
                 <i class="fas fa-user-shield fa-lg d-block" style="font-size: 1.2rem; color: #70777d;"></i>
-                <small class="d-block pt-1" style="font-size: 0.6rem; color: #70777d;">Legal</small>
+                <small class="d-block pt-1" style="font-size: 0.6rem; color: #70777d;">قانوني</small>
                 </a>
             </div>
         </nav> -->
@@ -127,26 +123,26 @@
         <!-- Bottom Navigation -->
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
         <nav class="navbar navbar-white bg-white fixed-bottom d-block d-lg-none py-2 navbar-bottom" style="box-shadow: 0 -1px 60px rgba(0, 0, 0, 0.06);">
-        <div class="container d-flex justify-content-around px-0 pt-2 col-10">
+        <div class="container d-flex justify-content-around px-0 pt-2 col-11">
             <a class="nav-link text-center p-0 text-dark" href="index.html" data-page="index.html">
             <i class="fal fa-home fa-lg d-block" style="font-size: 1.2rem"></i>
-            <small class="d-block pt-1" style="font-size: 0.6rem">Home</small>
+            <small class="d-block pt-1" style="font-size: 0.6rem">الرئيسية</small>
             </a>
             <a class="nav-link text-center p-0 text-dark" href="index.html#about" data-page="index.html#about">
             <i class="fal fa-info-circle fa-lg d-block" style="font-size: 1.2rem"></i>
-            <small class="d-block pt-1" style="font-size: 0.6rem">About</small>
+            <small class="d-block pt-1" style="font-size: 0.6rem">من نحن</small>
             </a>
             <a class="nav-link text-center p-0 text-dark" href="shop.html" data-page="shop.html">
             <i class="fal fa-shopping-bag fa-lg d-block" style="font-size: 1.2rem"></i>
-            <small class="d-block pt-1" style="font-size: 0.6rem">Shop</small>
+            <small class="d-block pt-1" style="font-size: 0.6rem">المتجر</small>
             </a>
             <a class="nav-link text-center p-0 text-dark" href="contact.html" data-page="contact.html">
             <i class="fal fa-envelope fa-lg d-block" style="font-size: 1.2rem"></i>
-            <small class="d-block pt-1" style="font-size: 0.6rem">Contact</small>
+            <small class="d-block pt-1" style="font-size: 0.6rem">اتصل بنا</small>
             </a>
             <a class="nav-link text-center p-0 text-dark" href="legal.html" data-page="legal.html">
             <i class="fal fa-user-shield fa-lg d-block" style="font-size: 1.2rem"></i>
-            <small class="d-block pt-1" style="font-size: 0.6rem">Legal</small>
+            <small class="d-block pt-1" style="font-size: 0.6rem">قانوني</small>
             </a>
         </div>
         </nav>
@@ -155,8 +151,8 @@
         <!-- Cart Sidebar -->
         <div id="cart-sidebar" class="cart-sidebar">
             <div class="cart-header d-flex justify-content-between align-items-center p-3 border-bottom">
-                <h5 class="m-0">Cart</h5>
-                <a href="#" onclick="clearCart()" class="text-danger text-decoration-none">Clear Cart</a>
+                <h5 class="m-0">سلة التسوق</h5>
+                <a href="#" onclick="clearCart()" class="text-danger text-decoration-none">إفراغ السلة</a>
                 <button onclick="toggleCart()" class="btn-close"></button>
             </div>
 
@@ -164,13 +160,13 @@
 
             <div class="cart-footer border-top p-3">
                 <div class="d-flex justify-content-between mb-3">
-                <strong>Total</strong>
+                <strong>الإجمالي</strong>
                 <strong id="cart-total">0.00</strong>
                 </div>
-                <a href="cart.html" class="btn btn-outline-success w-100">View Cart & Checkout</a>
+                <a href="cart.html" class="btn btn-outline-success w-100">عرض السلة وإتمام الشراء</a>
             </div>
         </div>
         <!-- End Cart Sidebar -->
         
         
-        <span id="toast" class="toast">Sample message</span>
+        <span id="toast" class="toast">عينة رسالة</span>
