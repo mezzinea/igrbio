@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function() {
+            // Get user's preferred language
+            const userLang = navigator.language || navigator.userLanguage;
+            
+            // Simplified language codes
+            const langCode = userLang.split('-')[0];
+            
+            // Define available languages and their redirects
+            const availableLangs = {
+                'ar': 'ar/',    // Arabic
+                'fr': 'fr/',    // French
+                'en': 'en/'     // English (default)
+            };
+            
+            const savedLang = localStorage.getItem("lang");
+            if (savedLang && availableLangs[savedLang]) {
+                window.location.replace(availableLangs[savedLang]);
+                return;
+            }
+            
+            // Check if we support the user's language
+            let redirectPath = availableLangs[langCode];
+            
+            // If language not supported, use English as default
+            if (!redirectPath) {
+                redirectPath = 'en/';
+                langCode = 'en';
+            }
+            
+            // Store the selected language in localStorage
+            localStorage.setItem("lang", langCode);
+            
+            // Redirect to the appropriate language folder
+            window.location.replace(redirectPath);
+        })();
+    </script>
+</head>
+<body>
+    <noscript>
+        <div style="text-align: center; padding: 50px;">
+            <h1>Please enable JavaScript</h1>
+            <p>Or select your language manually:</p>
+            <ul>
+                <li><a href="en/">English</a></li>
+                <li><a href="fr/">Français</a></li>
+                <li><a href="ar/">العربية</a></li>
+            </ul>
+        </div>
+    </noscript>
+    <div style="text-align: center; padding: 50px;">
+        <p>Redirecting to your preferred language...</p>
+    </div>
+</body>
+</html>

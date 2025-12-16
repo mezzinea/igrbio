@@ -4,15 +4,15 @@ function setLanguage(lang) {
 
     if (lang == "ar") {
       // selectedLang.innerText = "العربية";
-      window.location.href = "../ar/index.html";
+      window.location.href = "../ar";
     }
     if (lang == "fr") {
       // selectedLang.innerText = "Français";
-      window.location.href = "../fr/index.html";
+      window.location.href = "../fr";
     }
     if (lang == "en") {
       // selectedLang.innerText = "English";
-      window.location.href = "../en/index.html";
+      window.location.href = "../en";
     }
 }
 
