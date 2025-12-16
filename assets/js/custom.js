@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function() {
 let products = []; // global variable to hold products
 
 // Function to load products from CSV and display them
-fetch("/assets/data/product.csv")
+fetch("../assets/data/product.csv")
 .then(response => response.text())
 .then(text => {
     products = parseCSV(text);
@@ -153,7 +153,7 @@ fetch("/assets/data/product.csv")
                 <div class="col-6 col-md-3 zoomin rounded-1">
                     <div class="card mb-4 product-wap">
                         <div class="card rounded-1">
-                            <img class="card-img rounded-1 img-fluid" src="/assets/img/igrBio/${product.image}" alt="${product.title}">
+                            <img class="card-img rounded-1 img-fluid" src="../assets/img/igrBio/${product.image}" alt="${product.title}">
                             <div class="card-img-overlay rounded-1 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
                                 <li><button class="btn btn-success text-white mt-2" onclick="openProductModal('${product.id}')"><i class="far fa-eye"></i></button></li>
@@ -308,7 +308,7 @@ function loadCart() {
 
         container.innerHTML += `
           <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-2">
-            <img src="/assets/img/igrBio/${item.image}" width="80" height="80" class="rounded">
+            <img src="../assets/img/igrBio/${item.image}" width="80" height="80" class="rounded">
             <div class="flex-grow-1 mx-2">
               <p class="mb-0 fw-bold">${item.title}</p>
               <small>${item.price} x ${item.quantity}</small>
@@ -416,7 +416,7 @@ function loadCartPage() {
         container.innerHTML += `
           <div class="mb-3 p-3 d-flex flex-row justify-content-between align-items-center shadow-sm bg-white rounded">
             <div class="d-flex align-items-center">
-              <img src="/assets/img/igrBio/${item.image}" width="80" height="80" class="rounded">
+              <img src="../assets/img/igrBio/${item.image}" width="80" height="80" class="rounded">
               <div class="me-3 ms-3">
                 <h6 class="mb-1">${item.title}</h6>
                 <small class="d-flex align-items-center pt-2">
@@ -578,7 +578,7 @@ function openProductModal(productId) {
 
   // Fill modal content
   document.getElementById("modalTitle").textContent = product.title;
-  document.getElementById("modalImage").src = `/assets/img/igrBio/${product.image}`;
+  document.getElementById("modalImage").src = `../assets/img/igrBio/${product.image}`;
   document.getElementById("modalImage").alt = product.title;
   document.getElementById("modalPrice").textContent = `MAD ${product.price}.00`;
   document.getElementById("modalDescription").textContent = product.description;
