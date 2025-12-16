@@ -16,6 +16,22 @@ function setLanguage(lang) {
     }
 }
 
+const translations = {
+  en: {
+    addToCart: "Add to cart"
+  },
+  fr: {
+    addToCart: "Ajouter au panier"
+  },
+  ar: {
+    addToCart: "أضف إلى السلة"
+  }
+};
+
+function getCurrentLang() {
+  return localStorage.getItem("lang") || "en";
+}
+
 
 // Function to load HTML into an element
 function loadHTML(elementId, filePath) {
@@ -84,6 +100,8 @@ fetch("../assets/data/product.csv")
 
     function renderProducts(list) {
         container.innerHTML = "";
+        const lang = getCurrentLang();
+        const t = translations[lang];
         list.forEach(product => {
             const tags = product.tags.split("|").map(tag => 
                 `<span class="badge bg-light text-dark me-1">${tag}</span>`
@@ -111,7 +129,7 @@ fetch("../assets/data/product.csv")
                             </div>
                             <p><small>MAD </small><b>${product.price}.00</b></p>
                             <div class="btn btn-light w-100 rounded" onclick="addToCart('${product.id}')">
-                                <i class="fas fa-cart-plus"></i><small> Add to cart</small>
+                                <i class="fas fa-cart-plus"></i><small> ${t.addToCart} </small>
                             </div>
                         </div>
                     </div>
@@ -514,6 +532,9 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
 function openProductModal(productId) {
   const product = products.find(p => p.id == productId);
   if (!product) return;
+  
+  const lang = getCurrentLang();
+  const t = translations[lang];
 
   // Fill modal content
   document.getElementById("modalTitle").textContent = product.title;
@@ -529,7 +550,7 @@ function openProductModal(productId) {
     
   document.getElementById("addProductBtn").innerHTML = `
       <div class="btn btn-outline-success w-100 rounded py-2" onclick="addToCart(${productId})">
-          <i class="fas fa-cart-plus"></i><small> Add to cart</small>
+          <i class="fas fa-cart-plus"></i><small> ${t.addToCart} </small>
       </div>
     `
 
