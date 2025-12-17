@@ -558,7 +558,7 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
   } finally {
     btn.disabled = false;
     btn.textContent = trs.placeOrder;
-    window.location.href = "/";
+    window.location.href = "../"; // redirect to home after order
   }
 });
 
