@@ -28,7 +28,9 @@ const translations = {
     placingOrder: "Placing order...",
     invalidCoupon: "Invalid coupon code",
     requiredFields: "Please fill in all required fields (Name, Phone, Address).",
-    invalidPhone: "Phone number is invalid. It should start with 05/06/07 and be 10 digits."
+    invalidPhone: "Phone number is invalid. It should start with 05/06/07 and be 10 digits.",
+    currency: "MAD",
+    each: "each"
   },
 
   fr: {
@@ -42,7 +44,9 @@ const translations = {
     placingOrder: "Commande en cours...",
     invalidCoupon: "Code promo invalide",
     requiredFields: "Veuillez remplir tous les champs obligatoires (Nom, Téléphone, Adresse).",
-    invalidPhone: "Le numéro de téléphone est invalide. Il doit commencer par 05/06/07 et contenir 10 chiffres."
+    invalidPhone: "Le numéro de téléphone est invalide. Il doit commencer par 05/06/07 et contenir 10 chiffres.",
+    currency: "MAD",
+    each: "chacun"
   },
 
   ar: {
@@ -56,7 +60,9 @@ const translations = {
     placingOrder: "جاري تنفيذ الطلب...",
     invalidCoupon: "رمز القسيمة غير صالح",
     requiredFields: "يرجى ملء جميع الحقول المطلوبة (الاسم، الهاتف، العنوان).",
-    invalidPhone: "رقم الهاتف غير صالح. يجب أن يبدأ بـ 05 أو 06 أو 07 ويتكون من 10 أرقام."
+    invalidPhone: "رقم الهاتف غير صالح. يجب أن يبدأ بـ 05 أو 06 أو 07 ويتكون من 10 أرقام.",
+    currency: "د.م",
+    each: "واحد"
   }
 };
 
@@ -125,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
 let products = []; // global variable to hold products
 
 // Function to load products from CSV and display them
-fetch("../assets/data/product.csv")
+fetch("product.csv")
 .then(response => response.text())
 .then(text => {
     products = parseCSV(text);
@@ -162,7 +168,7 @@ fetch("../assets/data/product.csv")
                                   <small class="badge bg-light text-dark">${product.type}</small>
                                 </span>
                             </div>
-                            <p><small>MAD </small><b>${product.price}.00</b></p>
+                            <p><small>${trs.currency} </small><b>${product.price}</b></p>
                             <div class="btn btn-light w-100 rounded" onclick="addToCart('${product.id}')">
                                 <i class="fas fa-cart-plus"></i><small> ${trs.addToCart} </small>
                             </div>
@@ -310,7 +316,7 @@ function loadCart() {
               <span class="mx-2">${item.quantity}</span>
               <button onclick="updateQuantity(${index}, 1)" class="btn btn-sm btn-outline-secondary">+</button>
             </div>
-            <span class="mx-2">${itemTotal.toFixed(2)}</span>
+            <span class="mx-2">${itemTotal.toFixed(0)}</span>
             <button onclick="removeItem(${index})" class="btn btn-sm btn-danger">
               <i class="fas fa-trash"></i>
             </button>
@@ -418,8 +424,8 @@ function loadCartPage() {
                 </small>
               </div>
             </div>
-            <small class="mb-1 d-none d-lg-block">${item.price} MAD each</small>
-            <span class="mx-3"><b>${itemTotal.toFixed(2)}</b> <small>MAD</small></span>
+            <small class="mb-1 d-none d-lg-block">${item.price} ${trs.currency} ${trs.each}</small>
+            <span class="mx-3"><b>${itemTotal.toFixed(0)}</b> <small>${trs.currency}</small></span>
             <button onclick="removeItem(${index}, true)" class="btn btn-sm btn-outline-danger">
               <i class="fas fa-times"></i>
             </button>
@@ -428,10 +434,10 @@ function loadCartPage() {
     });
 
     // Update summary
-    document.getElementById("summary-subtotal").textContent = subtotal.toFixed(2) + " MAD";
-    document.getElementById("summary-discount").textContent = appliedDiscount.toFixed(2) + " MAD";
-    document.getElementById("summary-total").textContent = (subtotal - appliedDiscount).toFixed(2) + " MAD";
-    document.getElementById("summary-total-checkout").textContent = (subtotal - appliedDiscount).toFixed(2) + " MAD";
+    document.getElementById("summary-subtotal").textContent = subtotal.toFixed(0) + " " + trs.currency;
+    document.getElementById("summary-discount").textContent = appliedDiscount.toFixed(0) + " " + trs.currency;
+    document.getElementById("summary-total").textContent = (subtotal - appliedDiscount).toFixed(0) + " " + trs.currency;
+    document.getElementById("summary-total-checkout").textContent = (subtotal - appliedDiscount).toFixed(0) + " " + trs.currency;
 }
 
 
@@ -573,7 +579,7 @@ function openProductModal(productId) {
   document.getElementById("modalTitle").textContent = product.title;
   document.getElementById("modalImage").src = `../assets/img/igrBio/${product.image}`;
   document.getElementById("modalImage").alt = product.title;
-  document.getElementById("modalPrice").textContent = `MAD ${product.price}.00`;
+  document.getElementById("modalPrice").textContent = `${trs.currency} ${product.price}`;
   document.getElementById("modalDescription").textContent = product.description;
 
   document.getElementById("modalTags").innerHTML = `
