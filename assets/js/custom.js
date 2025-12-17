@@ -18,19 +18,56 @@ function setLanguage(lang) {
 
 const translations = {
   en: {
-    addToCart: "Add to cart"
+    addToCart: "Add to cart",
+    addedToCart: "Added successfully to your cart ✅",
+    itemRemoved: "Item removed from your list",
+    cartCleared: "Cart cleared successfully",
+    placeOrder: "Place Order",
+    orderPlaced: "✅ Order placed successfully!",
+    orderFailed: "⚠️ Failed to submit order. Please try again.",
+    placingOrder: "Placing order...",
+    invalidCoupon: "Invalid coupon code",
+    requiredFields: "Please fill in all required fields (Name, Phone, Address).",
+    invalidPhone: "Phone number is invalid. It should start with 05/06/07 and be 10 digits."
   },
+
   fr: {
-    addToCart: "Ajouter au panier"
+    addToCart: "Ajouter au panier",
+    addedToCart: "Ajouté au panier avec succès ✅",
+    itemRemoved: "Article supprimé de votre liste",
+    cartCleared: "Panier vidé avec succès",
+    placeOrder: "Passer la commande",
+    orderPlaced: "✅ Commande passée avec succès !",
+    orderFailed: "⚠️ Échec de l’envoi de la commande. Veuillez réessayer.",
+    placingOrder: "Commande en cours...",
+    invalidCoupon: "Code promo invalide",
+    requiredFields: "Veuillez remplir tous les champs obligatoires (Nom, Téléphone, Adresse).",
+    invalidPhone: "Le numéro de téléphone est invalide. Il doit commencer par 05/06/07 et contenir 10 chiffres."
   },
+
   ar: {
-    addToCart: "أضف إلى السلة"
+    addToCart: "أضف إلى السلة",
+    addedToCart: "تمت الإضافة إلى السلة بنجاح ✅",
+    itemRemoved: "تمت إزالة العنصر من قائمتك",
+    cartCleared: "تم إفراغ السلة بنجاح",
+    placeOrder: "إتمام الطلب",
+    orderPlaced: "✅ تم تقديم الطلب بنجاح!",
+    orderFailed: "⚠️ فشل إرسال الطلب. يرجى المحاولة مرة أخرى.",
+    placingOrder: "جاري تنفيذ الطلب...",
+    invalidCoupon: "رمز القسيمة غير صالح",
+    requiredFields: "يرجى ملء جميع الحقول المطلوبة (الاسم، الهاتف، العنوان).",
+    invalidPhone: "رقم الهاتف غير صالح. يجب أن يبدأ بـ 05 أو 06 أو 07 ويتكون من 10 أرقام."
   }
 };
 
-function getCurrentLang() {
-  return localStorage.getItem("lang") || "en";
+// Function to get current translations
+function getTranslations() {
+  const lang = localStorage.getItem("lang");
+  return translations[lang] || translations["en"];
 }
+
+// Get current translations
+const trs = getTranslations();
 
 
 // Function to load HTML into an element
@@ -100,8 +137,6 @@ fetch("../assets/data/product.csv")
 
     function renderProducts(list) {
         container.innerHTML = "";
-        const lang = getCurrentLang();
-        const t = translations[lang];
         list.forEach(product => {
             const tags = product.tags.split("|").map(tag => 
                 `<span class="badge bg-light text-dark me-1">${tag}</span>`
@@ -129,7 +164,7 @@ fetch("../assets/data/product.csv")
                             </div>
                             <p><small>MAD </small><b>${product.price}.00</b></p>
                             <div class="btn btn-light w-100 rounded" onclick="addToCart('${product.id}')">
-                                <i class="fas fa-cart-plus"></i><small> ${t.addToCart} </small>
+                                <i class="fas fa-cart-plus"></i><small> ${trs.addToCart} </small>
                             </div>
                         </div>
                     </div>
@@ -220,7 +255,7 @@ function addToCart(productId) {
 
     loadCart();
     updateCartCount();
-    showToast('Added successfully to your cart ✅', 'success');
+    showToast(trs.addedToCart, 'success');
 }
 
 
@@ -340,7 +375,7 @@ function removeItem(index, fromCartPage = false) {
         loadCart();
         updateCartCount();
     }
-    showToast('Item removed from your list', 'error');
+    showToast(trs.itemRemoved, 'error');
 }
 
 
@@ -349,7 +384,7 @@ function clearCart() {
     localStorage.removeItem("cart");
     loadCart();
     updateCartCount();
-    showToast('Cart cleared successfully', 'error');
+    showToast(trs.cartCleared, 'error');
 }
 
 window.onload = () => {
@@ -425,7 +460,7 @@ function applyCoupon() {
         appliedDiscount = subtotal * 0.50; // 50% off
     } else {
         appliedDiscount = 0;
-        alert("Invalid coupon code");
+        alert(trs.invalidCoupon);
     }
 
     loadCartPage(); // refresh totals
@@ -471,13 +506,13 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
 
   // Basic client-side validation
   if (!name || !phone || !address) {
-    alert("Please fill in all required fields (Name, Phone, Address).");
+    alert(trs.requiredFields);
     return;
   }
   // Optional: additional phone format check
   const phoneRegex = /^(05|06|07)[0-9]{8}$/;
   if (!phoneRegex.test(phone)) {
-    alert("Phone number is invalid. It should start with 05/06/07 and be 10 digits.");
+    alert(trs.invalidPhone);
     return;
   }
 
@@ -495,7 +530,7 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
   // disable button while submitting
   const btn = document.getElementById("placeOrderBtn");
   btn.disabled = true;
-  btn.textContent = "Placing order...";
+  btn.textContent = trs.placingOrder;
 
   try {
     // replace with your Google Apps Script URL
@@ -509,7 +544,7 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
       mode: "no-cors" // avoid if you want to read response; otherwise Apps Script must allow CORS or use no-cors
     });
 
-    alert("✅ Order placed successfully!");
+    alert(trs.orderPlaced);
     localStorage.removeItem("cart");
     form.reset();
     loadCart();
@@ -519,10 +554,11 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
     // hide checkout form or reset UI as needed
   } catch (err) {
     console.error(err);
-    alert("⚠️ Failed to submit order. Please try again.");
+    alert(trs.orderFailed);
   } finally {
     btn.disabled = false;
-    btn.textContent = "Place Order";
+    btn.textContent = trs.placeOrder;
+    window.location.href = "/";
   }
 });
 
@@ -533,9 +569,6 @@ function openProductModal(productId) {
   const product = products.find(p => p.id == productId);
   if (!product) return;
   
-  const lang = getCurrentLang();
-  const t = translations[lang];
-
   // Fill modal content
   document.getElementById("modalTitle").textContent = product.title;
   document.getElementById("modalImage").src = `../assets/img/igrBio/${product.image}`;
@@ -550,7 +583,7 @@ function openProductModal(productId) {
     
   document.getElementById("addProductBtn").innerHTML = `
       <div class="btn btn-outline-success w-100 rounded py-2" onclick="addToCart(${productId})">
-          <i class="fas fa-cart-plus"></i><small> ${t.addToCart} </small>
+          <i class="fas fa-cart-plus"></i><small> ${trs.addToCart} </small>
       </div>
     `
 
