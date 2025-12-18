@@ -1,31 +1,31 @@
-id,title,quantity,price,tags,image,type,suggested,description
-0,Amlou,1 Kg,250,amlou|kawkaw,amlou/amlou.jpg,amlou,0,"Amlou is a traditional Moroccan spread made from argan oil, almonds, and honey. Rich in antioxidants and healthy fats, this delicious paste is perfect for breakfast or snacks."
-1,Amlou,1 Kg,250,amlou|kawkaw,amlou/amlou.webp,amlou,0,"Amlou is a traditional Moroccan spread made from argan oil, almonds, and honey. Rich in antioxidants and healthy fats, this delicious paste is perfect for breakfast or snacks."
-2,Thyme Honey,2 Litres,350,honey|zaater,Zaatar-min.jpg,honey,0,"Pure thyme honey collected from wild thyme flowers in Moroccan mountains. Known for its strong aromatic flavor and numerous health benefits."
-3,Thyme Honey,2 Litres,350,honey|zaater,Zaatar-min.jpg,honey,0,"Pure thyme honey collected from wild thyme flowers in Moroccan mountains. Known for its strong aromatic flavor and numerous health benefits."
-4,Thyme Honey,2 Litres,350,honey|zaater,Zaatar-min.jpg,honey,0,"Pure thyme honey collected from wild thyme flowers in Moroccan mountains. Known for its strong aromatic flavor and numerous health benefits."
-5,Natural Mix,2 Kg,200,honey|daghmouss,Deghmouss-min.jpg,complement,0,"A special blend of natural ingredients including honey, nuts, and seeds. Boosts energy and provides essential nutrients."
-6,Immune Booster,1 Kg,350,honey|zaater,Zaatar-min.jpg,complement,0,"A powerful combination of honey and medicinal herbs designed to strengthen the immune system naturally."
-7,Choke Honey,1KG,350,honey|choke,honey/choke.jpg,honey,1,"Artichoke honey with a distinctive slightly bitter taste. Rich in antioxidants and beneficial for liver health."
-8,Deghmos Honey,1KG,350,honey|deghmos,honey/deghmos.jpg,honey,0,"Wildflower honey with a delicate floral aroma. Collected from various mountain flowers in Morocco."
-9,Kalibtoss Honey,1KG,350,honey|kalibtoss,honey/kalibtoss.jpg,honey,0,"Premium quality honey with a smooth texture and balanced sweetness. Perfect for daily consumption."
-10,La3chab Honey,1KG,350,honey|la3chab,honey/la3chab.jpg,honey,0,"Herbal honey with medicinal properties. Known for its therapeutic benefits and unique flavor."
-11,Jarjir Honey,1KG,350,honey|jarjir,honey/jarjir.jpg,honey,1,"Watercress honey with a refreshing taste. Rich in vitamins and minerals for overall health."
-12,Lemon Honey,1KG,350,honey|laymon,honey/laymon.jpg,honey,0,"Citrus-infused honey with a tangy lemon flavor. Excellent for soothing sore throats and colds."
-13,Lfrnan Honey,1KG,350,honey|lfrnan,honey/lfrnan.jpg,honey,0,"Forest honey with a deep, rich flavor. Collected from wild forest flowers and trees."
-14,Spring Honey,1KG,350,honey|rbii3,honey/rbi3.jpg,honey,0,"Early spring honey with a light color and delicate taste. The first harvest of the season."
-15,Sidr Honey,1KG,350,honey|sidr,honey/sidr.jpg,honey,0,"Premium Sidr (Jujube) honey, one of the most prized honeys in the world. Dark, rich, and highly medicinal."
-16,Saffron Honey,1KG,350,honey|z3faran,honey/z3faran.jpg,honey,0,"Luxury honey infused with saffron threads. Offers a unique golden color and exceptional flavor."
-17,Zaatar Honey,1KG,350,honey|z3ter,honey/z3ter.jpg,honey,0,"Thyme honey with intense herbal notes. Perfect for culinary uses and natural remedies."
-18,Choke Honey,1/2KG,350,honey|choke,honey/choke-sm.jpg,honey,0,"Artichoke honey with a distinctive slightly bitter taste. Rich in antioxidants and beneficial for liver health."
-19,Deghmos Honey,1/2KG,350,honey|deghmos,honey/deghmos-sm.jpg,honey,0,"Wildflower honey with a delicate floral aroma. Collected from various mountain flowers in Morocco."
-20,Kalibtoss Honey,1/2KG,350,honey|kalibtoss,honey/kalibtoss-sm.jpg,honey,1,"Premium quality honey with a smooth texture and balanced sweetness. Perfect for daily consumption."
-21,La3chab Honey,1/2KG,350,honey|la3chab,honey/la3chab-sm.jpg,honey,0,"Herbal honey with medicinal properties. Known for its therapeutic benefits and unique flavor."
-22,Jarjir Honey,1/2KG,350,honey|jarjir,honey/jarjir-sm.jpg,honey,1,"Watercress honey with a refreshing taste. Rich in vitamins and minerals for overall health."
-23,Lemon Honey,1/2KG,350,honey|laymon,honey/laymon-sm.jpg,honey,0,"Citrus-infused honey with a tangy lemon flavor. Excellent for soothing sore throats and colds."
-24,Lfrnan Honey,1/2KG,350,honey|lfrnan,honey/lfrnan-sm.jpg,honey,0,"Forest honey with a deep, rich flavor. Collected from wild forest flowers and trees."
-25,Spring Honey,1/2KG,350,honey|rbii3,honey/rbi3-sm.jpg,honey,0,"Early spring honey with a light color and delicate taste. The first harvest of the season."
-26,Sidr Honey,1/2KG,350,honey|sidr,honey/sidr-sm.jpg,honey,0,"Premium Sidr (Jujube) honey, one of the most prized honeys in the world. Dark, rich, and highly medicinal."
-27,Saffron Honey,1/2KG,350,honey|z3faran,honey/z3faran-sm.jpg,honey,0,"Luxury honey infused with saffron threads. Offers a unique golden color and exceptional flavor."
-28,Zaatar Honey,1/2KG,350,honey|z3ter,honey/z3ter-sm.jpg,honey,0,"Thyme honey with intense herbal notes. Perfect for culinary uses and natural remedies."
-29,Lkhroub Honey,1/2KG,350,honey|lkhroub,honey/lkhroub-sm.jpg,honey,0,"Fenugreek honey with a distinctive maple-like flavor. Known for digestive health benefits."
+id;title;quantity;price;tags;image;type;suggested;description
+0;Amlou;1 Kg;250;amlou|kawkaw;amlou/amlou.jpg;amlou;0;Amlou is a traditional Moroccan spread made from argan oil, almonds, and honey. Rich in antioxidants and healthy fats, this delicious paste is perfect for breakfast or snacks.
+1;Amlou;1 Kg;250;amlou|kawkaw;amlou/amlou.webp;amlou;0;Amlou is a traditional Moroccan spread made from argan oil, almonds, and honey. Rich in antioxidants and healthy fats, this delicious paste is perfect for breakfast or snacks.
+2;Thyme Honey;2 Litres;350;honey|zaater;Zaatar-min.jpg;honey;0;Pure thyme honey collected from wild thyme flowers in Moroccan mountains. Known for its strong aromatic flavor and numerous health benefits.
+3;Thyme Honey;2 Litres;350;honey|zaater;Zaatar-min.jpg;honey;0;Pure thyme honey collected from wild thyme flowers in Moroccan mountains. Known for its strong aromatic flavor and numerous health benefits.
+4;Thyme Honey;2 Litres;350;honey|zaater;Zaatar-min.jpg;honey;0;Pure thyme honey collected from wild thyme flowers in Moroccan mountains. Known for its strong aromatic flavor and numerous health benefits.
+5;Natural Mix;2 Kg;200;honey|daghmouss;Deghmouss-min.jpg;complement;0;A special blend of natural ingredients including honey, nuts, and seeds. Boosts energy and provides essential nutrients.
+6;Immune Booster;1 Kg;350;honey|zaater;Zaatar-min.jpg;complement;0;A powerful combination of honey and medicinal herbs designed to strengthen the immune system naturally.
+7;Choke Honey;1KG;350;honey|choke;honey/choke.jpg;honey;1;Artichoke honey with a distinctive slightly bitter taste. Rich in antioxidants and beneficial for liver health.
+8;Deghmos Honey;1KG;350;honey|deghmos;honey/deghmos.jpg;honey;0;Wildflower honey with a delicate floral aroma. Collected from various mountain flowers in Morocco.
+9;Kalibtoss Honey;1KG;350;honey|kalibtoss;honey/kalibtoss.jpg;honey;0;Premium quality honey with a smooth texture and balanced sweetness. Perfect for daily consumption.
+10;La3chab Honey;1KG;350;honey|la3chab;honey/la3chab.jpg;honey;0;Herbal honey with medicinal properties. Known for its therapeutic benefits and unique flavor.
+11;Jarjir Honey;1KG;350;honey|jarjir;honey/jarjir.jpg;honey;1;Watercress honey with a refreshing taste. Rich in vitamins and minerals for overall health.
+12;Lemon Honey;1KG;350;honey|laymon;honey/laymon.jpg;honey;0;Citrus-infused honey with a tangy lemon flavor. Excellent for soothing sore throats and colds.
+13;Lfrnan Honey;1KG;350;honey|lfrnan;honey/lfrnan.jpg;honey;0;Forest honey with a deep, rich flavor. Collected from wild forest flowers and trees.
+14;Spring Honey;1KG;350;honey|rbii3;honey/rbi3.jpg;honey;0;Early spring honey with a light color and delicate taste. The first harvest of the season.
+15;Sidr Honey;1KG;350;honey|sidr;honey/sidr.jpg;honey;0;Premium Sidr (Jujube) honey, one of the most prized honeys in the world. Dark, rich, and highly medicinal.
+16;Saffron Honey;1KG;350;honey|z3faran;honey/z3faran.jpg;honey;0;Luxury honey infused with saffron threads. Offers a unique golden color and exceptional flavor.
+17;Zaatar Honey;1KG;350;honey|z3ter;honey/z3ter.jpg;honey;0;Thyme honey with intense herbal notes. Perfect for culinary uses and natural remedies.
+18;Choke Honey;1/2KG;350;honey|choke;honey/choke-sm.jpg;honey;0;Artichoke honey with a distinctive slightly bitter taste. Rich in antioxidants and beneficial for liver health.
+19;Deghmos Honey;1/2KG;350;honey|deghmos;honey/deghmos-sm.jpg;honey;0;Wildflower honey with a delicate floral aroma. Collected from various mountain flowers in Morocco.
+20;Kalibtoss Honey;1/2KG;350;honey|kalibtoss;honey/kalibtoss-sm.jpg;honey;1;Premium quality honey with a smooth texture and balanced sweetness. Perfect for daily consumption.
+21;La3chab Honey;1/2KG;350;honey|la3chab;honey/la3chab-sm.jpg;honey;0;Herbal honey with medicinal properties. Known for its therapeutic benefits and unique flavor.
+22;Jarjir Honey;1/2KG;350;honey|jarjir;honey/jarjir-sm.jpg;honey;1;Watercress honey with a refreshing taste. Rich in vitamins and minerals for overall health.
+23;Lemon Honey;1/2KG;350;honey|laymon;honey/laymon-sm.jpg;honey;0;Citrus-infused honey with a tangy lemon flavor. Excellent for soothing sore throats and colds.
+24;Lfrnan Honey;1/2KG;350;honey|lfrnan;honey/lfrnan-sm.jpg;honey;0;Forest honey with a deep, rich flavor. Collected from wild forest flowers and trees.
+25;Spring Honey;1/2KG;350;honey|rbii3;honey/rbi3-sm.jpg;honey;0;Early spring honey with a light color and delicate taste. The first harvest of the season.
+26;Sidr Honey;1/2KG;350;honey|sidr;honey/sidr-sm.jpg;honey;0;Premium Sidr (Jujube) honey, one of the most prized honeys in the world. Dark, rich, and highly medicinal.
+27;Saffron Honey;1/2KG;350;honey|z3faran;honey/z3faran-sm.jpg;honey;0;Luxury honey infused with saffron threads. Offers a unique golden color and exceptional flavor.
+28;Zaatar Honey;1/2KG;350;honey|z3ter;honey/z3ter-sm.jpg;honey;0;Thyme honey with intense herbal notes. Perfect for culinary uses and natural remedies.
+29;Lkhroub Honey;1/2KG;350;honey|lkhroub;honey/lkhroub-sm.jpg;honey;0;Fenugreek honey with a distinctive maple-like flavor. Known for digestive health benefits.

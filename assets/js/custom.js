@@ -104,9 +104,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // Function to parse CSV text into an array of objects
 function parseCSV(text) {
   const lines = text.trim().split("\n");
-  const headers = lines[0].split(",");
+  const headers = lines[0].split(";");
   return lines.slice(1).map(line => {
-    const values = line.split(",");
+    const values = line.split(";");
     const obj = {};
     headers.forEach((h, i) => {
       obj[h.trim()] = values[i] ? values[i].trim() : "";

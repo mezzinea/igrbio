@@ -1,31 +1,31 @@
-id,title,quantity,price,tags,image,type,suggested,description
-0,Amlou,1 Kg,250,amlou|kawkaw,amlou/amlou.jpg,amlou,0,"L'Amlou est une pâte traditionnelle marocaine à base d'huile d'argan, d'amandes et de miel. Riche en antioxydants et en graisses saines, cette délicieuse pâte est parfaite pour le petit-déjeuner ou les collations."
-1,Amlou,1 Kg,250,amlou|kawkaw,amlou/amlou.webp,amlou,0,"L'Amlou est une pâte traditionnelle marocaine à base d'huile d'argan, d'amandes et de miel. Riche en antioxydants et en graisses saines, cette délicieuse pâte est parfaite pour le petit-déjeuner ou les collations."
-2,Miel de Thym,2 Litres,350,honey|zaater,Zaatar-min.jpg,honey,0,"Miel pur de thym récolté à partir des fleurs de thym sauvage des montagnes marocaines. Connu pour sa saveur aromatique forte et ses nombreux bienfaits pour la santé."
-3,Miel de Thym,2 Litres,350,honey|zaater,Zaatar-min.jpg,honey,0,"Miel pur de thym récolté à partir des fleurs de thym sauvage des montagnes marocaines. Connu pour sa saveur aromatique forte et ses nombreux bienfaits pour la santé."
-4,Miel de Thym,2 Litres,350,honey|zaater,Zaatar-min.jpg,honey,0,"Miel pur de thym récolté à partir des fleurs de thym sauvage des montagnes marocaines. Connu pour sa saveur aromatique forte et ses nombreux bienfaits pour la santé."
-5,Mélange Naturel,2 Kg,200,honey|daghmouss,Deghmouss-min.jpg,complement,0,"Un mélange spécial d'ingrédients naturels incluant du miel, des noix et des graines. Boost l'énergie et fournit des nutriments essentiels."
-6,Booster Immunitaire,1 Kg,350,honey|zaater,Zaatar-min.jpg,complement,0,"Une combinaison puissante de miel et de plantes médicinales conçue pour renforcer naturellement le système immunitaire."
-7,Miel de Chardon,1KG,350,honey|choke,honey/choke.jpg,honey,1,"Miel de chardon au goût légèrement amer distinctif. Riche en antioxydants et bénéfique pour la santé du foie."
-8,Miel Deghmos,1KG,350,honey|deghmos,honey/deghmos.jpg,honey,0,"Miel de fleurs sauvages avec un arôme floral délicat. Récolté à partir de diverses fleurs de montagne au Maroc."
-9,Miel Kalibtoss,1KG,350,honey|kalibtoss,honey/kalibtoss.jpg,honey,0,"Miel de qualité supérieure avec une texture lisse et une douceur équilibrée. Parfait pour une consommation quotidienne."
-10,Miel La3chab,1KG,350,honey|la3chab,honey/la3chab.jpg,honey,0,"Miel aux herbes aux propriétés médicinales. Connu pour ses bienfaits thérapeutiques et sa saveur unique."
-11,Miel de Cresson,1KG,350,honey|jarjir,honey/jarjir.jpg,honey,1,"Miel de cresson au goût rafraîchissant. Riche en vitamines et minéraux pour la santé globale."
-12,Miel Citron,1KG,350,honey|laymon,honey/laymon.jpg,honey,0,"Miel infusé au citron avec une saveur acidulée. Excellent pour apaiser les maux de gorge et les rhumes."
-13,Miel Lfrnan,1KG,350,honey|lfrnan,honey/lfrnan.jpg,honey,0,"Miel de forêt avec une saveur profonde et riche. Récolté à partir de fleurs et d'arbres forestiers sauvages."
-14,Miel de Printemps,1KG,350,honey|rbii3,honey/rbi3.jpg,honey,0,"Miel de début de printemps avec une couleur claire et un goût délicat. La première récolte de la saison."
-15,Miel de Sidr,1KG,350,honey|sidr,honey/sidr.jpg,honey,0,"Miel de Sidr (Jujubier) premium, l'un des miels les plus prisés au monde. Sombre, riche et hautement médicinal."
-16,Miel au Safran,1KG,350,honey|z3faran,honey/z3faran.jpg,honey,0,"Miel de luxe infusé avec des filaments de safran. Offre une couleur dorée unique et une saveur exceptionnelle."
-17,Miel de Zaatar,1KG,350,honey|z3ter,honey/z3ter.jpg,honey,0,"Miel de thym avec des notes herbacées intenses. Parfait pour les utilisations culinaires et les remèdes naturels."
-18,Miel de Chardon,1/2KG,350,honey|choke,honey/choke-sm.jpg,honey,0,"Miel de chardon au goût légèrement amer distinctif. Riche en antioxydants et bénéfique pour la santé du foie."
-19,Miel Deghmos,1/2KG,350,honey|deghmos,honey/deghmos-sm.jpg,honey,0,"Miel de fleurs sauvages avec un arôme floral délicat. Récolté à partir de diverses fleurs de montagne au Maroc."
-20,Miel Kalibtoss,1/2KG,350,honey|kalibtoss,honey/kalibtoss-sm.jpg,honey,1,"Miel de qualité supérieure avec une texture lisse et une douceur équilibrée. Parfait pour une consommation quotidienne."
-21,Miel La3chab,1/2KG,350,honey|la3chab,honey/la3chab-sm.jpg,honey,0,"Miel aux herbes aux propriétés médicinales. Connu pour ses bienfaits thérapeutiques et sa saveur unique."
-22,Miel de Cresson,1/2KG,350,honey|jarjir,honey/jarjir-sm.jpg,honey,1,"Miel de cresson au goût rafraîchissant. Riche en vitamines et minéraux pour la santé globale."
-23,Miel Citron,1/2KG,350,honey|laymon,honey/laymon-sm.jpg,honey,0,"Miel infusé au citron avec une saveur acidulée. Excellent pour apaiser les maux de gorge et les rhumes."
-24,Miel Lfrnan,1/2KG,350,honey|lfrnan,honey/lfrnan-sm.jpg,honey,0,"Miel de forêt avec une saveur profonde et riche. Récolté à partir de fleurs et d'arbres forestiers sauvages."
-25,Miel de Printemps,1/2KG,350,honey|rbii3,honey/rbi3-sm.jpg,honey,0,"Miel de début de printemps avec une couleur claire et un goût délicat. La première récolte de la saison."
-26,Miel de Sidr,1/2KG,350,honey|sidr,honey/sidr-sm.jpg,honey,0,"Miel de Sidr (Jujubier) premium, l'un des miels les plus prisés au monde. Sombre, riche et hautement médicinal."
-27,Miel au Safran,1/2KG,350,honey|z3faran,honey/z3faran-sm.jpg,honey,0,"Miel de luxe infusé avec des filaments de safran. Offre une couleur dorée unique et une saveur exceptionnelle."
-28,Miel de Zaatar,1/2KG,350,honey|z3ter,honey/z3ter-sm.jpg,honey,0,"Miel de thym avec des notes herbacées intenses. Parfait pour les utilisations culinaires et les remèdes naturels."
-29,Miel Lkhroub,1/2KG,350,honey|lkhroub,honey/lkhroub-sm.jpg,honey,0,"Miel de fenugrec avec une saveur distinctive semblable à l'érable. Connu pour ses bienfaits pour la santé digestive."
+id;title;quantity;price;tags;image;type;suggested;description
+0;Amlou;1 Kg;250;amlou|kawkaw;amlou/amlou.jpg;amlou;0;L'Amlou est une pâte traditionnelle marocaine à base d'huile d'argan, d'amandes et de miel. Riche en antioxydants et en graisses saines, cette délicieuse pâte est parfaite pour le petit-déjeuner ou les collations.
+1;Amlou;1 Kg;250;amlou|kawkaw;amlou/amlou.webp;amlou;0;L'Amlou est une pâte traditionnelle marocaine à base d'huile d'argan, d'amandes et de miel. Riche en antioxydants et en graisses saines, cette délicieuse pâte est parfaite pour le petit-déjeuner ou les collations.
+2;Miel de Thym;2 Litres;350;honey|zaater;Zaatar-min.jpg;honey;0;Miel pur de thym récolté à partir des fleurs de thym sauvage des montagnes marocaines. Connu pour sa saveur aromatique forte et ses nombreux bienfaits pour la santé.
+3;Miel de Thym;2 Litres;350;honey|zaater;Zaatar-min.jpg;honey;0;Miel pur de thym récolté à partir des fleurs de thym sauvage des montagnes marocaines. Connu pour sa saveur aromatique forte et ses nombreux bienfaits pour la santé.
+4;Miel de Thym;2 Litres;350;honey|zaater;Zaatar-min.jpg;honey;0;Miel pur de thym récolté à partir des fleurs de thym sauvage des montagnes marocaines. Connu pour sa saveur aromatique forte et ses nombreux bienfaits pour la santé.
+5;Mélange Naturel;2 Kg;200;honey|daghmouss;Deghmouss-min.jpg;complement;0;Un mélange spécial d'ingrédients naturels incluant du miel, des noix et des graines. Boost l'énergie et fournit des nutriments essentiels.
+6;Booster Immunitaire;1 Kg;350;honey|zaater;Zaatar-min.jpg;complement;0;Une combinaison puissante de miel et de plantes médicinales conçue pour renforcer naturellement le système immunitaire.
+7;Miel de Chardon;1KG;350;honey|choke;honey/choke.jpg;honey;1;Miel de chardon au goût légèrement amer distinctif. Riche en antioxydants et bénéfique pour la santé du foie.
+8;Miel Deghmos;1KG;350;honey|deghmos;honey/deghmos.jpg;honey;0;Miel de fleurs sauvages avec un arôme floral délicat. Récolté à partir de diverses fleurs de montagne au Maroc.
+9;Miel Kalibtoss;1KG;350;honey|kalibtoss;honey/kalibtoss.jpg;honey;0;Miel de qualité supérieure avec une texture lisse et une douceur équilibrée. Parfait pour une consommation quotidienne.
+10;Miel La3chab;1KG;350;honey|la3chab;honey/la3chab.jpg;honey;0;Miel aux herbes aux propriétés médicinales. Connu pour ses bienfaits thérapeutiques et sa saveur unique.
+11;Miel de Cresson;1KG;350;honey|jarjir;honey/jarjir.jpg;honey;1;Miel de cresson au goût rafraîchissant. Riche en vitamines et minéraux pour la santé globale.
+12;Miel Citron;1KG;350;honey|laymon;honey/laymon.jpg;honey;0;Miel infusé au citron avec une saveur acidulée. Excellent pour apaiser les maux de gorge et les rhumes.
+13;Miel Lfrnan;1KG;350;honey|lfrnan;honey/lfrnan.jpg;honey;0;Miel de forêt avec une saveur profonde et riche. Récolté à partir de fleurs et d'arbres forestiers sauvages.
+14;Miel de Printemps;1KG;350;honey|rbii3;honey/rbi3.jpg;honey;0;Miel de début de printemps avec une couleur claire et un goût délicat. La première récolte de la saison.
+15;Miel de Sidr;1KG;350;honey|sidr;honey/sidr.jpg;honey;0;Miel de Sidr (Jujubier) premium, l'un des miels les plus prisés au monde. Sombre, riche et hautement médicinal.
+16;Miel au Safran;1KG;350;honey|z3faran;honey/z3faran.jpg;honey;0;Miel de luxe infusé avec des filaments de safran. Offre une couleur dorée unique et une saveur exceptionnelle.
+17;Miel de Zaatar;1KG;350;honey|z3ter;honey/z3ter.jpg;honey;0;Miel de thym avec des notes herbacées intenses. Parfait pour les utilisations culinaires et les remèdes naturels.
+18;Miel de Chardon;1/2KG;350;honey|choke;honey/choke-sm.jpg;honey;0;Miel de chardon au goût légèrement amer distinctif. Riche en antioxydants et bénéfique pour la santé du foie.
+19;Miel Deghmos;1/2KG;350;honey|deghmos;honey/deghmos-sm.jpg;honey;0;Miel de fleurs sauvages avec un arôme floral délicat. Récolté à partir de diverses fleurs de montagne au Maroc.
+20;Miel Kalibtoss;1/2KG;350;honey|kalibtoss;honey/kalibtoss-sm.jpg;honey;1;Miel de qualité supérieure avec une texture lisse et une douceur équilibrée. Parfait pour une consommation quotidienne.
+21;Miel La3chab;1/2KG;350;honey|la3chab;honey/la3chab-sm.jpg;honey;0;Miel aux herbes aux propriétés médicinales. Connu pour ses bienfaits thérapeutiques et sa saveur unique.
+22;Miel de Cresson;1/2KG;350;honey|jarjir;honey/jarjir-sm.jpg;honey;1;Miel de cresson au goût rafraîchissant. Riche en vitamines et minéraux pour la santé globale.
+23;Miel Citron;1/2KG;350;honey|laymon;honey/laymon-sm.jpg;honey;0;Miel infusé au citron avec une saveur acidulée. Excellent pour apaiser les maux de gorge et les rhumes.
+24;Miel Lfrnan;1/2KG;350;honey|lfrnan;honey/lfrnan-sm.jpg;honey;0;Miel de forêt avec une saveur profonde et riche. Récolté à partir de fleurs et d'arbres forestiers sauvages.
+25;Miel de Printemps;1/2KG;350;honey|rbii3;honey/rbi3-sm.jpg;honey;0;Miel de début de printemps avec une couleur claire et un goût délicat. La première récolte de la saison.
+26;Miel de Sidr;1/2KG;350;honey|sidr;honey/sidr-sm.jpg;honey;0;Miel de Sidr (Jujubier) premium, l'un des miels les plus prisés au monde. Sombre, riche et hautement médicinal.
+27;Miel au Safran;1/2KG;350;honey|z3faran;honey/z3faran-sm.jpg;honey;0;Miel de luxe infusé avec des filaments de safran. Offre une couleur dorée unique et une saveur exceptionnelle.
+28;Miel de Zaatar;1/2KG;350;honey|z3ter;honey/z3ter-sm.jpg;honey;0;Miel de thym avec des notes herbacées intenses. Parfait pour les utilisations culinaires et les remèdes naturels.
+29;Miel Lkhroub;1/2KG;350;honey|lkhroub;honey/lkhroub-sm.jpg;honey;0;Miel de fenugrec avec une saveur distinctive semblable à l'érable. Connu pour ses bienfaits pour la santé digestive.
