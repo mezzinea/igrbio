@@ -1,18 +1,79 @@
+function setLanguage(lang) {
+    // Save language in localStorage
+    localStorage.setItem("lang", lang);
 
-// Language Selector
-document.querySelectorAll('.dropdown-item').forEach(item => {
-    item.addEventListener('click', function (e) {
-    e.preventDefault();
+    if (lang == "ar") {
+      // selectedLang.innerText = "العربية";
+      window.location.href = "../ar";
+    }
+    if (lang == "fr") {
+      // selectedLang.innerText = "Français";
+      window.location.href = "../fr";
+    }
+    if (lang == "en") {
+      // selectedLang.innerText = "English";
+      window.location.href = "../en";
+    }
+}
 
-    const langText = this.textContent.trim();
-    const langFlag = this.getAttribute('data-flag');
+const translations = {
+  en: {
+    addToCart: "Add to cart",
+    addedToCart: "Added successfully to your cart ✅",
+    itemRemoved: "Item removed from your list",
+    cartCleared: "Cart cleared successfully",
+    placeOrder: "Place Order",
+    orderPlaced: "✅ Order placed successfully!",
+    orderFailed: "⚠️ Failed to submit order. Please try again.",
+    placingOrder: "Placing order...",
+    invalidCoupon: "Invalid coupon code",
+    requiredFields: "Please fill in all required fields (Name, Phone, Address).",
+    invalidPhone: "Phone number is invalid. It should start with 05/06/07 and be 10 digits.",
+    currency: "MAD",
+    each: "each"
+  },
 
-    // Update button
-    document.getElementById('selected-lang').textContent = langText;
-    document.getElementById('selected-flag').src = langFlag;
-    document.getElementById('selected-flag').alt = langText;
-    });
-});
+  fr: {
+    addToCart: "Ajouter au panier",
+    addedToCart: "Ajouté au panier avec succès ✅",
+    itemRemoved: "Article supprimé de votre liste",
+    cartCleared: "Panier vidé avec succès",
+    placeOrder: "Passer la commande",
+    orderPlaced: "✅ Commande passée avec succès !",
+    orderFailed: "⚠️ Échec de l’envoi de la commande. Veuillez réessayer.",
+    placingOrder: "Commande en cours...",
+    invalidCoupon: "Code promo invalide",
+    requiredFields: "Veuillez remplir tous les champs obligatoires (Nom, Téléphone, Adresse).",
+    invalidPhone: "Le numéro de téléphone est invalide. Il doit commencer par 05/06/07 et contenir 10 chiffres.",
+    currency: "MAD",
+    each: "chacun"
+  },
+
+  ar: {
+    addToCart: "أضف إلى السلة",
+    addedToCart: "تمت الإضافة إلى السلة بنجاح ✅",
+    itemRemoved: "تمت إزالة العنصر من قائمتك",
+    cartCleared: "تم إفراغ السلة بنجاح",
+    placeOrder: "إتمام الطلب",
+    orderPlaced: "✅ تم تقديم الطلب بنجاح!",
+    orderFailed: "⚠️ فشل إرسال الطلب. يرجى المحاولة مرة أخرى.",
+    placingOrder: "جاري تنفيذ الطلب...",
+    invalidCoupon: "رمز القسيمة غير صالح",
+    requiredFields: "يرجى ملء جميع الحقول المطلوبة (الاسم، الهاتف، العنوان).",
+    invalidPhone: "رقم الهاتف غير صالح. يجب أن يبدأ بـ 05 أو 06 أو 07 ويتكون من 10 أرقام.",
+    currency: "د.م",
+    each: "واحد"
+  }
+};
+
+// Function to get current translations
+function getTranslations() {
+  const lang = localStorage.getItem("lang");
+  return translations[lang] || translations["en"];
+}
+
+// Get current translations
+const trs = getTranslations();
 
 
 // Function to load HTML into an element
@@ -28,7 +89,7 @@ function loadHTML(elementId, filePath) {
             document.getElementById(elementId).innerHTML = data;
         })
         .catch(error => {
-            console.error('Error loading HTML:', error);
+            console.log('Error loading HTML:', error);
         });
 }
 
@@ -70,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
 let products = []; // global variable to hold products
 
 // Function to load products from CSV and display them
-fetch("assets/data/product.csv")
+fetch("product.csv")
 .then(response => response.text())
 .then(text => {
     products = parseCSV(text);
@@ -90,7 +151,7 @@ fetch("assets/data/product.csv")
                 <div class="col-6 col-md-3 zoomin rounded-1">
                     <div class="card mb-4 product-wap">
                         <div class="card rounded-1">
-                            <img class="card-img rounded-1 img-fluid" src="assets/img/igrBio/${product.image}" alt="${product.title}">
+                            <img class="card-img rounded-1 img-fluid" src="../assets/img/igrBio/${product.image}" alt="${product.title}">
                             <div class="card-img-overlay rounded-1 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
                                 <li><button class="btn btn-success text-white mt-2" onclick="openProductModal('${product.id}')"><i class="far fa-eye"></i></button></li>
@@ -107,9 +168,9 @@ fetch("assets/data/product.csv")
                                   <small class="badge bg-light text-dark">${product.type}</small>
                                 </span>
                             </div>
-                            <p><small>MAD </small><b>${product.price}.00</b></p>
+                            <p><small>${trs.currency} </small><b>${product.price}</b></p>
                             <div class="btn btn-light w-100 rounded" onclick="addToCart('${product.id}')">
-                                <i class="fas fa-cart-plus"></i><small> Add to cart</small>
+                                <i class="fas fa-cart-plus"></i><small> ${trs.addToCart} </small>
                             </div>
                         </div>
                     </div>
@@ -200,7 +261,7 @@ function addToCart(productId) {
 
     loadCart();
     updateCartCount();
-    showToast('Added successfully to your cart ✅', 'success');
+    showToast(trs.addedToCart, 'success');
 }
 
 
@@ -245,7 +306,7 @@ function loadCart() {
 
         container.innerHTML += `
           <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-2">
-            <img src="assets/img/igrBio/${item.image}" width="80" height="80" class="rounded">
+            <img src="../assets/img/igrBio/${item.image}" width="80" height="80" class="rounded">
             <div class="flex-grow-1 mx-2">
               <p class="mb-0 fw-bold">${item.title}</p>
               <small>${item.price} x ${item.quantity}</small>
@@ -255,7 +316,7 @@ function loadCart() {
               <span class="mx-2">${item.quantity}</span>
               <button onclick="updateQuantity(${index}, 1)" class="btn btn-sm btn-outline-secondary">+</button>
             </div>
-            <span class="mx-2">${itemTotal.toFixed(2)}</span>
+            <span class="mx-2">${itemTotal.toFixed(0)}</span>
             <button onclick="removeItem(${index})" class="btn btn-sm btn-danger">
               <i class="fas fa-trash"></i>
             </button>
@@ -274,7 +335,6 @@ function updateCartCount() {
     let itemCount = 0;
     cart.forEach(item => itemCount += item.quantity);
     
-    console.log("Cart count :", itemCount);
     const cartCount = document.getElementById("cart-count");
    
     if (cartCount) {
@@ -321,7 +381,7 @@ function removeItem(index, fromCartPage = false) {
         loadCart();
         updateCartCount();
     }
-    showToast('Item removed from your list', 'error');
+    showToast(trs.itemRemoved, 'error');
 }
 
 
@@ -330,13 +390,12 @@ function clearCart() {
     localStorage.removeItem("cart");
     loadCart();
     updateCartCount();
-    showToast('Cart cleared successfully', 'error');
+    showToast(trs.cartCleared, 'error');
 }
 
 window.onload = () => {
     loadCart();
 };
-
 
 // load cart page details
 function loadCartPage() {
@@ -355,8 +414,8 @@ function loadCartPage() {
         container.innerHTML += `
           <div class="mb-3 p-3 d-flex flex-row justify-content-between align-items-center shadow-sm bg-white rounded">
             <div class="d-flex align-items-center">
-              <img src="assets/img/igrBio/${item.image}" width="80" height="80" class="rounded me-3">
-              <div>
+              <img src="../assets/img/igrBio/${item.image}" width="80" height="80" class="rounded">
+              <div class="me-3 ms-3">
                 <h6 class="mb-1">${item.title}</h6>
                 <small class="d-flex align-items-center pt-2">
                 <button onclick="updateQuantity(${index}, -1, true)" class="btn btn-sm btn-outline-secondary">-</button>
@@ -365,8 +424,8 @@ function loadCartPage() {
                 </small>
               </div>
             </div>
-            <small class="mb-1 d-none d-lg-block">${item.price} MAD each</small>
-            <span class="mx-3"><b>${itemTotal.toFixed(2)}</b> <small>MAD</small></span>
+            <small class="mb-1 d-none d-lg-block">${item.price} ${trs.currency} ${trs.each}</small>
+            <span class="mx-3"><b>${itemTotal.toFixed(0)}</b> <small>${trs.currency}</small></span>
             <button onclick="removeItem(${index}, true)" class="btn btn-sm btn-outline-danger">
               <i class="fas fa-times"></i>
             </button>
@@ -375,9 +434,10 @@ function loadCartPage() {
     });
 
     // Update summary
-    document.getElementById("summary-subtotal").textContent = subtotal.toFixed(2) + " MAD";
-    document.getElementById("summary-discount").textContent = appliedDiscount.toFixed(2) + " MAD";
-    document.getElementById("summary-total").textContent = (subtotal - appliedDiscount).toFixed(2) + " MAD";
+    document.getElementById("summary-subtotal").textContent = subtotal.toFixed(0) + " " + trs.currency;
+    document.getElementById("summary-discount").textContent = appliedDiscount.toFixed(0) + " " + trs.currency;
+    document.getElementById("summary-total").textContent = (subtotal - appliedDiscount).toFixed(0) + " " + trs.currency;
+    document.getElementById("summary-total-checkout").textContent = (subtotal - appliedDiscount).toFixed(0) + " " + trs.currency;
 }
 
 
@@ -403,10 +463,10 @@ function applyCoupon() {
     if (code == "DISCOUNT10") {
         appliedDiscount = subtotal * 0.10; // 10% off
     } else if (code == "DISCOUNT50") {
-        appliedDiscount = 50; // fixed amount
+        appliedDiscount = subtotal * 0.50; // 50% off
     } else {
         appliedDiscount = 0;
-        alert("Invalid coupon code");
+        alert(trs.invalidCoupon);
     }
 
     loadCartPage(); // refresh totals
@@ -452,13 +512,13 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
 
   // Basic client-side validation
   if (!name || !phone || !address) {
-    alert("Please fill in all required fields (Name, Phone, Address).");
+    alert(trs.requiredFields);
     return;
   }
   // Optional: additional phone format check
   const phoneRegex = /^(05|06|07)[0-9]{8}$/;
   if (!phoneRegex.test(phone)) {
-    alert("Phone number is invalid. It should start with 05/06/07 and be 10 digits.");
+    alert(trs.invalidPhone);
     return;
   }
 
@@ -476,7 +536,7 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
   // disable button while submitting
   const btn = document.getElementById("placeOrderBtn");
   btn.disabled = true;
-  btn.textContent = "Placing order...";
+  btn.textContent = trs.placingOrder;
 
   try {
     // replace with your Google Apps Script URL
@@ -490,7 +550,7 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
       mode: "no-cors" // avoid if you want to read response; otherwise Apps Script must allow CORS or use no-cors
     });
 
-    alert("✅ Order placed successfully!");
+    alert(trs.orderPlaced);
     localStorage.removeItem("cart");
     form.reset();
     loadCart();
@@ -500,10 +560,11 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
     // hide checkout form or reset UI as needed
   } catch (err) {
     console.error(err);
-    alert("⚠️ Failed to submit order. Please try again.");
+    alert(trs.orderFailed);
   } finally {
     btn.disabled = false;
-    btn.textContent = "Place Order";
+    btn.textContent = trs.placeOrder;
+    window.location.href = "../"; // redirect to home after order
   }
 });
 
@@ -513,12 +574,12 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
 function openProductModal(productId) {
   const product = products.find(p => p.id == productId);
   if (!product) return;
-
+  
   // Fill modal content
   document.getElementById("modalTitle").textContent = product.title;
-  document.getElementById("modalImage").src = `assets/img/igrBio/${product.image}`;
+  document.getElementById("modalImage").src = `../assets/img/igrBio/${product.image}`;
   document.getElementById("modalImage").alt = product.title;
-  document.getElementById("modalPrice").textContent = `MAD ${product.price}.00`;
+  document.getElementById("modalPrice").textContent = `${trs.currency} ${product.price}`;
   document.getElementById("modalDescription").textContent = product.description;
 
   document.getElementById("modalTags").innerHTML = `
@@ -528,7 +589,7 @@ function openProductModal(productId) {
     
   document.getElementById("addProductBtn").innerHTML = `
       <div class="btn btn-outline-success w-100 rounded py-2" onclick="addToCart(${productId})">
-          <i class="fas fa-cart-plus"></i><small> Add to cart</small>
+          <i class="fas fa-cart-plus"></i><small> ${trs.addToCart} </small>
       </div>
     `
 
