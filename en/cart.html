@@ -16,6 +16,12 @@
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    
+            <!-- SEO improvements -->
+    <link rel="alternate" hreflang="en" href="https://igrbio.com/en/cart.html" />
+    <link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/cart.html" />
+    <link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/cart.html" />
+    <link rel="alternate" hreflang="x-default" href="https://igrbio.com/en/cart.html" />
 
 </head>
 
@@ -46,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="orderItemsCheckout">
         <!-- Cart Items -->
         <div class="col-lg-8">
                         
@@ -131,7 +137,7 @@
                     <button class="btn btn-success" onclick="applyCoupon()">Apply</button>
                 </div>
 
-                <a class="btn btn-outline-success w-100 rounded" onclick="showCheckoutForm()" href="#">Checkout</a>
+                <a class="btn btn-outline-success w-100 rounded" onclick="showCheckoutForm()" href="#orderItemsCheckout">Checkout</a>
             </div>
         </div>
     </div>

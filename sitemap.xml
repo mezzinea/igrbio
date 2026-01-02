@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- EN -->
+  <url>
+    <loc>https://igrbio.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/" />
+  </url>
+
+  <url>
+    <loc>https://igrbio.com/en/cart.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/cart.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/cart.html" />
+  </url>
+  
+  <url>
+    <loc>https://igrbio.com/en/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/contact.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/contact.html" />
+  </url>
+  
+  <url>
+    <loc>https://igrbio.com/en/legal.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/legal.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/legal.html" />
+  </url>
+  
+  <url>
+    <loc>https://igrbio.com/en/shop.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/shop.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/shop.html" />
+  </url>
+
+  <!-- FR -->
+  <url>
+    <loc>https://igrbio.com/fr/index.html</loc>
+  </url>
+  <url>
+    <loc>https://igrbio.com/fr/contact.html</loc>
+  </url>
+  <url>
+    <loc>https://igrbio.com/fr/legal.html</loc>
+  </url>
+  <url>
+    <loc>https://igrbio.com/fr/shop.html</loc>
+  </url>
+  <url>
+    <loc>https://igrbio.com/fr/cart.html</loc>
+  </url>
+
+  <!-- AR -->
+  <url>
+    <loc>https://igrbio.com/ar/index.html</loc>
+  </url>
+  <url>
+    <loc>https://igrbio.com/ar/contact.html</loc>
+  </url>
+  <url>
+    <loc>https://igrbio.com/ar/legal.html</loc>
+  </url>
+  <url>
+    <loc>https://igrbio.com/ar/shop.html</loc>
+  </url>
+  <url>
+    <loc>https://igrbio.com/ar/cart.html</loc>
+  </url>
+
+</urlset>
