@@ -218,9 +218,9 @@ function addToCart(productId) {
     let product = {}; 
     const pack = {
           id: -1,
-          title: "pack souss",
-          price: "550",
-          image: "3vhEihamIkRCTUfXXWVdO6ku3.jpg",
+          title: "pack chifaa",
+          price: "500",
+          image: "latest/pack-chifaa.webp",
           quantity: 1
       }
     
