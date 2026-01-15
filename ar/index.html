@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="../assets/img/apple.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/igrBio/logo/logo S02.png">
+    <link rel="apple-touch-icon" href="../assets/img/apple.webp">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/igrBio/logo/logo S02.webp">
 
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/templatemo.css">
@@ -16,13 +16,19 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="../assets/css/fontawesome-pro.css">
+
+        <!-- SEO improvements -->
+    <link rel="alternate" hreflang="en" href="https://igrbio.com/en/index.html" />
+    <link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/index.html" />
+    <link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/index.html" />
+    <link rel="alternate" hreflang="x-default" href="https://igrbio.com/ar/index.html" />
 </head>
 
 <body>
 
     <!-- Preloader -->
     <div id="preloader">
-        <img src="../assets/img/igrBio/logo/logo 02.png" alt="الشعار">
+        <img src="../assets/img/igrBio/logo/logo 02.webp" alt="الشعار">
     </div>
 
     <!-- Header -->
@@ -32,31 +38,41 @@
     <div id="product-view"></div>
 
     <!-- Hero Section -->
-    <section style="background-image: url('../assets/img/igrBio/back3.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-        <div class="container pt-5 mb-3">
-            <div class="row text-center pt-3">
-                <div class="col-lg-6 m-auto">
-                    <h2 class="h2">مرحبًا بكم في igrBio</h2>
-                    <small>
-                        من أكادير — حيث تولد الثقة
-                    </small>
+    <div style="  
+        position: relative;
+        min-height: 500px;
+        background: 
+            linear-gradient(rgba(255,255,255,0.7), rgba(255, 255, 255, 1)),
+            url('../assets/img/igrBio/home-back.webp') center/cover no-repeat;
+        ">
+        
+        <section>
+            <div class="container pt-5 mb-3">
+                <div class="row text-center pt-3">
+                    <div class="col-lg-6 m-auto">
+                        <h2 class="h2">مرحبًا بكم في igrBio</h2>
+                        <small>
+                            من أكادير — حيث تولد الثقة
+                        </small>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div>
-            <div class="text-center justify-content-center">
-                <a class="btn btn-outline-success py-3 px-5 rounded-pill" href="shop.html">
-                    <b>تسوق الآن</b>
-                </a>
+            <div>
+                <div class="text-center justify-content-center">
+                    <a class="btn btn-outline-success py-3 px-5 rounded-pill" href="shop.html">
+                        <b>تسوق الآن</b>
+                    </a>
+                </div>
             </div>
-        </div>
-        <br><br>
-    </section>
+            <br><br>
+        </section>
 
-    <section class="container">
-        <span id="suggested-selector"></span>
-        <div class="row py-3" id="shop-product-list"></div>
-    </section>
+        <section class="container">
+            <span id="suggested-selector"></span>
+            <div class="row py-3" id="shop-product-list"></div>
+        </section>
+        
+    </div>
 
     <!-- Featured Pack -->
     <section class="bg-light py-5">
@@ -76,37 +92,40 @@
                     <div class="col-md-6 position-relative">
                         <div class="badge-discount">-10%</div>
                     </div>
-                    <img src="../assets/img/igrBio/3vhEihamIkRCTUfXXWVdO6ku3.jpg" class="card-img-top" style="border-radius: 15px;" alt="">
+                    <img src="../assets/img/igrBio/latest/pack-chifaa.webp" class="card-img-top" style="border-radius: 15px;" alt="">
                 </div>
 
                 <div class="col-md-7 pt-3 mx-auto">
                     <div class="card-body">
                         <span class="badge-offer mb-3 d-inline-block px-3">عرض محدود</span>
 
-                        <h1 class="fw-bold mb-3">حزمة سوس</h1>
+                        <h1 class="fw-bold mb-3">باقة الشفاء</h1>
 
                         <p class="text-dark">
-                            حزمة سوس هي مزيج فاخر من أجود المنتجات الطبيعية المغربية، مصممة لتكون إضافة راقية لمائدتك أو هدية قيّمة. تجمع بين المذاق الأصيل والفوائد الصحية في تشكيلة متوازنة بعناية.
+                            باقة الشفاء من Igrbio هي تشكيلة متكاملة من أجود أنواع العسل الطبيعي والأملو المغربي الأصيل،
+                            مثالية لتعزيز المناعة خلال فصل الشتاء وللاستمتاع بمذاق غني وفوائد صحية عالية.
                         </p>
 
                         <h6 class="fw-bold">محتويات الحزمة:</h6>
                         <ul class="mb-3">
-                            <li>أملو باللوز وزيت الأركان وعسل الكالبتوس (700 غرام للواحدة) × 2</li>
-                            <li>عسل بري قوي المذاق ومعروف بفوائده الصحية – 500 غرام</li>
-                            <li>عسل طبيعي بنكهة مميزة ولمسة فريدة – 500 غرام</li>
-                            <li>عسل الكالبتوس: عسل نقي غني بفوائده الصحية – 500 غرام</li>
+                            <li>نصف كيلو عسل الدغموس (500 غرام)</li>
+                            <li>نصف كيلو عسل السدر (500 غرام)</li>
+                            <li>نصف كيلو عسل الخروب (500 غرام)</li>
+                            <li>أملو الكاجو – 700 غرام</li>
+                            <li>أملو اللوز – 700 غرام</li>
                         </ul>
 
                         <div class="mb-3">
-                            <b class="h3 text-success">550,00 درهم</b>
-                            <span class="old-price">635,00 درهم</span>
+                            <b class="h3 text-success">500,00 درهم</b>
                         </div>
 
                         <ul class="check-list list-unstyled mb-4">
-                            <li>أملو (100٪ عسل كالبتوس طبيعي)</li>
-                            <li>عسل الزعتر</li>
-                            <li>عسل الكالبتوس</li>
+                            <li>منتجات طبيعية 100%</li>
+                            <li>جودة عالية من علامة Igrbio</li>
+                            <li>مناسبة للاستهلاك اليومي أو كهدية</li>
+                            <li>التوصيل مجاني لجميع المدن</li>
                         </ul>
+
 
                         <div class="mb-3 pt-2">
                             <div onclick="addToCart(-1)" class="btn btn-outline-dark rounded-pill py-3 px-5">
@@ -131,7 +150,7 @@
                         <div class="zoomin">
                             <div class="card product-wap h-100">
                                 <a class="card rounded-0" href="shop.html?type=honey">
-                                    <img src="../assets/img/igrBio/honey-cat.jpg" class="card-img-top" alt="...">
+                                    <img src="../assets/img/cat-honey.webp" class="card-img-top" alt="...">
                                     <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                         <h3 class="text-white h2">العسل</h3>
                                     </div>
@@ -146,7 +165,7 @@
                         <div class="zoomin">
                             <div class="card product-wap h-100">
                                 <a class="card rounded-0" href="shop.html?type=oil">
-                                    <img src="../assets/img/igrBio/oil-cat.jpg" class="card-img-top" alt="...">
+                                    <img src="../assets/img/cat-oil.webp" class="card-img-top" alt="...">
                                     <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                         <h3 class="text-white h2">الزيوت</h3>
                                     </div>
@@ -161,7 +180,7 @@
                         <div class="zoomin">
                             <div class="card product-wap h-100">
                                 <a class="card rounded-0" href="shop.html?type=amlou">
-                                    <img src="../assets/img/igrBio/amlou-cat.jpg" class="card-img-top" alt="...">
+                                    <img src="../assets/img/cat-amlou.webp" class="card-img-top" alt="...">
                                     <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                         <h3 class="text-white h2">أملو</h3>
                                     </div>
@@ -176,7 +195,7 @@
                         <div class="zoomin">
                             <div class="card product-wap h-100">
                                 <a class="card rounded-0" href="shop.html?type=complement">
-                                    <img src="../assets/img/igrBio/amlou-cat.jpg" class="card-img-top" alt="...">
+                                    <img src="../assets/img/cat-complement.webp" class="card-img-top" alt="...">
                                     <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                         <h3 class="text-white h2">مكملات</h3>
                                     </div>
@@ -207,7 +226,7 @@
                     </small>
                 </div>
                 <div class="col-md-5 mx-auto">
-                    <img src="../assets/img/igrBio/about_2.png" class="card-img-top" alt="">
+                    <img src="../assets/img/igrBio/about.webp" class="card-img-top" alt="">
                 </div>
             </div>
         </div>

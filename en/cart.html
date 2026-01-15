@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="../assets/img/apple.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/igrBio/logo/logo S02.png">
+    <link rel="apple-touch-icon" href="../assets/img/apple.webp">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/igrBio/logo/logo S02.webp">
 
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/templatemo.css">
@@ -16,6 +16,12 @@
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    
+            <!-- SEO improvements -->
+    <link rel="alternate" hreflang="en" href="https://igrbio.com/en/cart.html" />
+    <link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/cart.html" />
+    <link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/cart.html" />
+    <link rel="alternate" hreflang="x-default" href="https://igrbio.com/en/cart.html" />
 
 </head>
 
@@ -23,7 +29,7 @@
     
     <!-- Preloader -->
     <div id="preloader">
-        <img src="../assets/img/igrBio/logo/logo 02.png" alt="Logo">
+        <img src="../assets/img/igrBio/logo/logo 02.webp" alt="Logo">
     </div>
     <!-- End Preloader -->
      
@@ -46,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="orderItemsCheckout">
         <!-- Cart Items -->
         <div class="col-lg-8">
                         
@@ -131,7 +137,7 @@
                     <button class="btn btn-success" onclick="applyCoupon()">Apply</button>
                 </div>
 
-                <a class="btn btn-outline-success w-100 rounded" onclick="showCheckoutForm()" href="#">Checkout</a>
+                <a class="btn btn-outline-success w-100 rounded" onclick="showCheckoutForm()" href="#orderItemsCheckout">Checkout</a>
             </div>
         </div>
     </div>
