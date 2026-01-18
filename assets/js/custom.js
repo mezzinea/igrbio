@@ -4,15 +4,15 @@ function setLanguage(lang) {
 
     if (lang == "ar") {
       // selectedLang.innerText = "العربية";
-      window.location.href = "../ar";
+      window.location.href = "../ar/";
     }
     if (lang == "fr") {
       // selectedLang.innerText = "Français";
-      window.location.href = "../fr";
+      window.location.href = "../fr/";
     }
     if (lang == "en") {
       // selectedLang.innerText = "English";
-      window.location.href = "../en";
+      window.location.href = "../en/";
     }
 }
 
@@ -541,15 +541,10 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
   btn.textContent = trs.placingOrder;
 
   try {
-    // replace with your Google Apps Script URL
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxBl1pTLgIAycto9K726axq7780-Pl-3cBO2jtmYb8DWU5PwsrYBo6RLuDM4HOqBd4W/exec";
-
-    // NOTE: if you use mode: 'no-cors', you won't be able to read the response.
-    await fetch(SCRIPT_URL, {
+    await fetch("/api/place-order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-      mode: "no-cors" // avoid if you want to read response; otherwise Apps Script must allow CORS or use no-cors
+      body: JSON.stringify(payload)
     });
 
     alert(trs.orderPlaced);

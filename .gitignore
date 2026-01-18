@@ -1,1 +1,6 @@
 *.log
+.venv
+__pycache__/
+env/
+venv/
+node_modules/
