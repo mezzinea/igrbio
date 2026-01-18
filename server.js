@@ -32,12 +32,8 @@ if (origins.length) {
 }
 
 app.get("/api/test-env", (req, res) => {
-  res.json({
-    gas: process.env.GAS_URL ? "OK" : "MISSING",
-    cors: process.env.CORS_ORIGINS ? "OK" : "MISSING",
-    port: process.env.PORT ? "OK" : "MISSING",
-    test: process.env.TEST_VALUE ? "OK" : "MISSING",
-  });
+  // Only for testing — do NOT expose in production
+  res.json(process.env);
 });
 
 // ---- API: place order ----
