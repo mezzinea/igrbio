@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const GAS_URL = process.env.GAS_URL;
+const GAS_URL = process.env.GAS_URL || "https://script.google.com/macros/s/AKfycbxBl1pTLgIAycto9K726axq7780-Pl-3cBO2jtmYb8DWU5PwsrYBo6RLuDM4HOqBd4W/exec";
 
 // ---- JSON body ----
 app.use(express.json({ limit: "1mb" }));
@@ -30,6 +30,11 @@ if (origins.length) {
     allowedHeaders: ["Content-Type"]
   }));
 }
+
+app.get("/api/test-env", (req, res) => {
+  // Only for testing — do NOT expose in production
+  res.json(process.env);
+});
 
 // ---- API: place order ----
 app.post("/api/place-order", async (req, res) => {
@@ -50,11 +55,11 @@ app.post("/api/place-order", async (req, res) => {
 
     if (!r.ok) {
       const t = await r.text();
-      console.error("GAS error:", r.status, t);
+      console.log("GAS error:", r.status, t);
       return res.status(500).json({ error: "Sheet error" });
     }
   } catch (err) {
-    console.error("GAS exception:", err);
+    console.log("GAS exception:", err);
     return res.status(500).json({ error: "Server error" });
   }
 
