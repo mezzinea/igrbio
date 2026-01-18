@@ -5,21 +5,26 @@ In the heart of Agadir, where argan trees meet the Atlas breeze, three friends s
 
 ### Global env vars
 
+```sh
 export CORS_ORIGINS="https://igrbio.com"
 export GAS_URL="https://script.google.com/macros/s/{your_key}/exec"
-
+```
 
 ### Deploy with python :
 
+```sh
 python3 -m venv .venv
 source .venv/bin/activate
 pip install flask flask-cors requests gunicorn
 gunicorn -w 10 -b 0.0.0.0:5000 app:app
+```
 
 
 ### Deploy with node.js
 
+```sh
 export PORT=5000
 npm init -y
 npm install express cors node-fetch dotenv
 node server.js
+```
