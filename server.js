@@ -31,6 +31,15 @@ if (origins.length) {
   }));
 }
 
+app.get("/api/test-env", (req, res) => {
+  res.json({
+    gas: process.env.GAS_URL ? "OK" : "MISSING",
+    cors: process.env.CORS_ORIGINS ? "OK" : "MISSING",
+    port: process.env.PORT ? "OK" : "MISSING",
+    test: process.env.TEST_VALUE ? "OK" : "MISSING",
+  });
+});
+
 // ---- API: place order ----
 app.post("/api/place-order", async (req, res) => {
   const data = req.body;
@@ -50,11 +59,11 @@ app.post("/api/place-order", async (req, res) => {
 
     if (!r.ok) {
       const t = await r.text();
-      console.error("GAS error:", r.status, t);
+      console.log("GAS error:", r.status, t);
       return res.status(500).json({ error: "Sheet error" });
     }
   } catch (err) {
-    console.error("GAS exception:", err);
+    console.log("GAS exception:", err);
     return res.status(500).json({ error: "Server error" });
   }
 
