@@ -3,69 +3,99 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- EN -->
+  <!-- HOME -->
+
   <url>
     <loc>https://igrbio.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrbio.com/en/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://igrbio.com/" />
   </url>
 
   <url>
-    <loc>https://igrbio.com/en/cart.html</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/cart.html" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/cart.html" />
+    <loc>https://igrbio.com/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrbio.com/en/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://igrbio.com/" />
   </url>
-  
+
   <url>
-    <loc>https://igrbio.com/en/contact.html</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/contact.html" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/contact.html" />
+    <loc>https://igrbio.com/ar/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrbio.com/en/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://igrbio.com/" />
   </url>
-  
-  <url>
-    <loc>https://igrbio.com/en/legal.html</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/legal.html" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/legal.html" />
-  </url>
-  
+
+  <!-- SHOP -->
+
   <url>
     <loc>https://igrbio.com/en/shop.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrbio.com/en/shop.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/shop.html" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/shop.html" />
   </url>
 
-  <!-- FR -->
-  <url>
-    <loc>https://igrbio.com/fr/</loc>
-  </url>
-  <url>
-    <loc>https://igrbio.com/fr/contact.html</loc>
-  </url>
-  <url>
-    <loc>https://igrbio.com/fr/legal.html</loc>
-  </url>
   <url>
     <loc>https://igrbio.com/fr/shop.html</loc>
-  </url>
-  <url>
-    <loc>https://igrbio.com/fr/cart.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrbio.com/en/shop.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/shop.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/shop.html" />
   </url>
 
-  <!-- AR -->
-  <url>
-    <loc>https://igrbio.com/ar/</loc>
-  </url>
-  <url>
-    <loc>https://igrbio.com/ar/contact.html</loc>
-  </url>
-  <url>
-    <loc>https://igrbio.com/ar/legal.html</loc>
-  </url>
   <url>
     <loc>https://igrbio.com/ar/shop.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrbio.com/en/shop.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/shop.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/shop.html" />
   </url>
+
+  <!-- CONTACT -->
+
   <url>
-    <loc>https://igrbio.com/ar/cart.html</loc>
+    <loc>https://igrbio.com/en/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrbio.com/en/contact.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/contact.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/contact.html" />
+  </url>
+
+  <url>
+    <loc>https://igrbio.com/fr/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrbio.com/en/contact.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/contact.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/contact.html" />
+  </url>
+
+  <url>
+    <loc>https://igrbio.com/ar/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrbio.com/en/contact.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/contact.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/contact.html" />
+  </url>
+
+  <!-- LEGAL -->
+
+  <url>
+    <loc>https://igrbio.com/en/legal.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrbio.com/en/legal.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/legal.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/legal.html" />
+  </url>
+
+  <url>
+    <loc>https://igrbio.com/fr/legal.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrbio.com/en/legal.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/legal.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/legal.html" />
+  </url>
+
+  <url>
+    <loc>https://igrbio.com/ar/legal.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrbio.com/en/legal.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/legal.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/legal.html" />
   </url>
 
 </urlset>
