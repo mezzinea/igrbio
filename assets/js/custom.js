@@ -534,13 +534,13 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
   // TODO : add product quantity to the order details and push it to csv file .....
   
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
-  const productsText = cart.map(i => `${i.title} - ${i.quantity} (x${i.total})`).join("\n");
+  const productsText = cart.map(i => `${i.title} - ${i.quantity} (${i.price}Dh x${i.total})`).join("\n");
   const total = cart.reduce((s, i) => s + (Number(i.price) || 0) * (Number(i.total) || 0), 0);
 
   const payload = {
     name, phone, address, email,
     products: productsText,
-    total
+    total: total + "Dh"
   };
 
   // disable button while submitting
