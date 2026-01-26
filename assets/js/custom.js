@@ -151,7 +151,7 @@ fetch("product.csv")
                 <div class="col-6 col-md-3 zoomin rounded-1">
                     <div class="card mb-4 product-wap">
                         <div class="card rounded-1">
-                            <img class="card-img rounded-1 img-fluid" src="../assets/img/igrBio/${product.image}" alt="${product.title}">
+                            <img class="card-img rounded-1 img-fluid" src="../assets/img/igrBio/${product.image}" alt="${product.title}" loading="lazy" width="400" height="400">
                             <div class="card-img-overlay rounded-1 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
                                 <li><button class="btn btn-success text-white mt-2" onclick="openProductModal('${product.id}')"><i class="far fa-eye"></i></button></li>
@@ -221,7 +221,8 @@ function addToCart(productId) {
           title: "pack chifaa",
           price: "500",
           image: "products/pack-chifaa.webp",
-          quantity: 1
+          quantity: "",
+          total: 1
       }
     
     if(productId == -1) {
@@ -246,7 +247,7 @@ function addToCart(productId) {
     const existingProduct = cart.find(item => item.id == productId);
 
     if (existingProduct) {
-        existingProduct.quantity += 1;
+        existingProduct.total += 1;
     } else {
         // Clone only the needed fields
         cart.push({
@@ -254,7 +255,8 @@ function addToCart(productId) {
             title: product.title,
             price: product.price,
             image: product.image,
-            quantity: 1
+            quantity: product.quantity,
+            total: 1
         });
     }
 
@@ -303,19 +305,19 @@ function loadCart() {
     let total = 0;
 
     cart.forEach((item, index) => {
-        const itemTotal = parseFloat(item.price) * item.quantity;
+        const itemTotal = parseFloat(item.price) * item.total;
         total += itemTotal;
 
         container.innerHTML += `
           <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-2">
-            <img src="../assets/img/igrBio/${item.image}" width="80" height="80" class="rounded" alt="${item.title}">
+            <img src="../assets/img/igrBio/${item.image}" width="80" height="80" class="rounded" alt="${item.title}" loading="lazy" width="400" height="400">
             <div class="flex-grow-1 mx-2">
               <p class="mb-0 fw-bold">${item.title}</p>
-              <small>${item.price} x ${item.quantity}</small>
+              <small>${item.price} x ${item.total}</small> <small class="badge bg-light text-dark" style="font-size: 9px;">${item.quantity}</small>
             </div>
             <div class="d-flex align-items-center">
               <button onclick="updateQuantity(${index}, -1)" class="btn btn-sm btn-outline-secondary">-</button>
-              <span class="mx-2">${item.quantity}</span>
+              <span class="mx-2">${item.total}</span>
               <button onclick="updateQuantity(${index}, 1)" class="btn btn-sm btn-outline-secondary">+</button>
             </div>
             <span class="mx-2">${itemTotal.toFixed(0)}</span>
@@ -335,7 +337,7 @@ function updateCartCount() {
     cart = cart ? JSON.parse(cart) : [];
 
     let itemCount = 0;
-    cart.forEach(item => itemCount += item.quantity);
+    cart.forEach(item => itemCount += item.total);
     
     const cartCount = document.getElementById("cart-count");
    
@@ -354,8 +356,8 @@ function updateQuantity(index, change, fromCartPage = false) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     if (!cart[index]) return;
 
-    cart[index].quantity += change;
-    if (cart[index].quantity <= 0) {
+    cart[index].total += change;
+    if (cart[index].total <= 0) {
         cart.splice(index, 1);
     }
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -410,18 +412,21 @@ function loadCartPage() {
     let subtotal = 0;
 
     cart.forEach((item, index) => {
-        const itemTotal = parseFloat(item.price) * item.quantity;
+        const itemTotal = parseFloat(item.price) * item.total;
         subtotal += itemTotal;
 
         container.innerHTML += `
           <div class="mb-3 p-3 d-flex flex-row justify-content-between align-items-center shadow-sm bg-white rounded">
             <div class="d-flex align-items-center">
-              <img src="../assets/img/igrBio/${item.image}" width="80" height="80" class="rounded" alt="${item.title}">
+              <img src="../assets/img/igrBio/${item.image}" width="80" height="80" class="rounded" alt="${item.title}" loading="lazy" width="400" height="400">
               <div class="me-3 ms-3">
-                <h6 class="mb-1">${item.title}</h6>
+                <h6 class="mb-1">
+                  ${item.title}
+                  <small class="badge bg-light text-dark" style="font-size: 9px;">${item.quantity}</small>
+                </h6>
                 <small class="d-flex align-items-center pt-2">
                 <button onclick="updateQuantity(${index}, -1, true)" class="btn btn-sm btn-outline-secondary">-</button>
-                  <span class="mx-2">${item.quantity}</span>
+                  <span class="mx-2">${item.total}</span>
                   <button onclick="updateQuantity(${index}, 1, true)" class="btn btn-sm btn-outline-secondary">+</button>
                 </small>
               </div>
@@ -459,7 +464,7 @@ function applyCoupon() {
     cart = cart ? JSON.parse(cart) : [];
 
     cart.forEach(item => {
-        subtotal += parseFloat(item.price) * item.quantity;
+        subtotal += parseFloat(item.price) * item.total;
     });
 
     if (code == "DISCOUNT10") {
@@ -525,14 +530,17 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
   }
 
   // --- Get cart and compute products/total ---
+  
+  // TODO : add product quantity to the order details and push it to csv file .....
+  
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
-  const productsText = cart.map(i => `${i.id} - ${i.title} (x${i.quantity})`).join("\n");
-  const total = cart.reduce((s, i) => s + (Number(i.price) || 0) * (Number(i.quantity) || 0), 0);
+  const productsText = cart.map(i => `${i.title} - ${i.quantity} (${i.price}Dh x${i.total})`).join("\n");
+  const total = cart.reduce((s, i) => s + (Number(i.price) || 0) * (Number(i.total) || 0), 0);
 
   const payload = {
     name, phone, address, email,
     products: productsText,
-    total
+    total: total + "Dh"
   };
 
   // disable button while submitting
