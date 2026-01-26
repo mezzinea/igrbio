@@ -151,7 +151,7 @@ fetch("product.csv")
                 <div class="col-6 col-md-3 zoomin rounded-1">
                     <div class="card mb-4 product-wap">
                         <div class="card rounded-1">
-                            <img class="card-img rounded-1 img-fluid" src="../assets/img/igrBio/${product.image}" alt="${product.title}">
+                            <img class="card-img rounded-1 img-fluid" src="../assets/img/igrBio/${product.image}" alt="${product.title}" loading="lazy" width="400" height="400">
                             <div class="card-img-overlay rounded-1 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
                                 <li><button class="btn btn-success text-white mt-2" onclick="openProductModal('${product.id}')"><i class="far fa-eye"></i></button></li>
@@ -310,7 +310,7 @@ function loadCart() {
 
         container.innerHTML += `
           <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-2">
-            <img src="../assets/img/igrBio/${item.image}" width="80" height="80" class="rounded" alt="${item.title}">
+            <img src="../assets/img/igrBio/${item.image}" width="80" height="80" class="rounded" alt="${item.title}" loading="lazy" width="400" height="400">
             <div class="flex-grow-1 mx-2">
               <p class="mb-0 fw-bold">${item.title}</p>
               <small>${item.price} x ${item.total}</small> <small class="badge bg-light text-dark" style="font-size: 9px;">${item.quantity}</small>
@@ -418,7 +418,7 @@ function loadCartPage() {
         container.innerHTML += `
           <div class="mb-3 p-3 d-flex flex-row justify-content-between align-items-center shadow-sm bg-white rounded">
             <div class="d-flex align-items-center">
-              <img src="../assets/img/igrBio/${item.image}" width="80" height="80" class="rounded" alt="${item.title}">
+              <img src="../assets/img/igrBio/${item.image}" width="80" height="80" class="rounded" alt="${item.title}" loading="lazy" width="400" height="400">
               <div class="me-3 ms-3">
                 <h6 class="mb-1">
                   ${item.title}
