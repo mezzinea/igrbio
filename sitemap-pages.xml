@@ -97,5 +97,12 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/legal.html" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/legal.html" />
   </url>
+  
+  <!-- ABOUT -->
+  <url>
+    <loc>https://igrbio.com/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://igrbio.com/en/about.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/about.html" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/about.html" />
 
 </urlset>
