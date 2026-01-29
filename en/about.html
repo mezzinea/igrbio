@@ -2,12 +2,11 @@
 <html lang="en">
 
 <head>
-    <title>igrBio Shop | Cart</title>
+    <title>igrBio Shop | Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Review your selected IGRBIO products and proceed to secure checkout. Natural Moroccan wellness products, ready to ship.">
-    <meta name="robots" content="noindex, nofollow">
-    
+    <meta name="description" content="IGRBIO offers 100% natural argan oil, olive oil, amlou, honey and herbal supplements from Agadir, Morocco. Pure wellness from nature.">
+
     <link rel="apple-touch-icon" href="../assets/img/apple.webp">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/igrBio/logo/igrbio-icon.webp">
 
@@ -17,24 +16,27 @@
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-    
+
     <!-- SEO improvements -->
-    <link rel="alternate" hreflang="en" href="https://igrbio.com/en/cart.html" />
-    <link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/cart.html" />
-    <link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/cart.html" />
-    <link rel="alternate" hreflang="x-default" href="https://igrbio.com/" />
+    <link rel="alternate" hreflang="en" href="https://igrbio.com/en/about.html" />
+    <link rel="alternate" hreflang="fr" href="https://igrbio.com/fr/about.html" />
+    <link rel="alternate" hreflang="ar" href="https://igrbio.com/ar/about.html" />
+    <link rel="alternate" hreflang="x-default" href="https://igrbio.com/en/about.html" />
+    
+    <link rel="canonical" href="https://igrbio.com/en/about.html" />
+
 
 </head>
 
-<body style="background-color: #f8f9fa;">
+<body>
     
     <!-- Preloader -->
     <div id="preloader">
         <img src="../assets/img/igrBio/logo/igrbio-logo-vertical-1.webp" alt="Logo">
     </div>
     <!-- End Preloader -->
-     
-    <!-- Header -->
+    
+    <!-- Start Header -->
     
         <!-- Start Top Nav -->
         <nav class="navbar navbar-expand-lg bg-dark navbar-light py-0" id="igrbiomo_nav_top">
@@ -179,114 +181,39 @@
         
         
         <span id="toast" class="toast">Sample message</span>
-    <!-- Close Header -->
+    <!-- End Header -->
      
-    <!-- Toast -->
-    <span id="toast" class="toast">Sample message</span>
-    <!-- End Toast -->
+    <!-- Product Details Modal -->
+    <div id="product-view"></div>
+    <!-- End Product Details Modal -->
+     
+    <!-- About -->
+    <section class="bg-white py-5" id="about">
+        <div class="container">
+            <div class="row align-items-center py-5 col-10 mx-auto">
+                <div class="col-md-7 text-success">
+                    <h1 style="font-size:  3rem;;"><b>IgrBio.</b></h1>
+                    <small class="pt-5">From Agadir — The Birth of Trust ... 🌹</small>
+                    <br><br>
+                    <small class="text-dark">
+                        In the heart of Agadir, where argan trees meet the Atlas breeze, three friends shared a belief: that nature holds the key to well-being. Witnessing people’s silent struggles with health and intimacy issues, they sought natural solutions instead of chemical ones.
+                        Thus, IGRBIO was born — inspired by Morocco’s rich land and the purity of argan oil. After extensive research and countless trials, they created 100% natural formulas combining the power of herbs and argan to restore vitality and confidence.
+                        From a small workshop in Agadir, IGRBIO grew into a symbol of trust, connecting with men and women across the kingdom.
+                    </small>
+                    <br>
+                </div>
+                <div class="col-md-5 mx-auto">
+                    <img src="../assets/img/igrBio/about.webp" class="card-img-top" width="40%" style="padding: 10px;" alt="About IgrBio">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Close Banner -->
+     
+    <!-- Start of our offers -->
+    <div id="our-offers"></div>
+    <!--End of our offers-->
     
-    <div class="container my-5">
-        <div class="py-3">
-            <div class="text-center">
-                <div class="col-lg-6 m-auto">
-                    <h1 class="h2">Your Cart</h1>
-                    <p>
-                        All selected products.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row" id="orderItemsCheckout">
-        <!-- Cart Items -->
-        <div class="col-lg-8">
-                        
-            <div id="order-items-header" class="p-4 shadow bg-white rounded mb-3" style="display: none;">
-                <div class="d-flex justify-content-between">
-                    <h4 class="mb-0">Order Items</h4>
-                    <span id="summary-total-checkout" class="fw-bold text-right">MAD 0</span>
-                    <button class="btn btn-sm" data-bs-toggle="collapse" data-bs-target="#orderItems">
-                        <i id="orderToggleIcon" class="fas fa-chevron-down"></i>
-                    </button>
-                </div>
-            </div>
-            <div id="orderItems" class="collapse show">
-                <div id="cart-page-items">
-                    <!-- JS will render items here -->
-                </div>
-            </div>
-            
-            <!-- Cart Items list-->
-            <!-- <div id="cart-page-items"></div> -->
-            <!-- End Cart Item list -->
-            
-            <!-- Hidden Checkout Form -->
-            <div id="checkout-form" class="p-4 shadow bg-white rounded mb-3" style="display: none;">
-                <h4>Shipping Info</h4>
-                <small class="text-muted d-block mb-3">
-                    (<span class="text-danger">*</span>) Required fields (Email address is optional)
-                </small>
-                <form id="orderForm">
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                        <small class="form-label">Name <span class="text-danger">*</span></small>
-                        <input id="customerName" type="text" class="form-control" required>
-                        </div>
-                        <div class="col-md-6">
-                        <small class="form-label">Phone <span class="text-danger">*</span></small>
-                        <input id="customerPhone" type="text" class="form-control" pattern="^(05|06|07)[0-9]{8}$" required>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <small class="form-label">Full Address <span class="text-danger">*</span></small>
-                        <input id="customerAddress" type="text" class="form-control" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <small class="form-label">Email (optional)</small>
-                        <input id="customerEmail" type="email" class="form-control">
-                    </div>
-
-                    <button id="placeOrderBtn" type="submit" class="btn btn-success w-100 py-3" >Place Order</button>
-                </form>
-            </div>
-            <!-- End Checkout Form -->
-            
-        </div>
-
-        <!-- Order Summary -->
-        <div class="col-lg-4">
-            <div class="p-3 shadow bg-white rounded">
-                <h5 class="mb-3">Order Summary</h5>
-                <div class="d-flex justify-content-between mb-2">
-                    <small>Subtotal</small>
-                    <small id="summary-subtotal">0 MAD</small>
-                </div>
-                <div class="d-flex justify-content-between mb-2">
-                    <small>Shipping</small>
-                    <small>Free</small>
-                </div>
-                <div class="d-flex justify-content-between mb-3">
-                    <small>Discount</small>
-                    <small id="summary-discount">0 MAD</small>
-                </div>
-                <hr>
-                <div class="d-flex justify-content-between mb-3">
-                    <strong>Total</strong>
-                    <strong id="summary-total">0 MAD</strong>
-                </div>
-                <!-- Coupon -->
-                <div class="input-group mb-3">
-                    <input type="text" id="coupon-code" class="form-control" placeholder="enter coupon code ...">
-                    <button class="btn btn-success" onclick="applyCoupon()">Apply</button>
-                </div>
-
-                <a class="btn btn-outline-success w-100 rounded" onclick="showCheckoutForm()" href="#orderItemsCheckout">Checkout</a>
-            </div>
-        </div>
-    </div>
-    </div>
-
     <!-- Start Footer -->
     <footer class="bg-dark text-white text-center" id="tempaltemo_footer">
         <div class="container py-5">
@@ -368,8 +295,8 @@
     <!-- Start Script -->
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/custom.js"></script>
+
     <!-- End Script -->
-     
 </body>
 
 </html>

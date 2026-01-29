@@ -1,12 +1,466 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <sitemap>
-        <loc>https://igrbio.com/sitemap-products.xml</loc>
-    </sitemap>
-    <sitemap>
-        <loc>https://igrbio.com/sitemap-pages.xml</loc>
-    </sitemap>
-    <sitemap>
-        <loc>https://igrbio.com/sitemap-images.xml</loc>
-    </sitemap>
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://igrbio.com/</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/en/index.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/en/about.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/en/shop.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/en/contact.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/en/legal.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/en/</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/ar/</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/fr/</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/en/cart.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/en/shop.html?type=honey</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/en/shop.html?type=oil</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/en/shop.html?type=amlou</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/en/shop.html?type=complement</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/ar/index.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/ar/about.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/ar/shop.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/ar/contact.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/ar/legal.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/ar/cart.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/ar/shop.html?type=honey</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/ar/shop.html?type=oil</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/ar/shop.html?type=amlou</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/ar/shop.html?type=complement</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/ar/abo</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/fr/index.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/fr/about.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/fr/shop.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/fr/contact.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/fr/legal.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/fr/cart.html</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/fr/shop.html?type=honey</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/fr/shop.html?type=oil</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/fr/shop.html?type=amlou</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://igrbio.com/fr/shop.html?type=complement</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Amlou Products Images -->
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Amlou%20de%20Cajou</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/amlou-akajou-1000.webp</image:loc>
+            <image:title>أملو الكاجو - Cashew Amlou - Amlou de Cajou 1kg</image:title>
+            <image:caption>Traditional Cashew Amlou - أملو الكاجو التقليدي - Amlou de Cajou traditionnel</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/amlou-akajou-250.webp</image:loc>
+            <image:title>أملو الكاجو - Cashew Amlou - Amlou de Cajou 250g</image:title>
+            <image:caption>Cashew Amlou small package - أملو الكاجو عبوة صغيرة - Petit format Amlou de Cajou</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/amlou-akajou-500.webp</image:loc>
+            <image:title>أملو الكاجو - Cashew Amlou - Amlou de Cajou 500g</image:title>
+            <image:caption>Daily nutritional support Amlou - أملو للدعم الغذائي اليومي - Amlou de soutien nutritionnel quotidien</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/amlou-akajou-700.webp</image:loc>
+            <image:title>أملو الكاجو - Cashew Amlou - Amlou de Cajou 700g</image:title>
+            <image:caption>High quality Cashew Amlou - أملو الكاجو عالي الجودة - Amlou de Cajou de haute qualité</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Amlou%20Chocolat</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/amlou-chokolata-250.webp</image:loc>
+            <image:title>أملو الشوكولاتة - Chocolate Amlou - Amlou Chocolat 250g</image:title>
+            <image:caption>Magical blend of energy and taste - مزيج سحري من الطاقة والطعم - Mélange magique d'énergie et de saveur</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Amlou%20de%20Pistache</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/amlou-fostok-1000.webp</image:loc>
+            <image:title>أملو الفستق - Pistachio Amlou - Amlou de Pistache 1kg</image:title>
+            <image:caption>King of nuts in healthy form - ملك المكسرات في قالب صحي - Le roi des fruits à coque sous une forme saine</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/amlou-fostok-500.webp</image:loc>
+            <image:title>أملو الفستق - Pistachio Amlou - Amlou de Pistache 500g</image:title>
+            <image:caption>Pistachio Amlou rich in rare elements - أملو الفستق غني بالعناصر النادرة - Amlou de Pistache riche en éléments rares</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Amlou%20Cacao</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/amlou-kawkaw-1000.webp</image:loc>
+            <image:title>أملو كوكاو - Cocoa Amlou - Amlou Cacao 1kg</image:title>
+            <image:caption>Daily energy with cocoa benefits - طاقة يومية مع فوائد الكاكاو - Énergie quotidienne avec les bienfaits du cacao</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/amlou-kawkaw-500.webp</image:loc>
+            <image:title>أملو كوكاو - Cocoa Amlou - Amlou Cacao 500g</image:title>
+            <image:caption>Healthy alternative to sugars - بديل صحي للسكريات - Alternative saine aux sucres</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Amlou%20d%27Amande</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/amlou-louz-1000.webp</image:loc>
+            <image:title>أملو اللوز - Almond Amlou - Amlou d'Amande 1kg</image:title>
+            <image:caption>Power of superfood in a jar - قوة الغذاء الخارق في برطمان - La puissance d'un super-aliment en pot</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/amlou-louz-250.webp</image:loc>
+            <image:title>أملو اللوز - Almond Amlou - Amlou d'Amande 250g</image:title>
+            <image:caption>Healthy companion on the go - رفيقك الصحي في التنقل - Votre compagnon santé nomade</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/amlou-louz-500.webp</image:loc>
+            <image:title>أملو اللوز - Almond Amlou - Amlou d'Amande 500g</image:title>
+            <image:caption>Purity of nature in every bite - نقاء الطبيعة في كل قضمة - La pureté de la nature dans chaque bouchée</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/amlou-louz-700.webp</image:loc>
+            <image:title>أملو اللوز - Almond Amlou - Amlou d'Amande 700g</image:title>
+            <image:caption>Perfect balance between quality and quantity - توازن مثالي بين الجودة والكمية - Un équilibre parfait entre qualité et quantité</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Amlou%20de%20Graines%20de%20Courge</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/amlou-yaktin-250.webp</image:loc>
+            <image:title>أملو اليقطين - Pumpkin Seed Amlou - Amlou de Graines de Courge 250g</image:title>
+            <image:caption>Treasure of minerals for active bodies - كنز من المعادن للأجسام النشطة - Un trésor de minéraux pour les corps actifs</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/amlou-yaktin-500.webp</image:loc>
+            <image:title>أملو اليقطين - Pumpkin Seed Amlou - Amlou de Graines de Courge 500g</image:title>
+            <image:caption>Comprehensive support for general health - دعم شامل للصحة العامة - Un soutien complet pour la santé générale</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Supplement Products Images -->
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Compl%C3%A9ment%20%C3%89jaculation%20Rapide</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/complement-kadf_sari3-350.webp</image:loc>
+            <image:title>مكمل القذف السريع - Rapid Ejaculation Supplement - Complément Éjaculation Rapide 350g</image:title>
+            <image:caption>Natural support for sexual health and control - دعم طبيعي للصحة الجنسية والتحكم - Soutien naturel pour la santé sexuelle et le contrôle</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Compl%C3%A9ment%20Naturel%20Revitalisant</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/complement-monachit_tabi3i-350.webp</image:loc>
+            <image:title>المكمل المنشط الطبيعي - Natural Energizing Supplement - Complément Naturel Revitalisant 350g</image:title>
+            <image:caption>Mental and physical energy from nature - طاقة ذهنية وجسدية من الطبيعة - Une énergie mentale et physique venue de la nature</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Honey Products Images -->
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Miel%20aux%20Herbes</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-aachab-500.webp</image:loc>
+            <image:title>عسل الأعشاب - Herbal Honey - Miel aux Herbes 500g</image:title>
+            <image:caption>Natural pharmacy in a jar - صيدلية طبيعية في برطمان - Une pharmacie naturelle en pot</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Miel%20Toutes%20Fleurs</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-azhar-1000.webp</image:loc>
+            <image:title>عسل الأزهار - Wildflower Honey - Miel Toutes Fleurs 1kg</image:title>
+            <image:caption>Nutritional diversity in every spoonful - تنوع غذائي في كل ملعقة - Une diversité nutritionnelle dans chaque cuillère</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Miel%20de%20Caroube</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-caroub-1000.webp</image:loc>
+            <image:title>عسل الخروب - Carob Honey - Miel de Caroube 1kg</image:title>
+            <image:caption>Friend to the digestive system - صديق الجهاز الهضمي - L'ami du système digestif</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-caroub-500.webp</image:loc>
+            <image:title>عسل الخروب - Carob Honey - Miel de Caroube 500g</image:title>
+            <image:caption>Daily honey with distinguished benefits - عسل يومي بفوائد متميزة - Un miel quotidien aux bienfaits distingués</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Miel%20de%20Chardon</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-chouk-1000.webp</image:loc>
+            <image:title>عسل الشوك - Thistle Honey - Miel de Chardon 1kg</image:title>
+            <image:caption>Natural shield for immunity - درع طبيعي للمناعة - Un bouclier naturel pour l'immunité</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-chouk-500.webp</image:loc>
+            <image:title>عسل الشوك - Thistle Honey - Miel de Chardon 500g</image:title>
+            <image:caption>Purity and concentration of benefit - نقاء وتركيز في الفائدة - Pureté et concentration de bienfaits</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Miel%20de%20Daghmous</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-daghmouss-1000.webp</image:loc>
+            <image:title>عسل الدغموس - Daghmous Honey - Miel de Daghmous 1kg</image:title>
+            <image:caption>Liquid gold with rare benefits - ذهب سائل نادر الفوائد - De l'or liquide aux bienfaits rares</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-daghmouss-500.webp</image:loc>
+            <image:title>عسل الدغموس - Daghmous Honey - Miel de Daghmous 500g</image:title>
+            <image:caption>Daily treatment and prevention - علاج ووقاية يومية - Un traitement et une prévention au quotidien</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honeydaghmouss-500.webp</image:loc>
+            <image:title>عسل الدغموس - Daghmous Honey - Miel de Daghmous 500g (Premium)</image:title>
+            <image:caption>Natural nutritional supplement par excellence - مكمل غذائي طبيعي بامتياز - Un complément alimentaire naturel par excellence</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Miel%20d%27Eucalyptus</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-eucaliptus-1000.webp</image:loc>
+            <image:title>عسل الكلبتوس - Eucalyptus Honey - Miel d'Eucalyptus 1kg</image:title>
+            <image:caption>Natural support for respiratory system - دعم طبيعي للجهاز التنفسي - Un soutien naturel pour le système respiratoire</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-eucaliptus-500.webp</image:loc>
+            <image:title>عسل الكلبتوس - Eucalyptus Honey - Miel d'Eucalyptus 500g</image:title>
+            <image:caption>Refreshing and healthy - منعش وصحي - Rafraîchissant et sain</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Miel%20de%20Farnan</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-farnan-1000.webp</image:loc>
+            <image:title>عسل الفرنان - Farnan Honey - Miel de Farnan 1kg</image:title>
+            <image:caption>Pure energy with luxurious aromatic scent - طاقة نقية برائحة عطرية فاخرة - Une énergie pure au parfum aromatique luxueux</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-farnan-500.webp</image:loc>
+            <image:title>عسل الفرنان - Farnan Honey - Miel de Farnan 500g</image:title>
+            <image:caption>Touch of luxury on your daily table - لمسة من الفخامة على مائدتك اليومية - Une touche de luxe sur votre table quotidienne</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Miel%20de%20Cresson</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-jarjir-1000.webp</image:loc>
+            <image:title>عسل الجرجير - Watercress Honey - Miel de Cresson 1kg</image:title>
+            <image:caption>Energizing and general tonic honey - عسل منشط و مقو عام - Un miel tonifiant et fortifiant général</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-jarjir-500.webp</image:loc>
+            <image:title>عسل الجرجير - Watercress Honey - Miel de Cresson 500g</image:title>
+            <image:caption>Daily resistance to fatigue - مقاومة يومية للتعب - Une résistance quotidienne à la fatigue</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Miel%20Citron</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-orange-1000.webp</image:loc>
+            <image:title>عسل الليمون - Lemon Honey - Miel Citron 1kg</image:title>
+            <image:caption>Double defense: immunity and energy - دفاع مزداج: مناعة وطاقة - Une double défense : immunité et énergie</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-orange-500.webp</image:loc>
+            <image:title>عسل الليمون - Lemon Honey - Miel Citron 500g</image:title>
+            <image:caption>Refreshing and healthy at all times - منعش وصحي في كل الأوقات - Rafraîchissant et sain en toute occasion</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Miel%20de%20Printemps</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-rbi3-1000.webp</image:loc>
+            <image:title>عسل الربيع - Spring Honey - Miel de Printemps 1kg</image:title>
+            <image:caption>Best that nature produces in spring - أفضل ما تنتجه الطبيعة في الربيع - Le meilleur de la nature au printemps</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-rbi3-500.webp</image:loc>
+            <image:title>عسل الربيع - Spring Honey - Miel de Printemps 500g</image:title>
+            <image:caption>Balanced daily honey - عسل يومي متوازن - Un miel quotidien équilibré</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Miel%20de%20Sidr%20(Jujubier)</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-sidr-500.webp</image:loc>
+            <image:title>عسل السدر - Sidr Honey - Miel de Sidr 500g</image:title>
+            <image:caption>King of honey with exceptional benefits - ملك العسل بفوائد استثنائية - Le roi du miel aux bienfaits exceptionnels</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Miel%20au%20Safran</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-zaafaran-1000.webp</image:loc>
+            <image:title>عسل الزعفران - Saffron Honey - Miel au Safran 1kg</image:title>
+            <image:caption>Elixir of luxury and well-being - ترياق الفخامة والرفاهية - L'élixir du luxe et du bien-être</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://igrbio.com/fr/shop.html?product=Miel%20de%20Thym</loc>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-zaatar-1000.webp</image:loc>
+            <image:title>عسل الزعتر - Thyme Honey - Miel de Thym 1kg</image:title>
+            <image:caption>Natural antibiotic - المضاد الحيوي الطبيعي - L'antibiotique naturel</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://igrbio.com/assets/img/igrBio/products/honey-zaatar-500.webp</image:loc>
+            <image:title>عسل الزعتر - Thyme Honey - Miel de Thym 500g</image:title>
+            <image:caption>High healing concentration - تركيز شفائي عالي - Une concentration curative élevée</image:caption>
+        </image:image>
+    </url>
+    
+</urlset>
