@@ -126,6 +126,16 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+// Slugify function to create URL-friendly strings
+function slugify(text) {
+  return text
+    .trim()
+    .replace(/\s+/g, '-')           // spaces → dash
+    .replace(/[\/?<>\\:*|":!@#$%^&+=,.;]+/g, '') // remove unsafe chars
+    .replace(/--+/g, '-')           // multiple dashes → single
+    .replace(/^-+|-+$/g, '');       // trim starting/trailing dashes
+}
+
 let products = []; // global variable to hold products
 
 // Function to load products from CSV and display them
@@ -154,6 +164,7 @@ fetch("product.csv")
                                 <ul class="list-unstyled">
                                 <li><button class="btn btn-success text-white mt-2" onclick="openProductModal('${product.id}')"><i class="far fa-eye"></i></button></li>
                                 <li><button onclick="addToCart('${product.id}')" class="btn btn-success text-white mt-2"><i class="fas fa-cart-plus"></i></button></li>
+                                <li><a href="products/${slugify(product.title)}-${slugify(product.quantity)}.html" class="btn btn-success text-white mt-2" target="_blank"><i class="fas fa-arrow-right"></i></a></li>
                                 </ul>
                             </div>
                             </div>
