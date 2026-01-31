@@ -126,14 +126,11 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// Slugify function to create URL-friendly strings
-function slugify(text) {
-  return text
-    .trim()
-    .replace(/\s+/g, '-')           // spaces → dash
-    .replace(/[\/?<>\\:*|":!@#$%^&+=,.;]+/g, '') // remove unsafe chars
-    .replace(/--+/g, '-')           // multiple dashes → single
-    .replace(/^-+|-+$/g, '');       // trim starting/trailing dashes
+function slugify(name) {
+  return name
+    .toLowerCase()            // lowercase
+    .replace(/\s+/g, '-')     // replace spaces with dash
+    .replace(/['’]/g, '');    // remove ' and ’
 }
 
 let products = []; // global variable to hold products
