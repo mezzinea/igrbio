@@ -3,7 +3,6 @@ import os
 import re
 
 # ================== CONFIG ==================
-SITE_URL = "https://igrbio.com"
 LANGUAGES = ["ar", "fr", "en"]
 ITEMS_PER_SLIDE = 6  # ✅ requested
 
@@ -81,7 +80,7 @@ def generate_slider(lang: str, products: list) -> str:
 
         for row in group:
             slug = slugify(f"{row['title']} {row['quantity']}")
-            url = f"{SITE_URL}/{lang}/products/{slug}.html"
+            url = f"products/{slug}.html"
 
             items_html.append(
                 SLIDE_ITEM.format(
