@@ -20,57 +20,44 @@ def chunk_list(lst, size):
 
 # ================== HTML + CSS ==================
 
-SLIDER_WRAPPER = """<!DOCTYPE html>
-<html lang="{lang}" dir="{dir}">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../assets/css/custom.css">
-</head>
+SLIDER_WRAPPER = """
 
-<body>
+            <div class="my-5 product-slider">
+                <div id="productSlider-{lang}" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                    {slides}
+                    </div>
 
-<div class="my-5 product-slider">
-
-<div id="productSlider-{lang}" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-{slides}
-  </div>
-
-  <button class="carousel-control-prev" type="button"
-          data-bs-target="#productSlider-{lang}" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-
-  <button class="carousel-control-next" type="button"
-          data-bs-target="#productSlider-{lang}" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
-</div>
-
-</div>
-
-<script src="../assets/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-"""
-
-SLIDE_GROUP = """    <div class="carousel-item {active}">
-      <div class="row g-3">
-{items}
-      </div>
-    </div>
-"""
-
-SLIDE_ITEM = """        <div class="col-lg-2 col-md-4 col-sm-6">
-          <a href="{url}" class="product-link">
-            <div class="product-card-slider">
-              <h6>{title}</h6>
-              <small>{quantity}</small>
+                    <button class="carousel-control-prev" type="button"
+                            data-bs-target="#productSlider-{lang}" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button"
+                            data-bs-target="#productSlider-{lang}" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
             </div>
-          </a>
-        </div>
+
+"""
+
+SLIDE_GROUP = """    
+                        <div class="carousel-item {active}">
+                            <div class="row g-3">
+                            {items}
+                            </div>
+                        </div>
+"""
+
+SLIDE_ITEM = """        
+                            <div class="col-6 col-md-2 col-sm-6">
+                                <a href="{url}" class="product-link">
+                                    <div class="product-card-slider">
+                                        <h6>{title}</h6>
+                                        <small>{quantity}</small>
+                                    </div>
+                                </a>
+                            </div>
 """
 
 # ================== LOAD PRODUCTS ==================
