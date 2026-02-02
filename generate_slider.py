@@ -65,7 +65,7 @@ SLIDE_GROUP = """    <div class="carousel-item {active}">
 
 SLIDE_ITEM = """        <div class="col-lg-2 col-md-4 col-sm-6">
           <a href="{url}" class="product-link">
-            <div class="product-card">
+            <div class="product-card-slider">
               <h6>{title}</h6>
               <small>{quantity}</small>
             </div>

@@ -680,7 +680,7 @@ body, ul, li, p, a, label, input, div {
 }
 
 /* Product card */
-.product-card {
+.product-card-slider {
     background: #fff;
     border-radius: 14px;
     padding: 18px 12px;
@@ -690,18 +690,18 @@ body, ul, li, p, a, label, input, div {
     transition: all .25s ease;
 }
 
-.product-card:hover {
+.product-card-slider:hover {
     transform: translateY(-6px);
     box-shadow: 0 14px 36px rgba(0,0,0,.14);
 }
 
-.product-card h6 {
+.product-card-slider h6 {
     font-size: .95rem;
     font-weight: 600;
     margin-bottom: 4px;
 }
 
-.product-card small {
+.product-card-slider small {
     color: #6c757d;
     font-size: .8rem;
 }
