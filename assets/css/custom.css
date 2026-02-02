@@ -669,3 +669,93 @@ body, ul, li, p, a, label, input, div {
   padding: 80px 20px;
   text-align: center;
 }
+
+
+/* Slider controls */
+
+.product-slider {
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+}
+
+/* Product card */
+.product-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 18px 12px;
+    height: 100%;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,.07);
+    transition: all .25s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 36px rgba(0,0,0,.14);
+}
+
+.product-card h6 {
+    font-size: .95rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.product-card small {
+    color: #6c757d;
+    font-size: .8rem;
+}
+
+.product-link {
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    display: block;
+}
+
+/* Custom controls */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 48px;
+    height: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    border-radius: 100%;
+    border-style: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    opacity: 1;
+}
+
+.carousel-control-prev {
+    left: -24px;
+}
+
+.carousel-control-next {
+    right: -24px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(0.2);
+    width: 18px;
+    height: 18px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: #6cd1a2;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    filter: invert(1);
+}
+
+@media (max-width: 992px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+    left: 5px;
+    right: 5px;
+    }
+}
