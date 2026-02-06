@@ -555,6 +555,37 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
   btn.textContent = trs.placingOrder;
 
   try {
+    const whatsappNumber = "212690099637"; // your number, no +, no spaces
+    const message = `
+    🛒 *NEW ORDER RECEIVED*
+
+    ━━━━━━━━━━━━━━
+    👤 *Customer Details*
+    ━━━━━━━━━━━━━━
+    • *Name:* ${name}
+    • *Phone:* ${phone}
+    • *Address:* ${address}
+    • *Email:* ${email || "—"}
+
+    ━━━━━━━━━━━━━━
+    📦 *Order Items*
+    ━━━━━━━━━━━━━━
+    ${productsText}
+
+    ━━━━━━━━━━━━━━
+    💰 *Total Amount*
+    ━━━━━━━━━━━━━━
+    *${total} Dh*
+    `;
+
+    const whatsappURL =
+      "https://wa.me/" +
+      whatsappNumber +
+      "?text=" +
+      encodeURIComponent(message);
+      
+    window.open(whatsappURL, "_blank");
+  
     await fetch("/api/place-order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
