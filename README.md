@@ -28,3 +28,80 @@ npm init -y
 npm install express cors node-fetch dotenv
 node server.js
 ```
+
+### Apps script
+
+Google sheet order saver :
+
+```go
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data = JSON.parse(e.postData.contents);
+
+  sheet.appendRow([
+    new Date(),
+    data.name,
+    data.phone,
+    data.address,
+    data.email,
+    data.products,
+    data.total
+  ]);
+}
+```
+
+Adding gmail notifications :
+
+```go
+function doPost(e) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const data = JSON.parse(e.postData.contents);
+
+  // Save order to sheet
+  sheet.appendRow([
+    new Date(),
+    data.name,
+    data.phone,
+    data.address,
+    data.email,
+    data.products,
+    data.total
+  ]);
+
+  // Build email content
+  const subject = "New igrBio Order Received";
+
+  const message = `
+    Customer details:
+    ------------------
+    Name: ${data.name}
+    Phone: ${data.phone}
+    Address: ${data.address}
+    Email: ${data.email || "-"}
+
+    Products:
+    ---------
+    ${data.products}
+
+    Total:
+    ------
+    ${data.total}
+
+    Time:
+    -----
+    ${new Date().toLocaleString()}
+    `;
+
+  // Send email
+  GmailApp.sendEmail(
+    "mezzine.abdellatif@gmail.com",
+    subject,
+    message
+  );
+
+  return ContentService
+    .createTextOutput(JSON.stringify({ status: "success" }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+```

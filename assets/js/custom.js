@@ -238,8 +238,6 @@ function addToCart(productId) {
       product = products.find(p => p.id == productId); 
     }
     
-    console.log("DEBUG:", products);
-
     if (!product) {
         console.error("Product not found:", productId);
         return;
@@ -555,6 +553,7 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
   btn.textContent = trs.placingOrder;
 
   try {
+
     await fetch("/api/place-order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
