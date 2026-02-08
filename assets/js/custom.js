@@ -30,7 +30,8 @@ const translations = {
     requiredFields: "Please fill in all required fields (Name, Phone, Address).",
     invalidPhone: "Phone number is invalid. It should start with 05/06/07 and be 10 digits.",
     currency: "MAD",
-    each: "each"
+    each: "each",
+    wathsappShareText: "I ordered from igrBio.\nHighly recommended!\nhttps://igrbio.com"
   },
 
   fr: {
@@ -46,7 +47,8 @@ const translations = {
     requiredFields: "Veuillez remplir tous les champs obligatoires (Nom, Téléphone, Adresse).",
     invalidPhone: "Le numéro de téléphone est invalide. Il doit commencer par 05/06/07 et contenir 10 chiffres.",
     currency: "MAD",
-    each: "chacun"
+    each: "chacun",
+    wathsappShareText: "J'ai commandé chez igrBio.\nFortement recommandé !\nhttps://igrbio.com"
   },
 
   ar: {
@@ -62,7 +64,8 @@ const translations = {
     requiredFields: "يرجى ملء جميع الحقول المطلوبة (الاسم، الهاتف، العنوان).",
     invalidPhone: "رقم الهاتف غير صالح. يجب أن يبدأ بـ 05 أو 06 أو 07 ويتكون من 10 أرقام.",
     currency: "د.م",
-    each: "واحد"
+    each: "واحد",
+    wathsappShareText: "لقد طلبت من igrBio.\nأنصح به بشدة!\nhttps://igrbio.com"
   }
 };
 
@@ -560,7 +563,7 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
       body: JSON.stringify(payload)
     });
 
-    alert(trs.orderPlaced);
+    showReviewPopup();
     localStorage.removeItem("cart");
     form.reset();
     loadCart();
@@ -574,10 +577,9 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
   } finally {
     btn.disabled = false;
     btn.textContent = trs.placeOrder;
-    window.location.href = "../"; // redirect to home after order
+    // window.location.href = "../"; // redirect to home after order
   }
 });
-
 
 
 // Modal logic (view product details in popup)
@@ -606,4 +608,50 @@ function openProductModal(productId) {
   // Show the modal (Bootstrap 5)
   const modal = new bootstrap.Modal(document.getElementById("productModal"));
   modal.show();
+}
+
+// Review popup logic
+function showReviewPopup() {
+  document.getElementById("reviewPopup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("reviewPopup").style.display = "none";
+}
+
+function copyLink() {
+  const input = document.getElementById("shopLink");
+
+  input.focus();
+  input.select();
+
+  try {
+    document.execCommand("copy");
+    document.getElementById("copyMsg").innerText = "Link copied successfully";
+  } catch (err) {
+    document.getElementById("copyMsg").innerText =
+      "Please copy the link manually";
+  }
+}
+
+
+function shareWhatsApp(e) {
+  e.preventDefault();
+
+  const text =  trs.wathsappShareText;
+
+  // Detect mobile
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  let url = "";
+
+  if (isMobile) {
+    // Mobile app scheme
+    url = "whatsapp://send?text=" + encodeURIComponent(text);
+  } else {
+    // Desktop / web fallback
+    url = "https://wa.me/?text=" + encodeURIComponent(text);
+  }
+
+  window.open(url, "_blank");
 }

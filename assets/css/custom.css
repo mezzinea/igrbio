@@ -759,3 +759,163 @@ body, ul, li, p, a, label, input, div {
     right: 5px;
     }
 }
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup {
+  background: #ffffff;
+  width: 92%;
+  max-width: 420px;
+  padding: 36px 28px;
+  border-radius: 14px;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Title */
+.popup h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #000;
+}
+
+/* Stars (under title) */
+.stars {
+  font-size: 22px;
+  letter-spacing: 4px;
+  color: #fbbc04; /* Google yellow */
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* Google button */
+.btn-review {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: 100%;
+  padding: 14px 0 14px 0;
+  margin-bottom: 26px;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  background: #fff;
+
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+  text-decoration: none;
+}
+
+.btn-review img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Share */
+.share-section {
+  text-align: left;
+}
+
+.share-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.copy-box {
+  display: flex;
+  gap: 8px;
+}
+
+.copy-box input {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.copy-box button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #000;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#copyMsg {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: #16a34a;
+}
+
+/* Close */
+.btn-close {
+  margin-top: 24px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+}
+
+.icon-success {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+  margin-left: 8px;
+
+  border-radius: 50%;
+  background: #16a34a; /* success green */
+  color: #ffffff;
+
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+
+  vertical-align: middle;
+}
+
+.btn-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  background: #25d366;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 10px;
+}
+
+.btn-whatsapp img {
+  width: 18px;
+  height: 18px;
+}
