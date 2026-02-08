@@ -282,6 +282,66 @@
                 <a class="btn btn-outline-success w-100 rounded" onclick="showCheckoutForm()" href="#orderItemsCheckout">Checkout</a>
             </div>
         </div>
+        
+        <!-- Review and share -->
+        <div id="reviewPopup" class="popup-overlay">
+            <div class="popup">
+
+                <h2>Order placed successfully 🎉</h2>
+
+                <small class="subtitle">
+                Our team will contact you shortly to confirm your order and delivery details.
+                </small>
+                                            
+                <!-- Stars directly under title -->
+                <div class="stars pt-4 mb-2">
+                ★★★★★
+                </div>
+
+                <!-- Google review CTA -->
+                <a
+                href="https://g.page/r/CZI-_LM-N46fEBM/review"
+                target="_blank"
+                class="btn btn-review"
+                >
+                <img
+                    src="https://www.svgrepo.com/show/475656/google-color.svg"
+                    alt="Google"
+                />
+                Review us on Google
+                </a>
+                
+
+                <!-- Share link -->
+                <div class="share-section">
+                <small class="share-title">Share our store</small>
+                
+                <a
+                href="#"
+                onclick="shareWhatsApp(event)"
+                class="btn-whatsapp"
+                >
+                <i class="fab fa-whatsapp fa-lg fa-fw"></i>
+                Share on WhatsApp
+                </a>
+                                
+                <div class="copy-box pt-1">
+                    <input
+                    type="text"
+                    id="shopLink"
+                    value="https://igrbio.com"
+                    readonly
+                    />
+                    <button type="button" onclick="copyLink()">Copy link</button>
+                </div>
+                <span id="copyMsg"></span>
+                </div>
+
+                <button class="btn-close" onclick="closePopup()">Close</button>
+
+            </div>
+        </div>
+
     </div>
     </div>
 

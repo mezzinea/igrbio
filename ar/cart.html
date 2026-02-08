@@ -275,6 +275,65 @@
                 <a class="btn btn-outline-success w-100 rounded" onclick="showCheckoutForm()" href="#orderItemsCheckout">إتمام الشراء</a>
             </div>
         </div>
+        
+        <!-- review and share -->
+        <div id="reviewPopup" class="popup-overlay">
+            <div class="popup">
+
+                <h2>تم تقديم الطلب بنجاح 🎉</h2>
+
+                <small class="subtitle">
+                    سيتصل بك فريقنا قريبًا لتأكيد طلبك وتفاصيل التوصيل.
+                </small>
+
+                <!-- النجوم مباشرة تحت العنوان -->
+                <div class="stars pt-4 mb-2">
+                    ★★★★★
+                </div>
+
+                <!-- دعوة لإضافة مراجعة على جوجل -->
+                <a
+                    href="https://g.page/r/CZI-_LM-N46fEBM/review"
+                    target="_blank"
+                    class="btn btn-review"
+                >
+                    <img
+                        src="https://www.svgrepo.com/show/475656/google-color.svg"
+                        alt="جوجل"
+                    />
+                    قيمنا على جوجل
+                </a>
+
+                <!-- قسم المشاركة -->
+                <div class="share-section" style="text-align: right">
+                    <small class="share-title">شارك متجرنا</small>
+                    
+                    <a
+                    href="#"
+                    onclick="shareWhatsApp(event)"
+                    class="btn-whatsapp"
+                    >
+                    <i class="fab fa-whatsapp fa-lg fa-fw"></i>
+                    المشاركة عبر واتساب
+                    </a>
+                
+                    <div class="copy-box pt-1">
+                        <input
+                            type="text"
+                            id="shopLink"
+                            value="https://igrbio.com"
+                            readonly
+                        />
+                        <button type="button" onclick="copyLink()">نسخ الرابط</button>
+                    </div>
+                    <span id="copyMsg"></span>
+                </div>
+
+                <button class="btn-close" onclick="closePopup()">إغلاق</button>
+
+            </div>
+        </div> 
+        
     </div>
     </div>
 
