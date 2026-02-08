@@ -634,13 +634,24 @@ function copyLink() {
   }
 }
 
+
 function shareWhatsApp(e) {
   e.preventDefault();
 
-  const text = trs.wathsappShareText;
+  const text =  trs.wathsappShareText;
 
-  const url =
-    "https://wa.me/?text=" + encodeURIComponent(text);
+  // Detect mobile
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  let url = "";
+
+  if (isMobile) {
+    // Mobile app scheme
+    url = "whatsapp://send?text=" + encodeURIComponent(text);
+  } else {
+    // Desktop / web fallback
+    url = "https://wa.me/?text=" + encodeURIComponent(text);
+  }
 
   window.open(url, "_blank");
 }
