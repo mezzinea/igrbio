@@ -873,11 +873,10 @@ body, ul, li, p, a, label, input, div {
 
 /* Close */
 .btn-close {
-  margin-top: 24px;
   background: none;
   border: none;
   font-size: 14px;
-  color: #666;
+  color: #3e3d3d;
   cursor: pointer;
 }
 
