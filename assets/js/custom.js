@@ -31,7 +31,8 @@ const translations = {
     invalidPhone: "Phone number is invalid. It should start with 05/06/07 and be 10 digits.",
     currency: "MAD",
     each: "each",
-    wathsappShareText: "I ordered from igrBio.\nHighly recommended!\nhttps://igrbio.com"
+    wathsappShareText: "I ordered from igrBio.\nHighly recommended!\n** https://igrbio.com",
+    viewDetails: "More Details"
   },
 
   fr: {
@@ -48,7 +49,8 @@ const translations = {
     invalidPhone: "Le numéro de téléphone est invalide. Il doit commencer par 05/06/07 et contenir 10 chiffres.",
     currency: "MAD",
     each: "chacun",
-    wathsappShareText: "J'ai commandé chez igrBio.\nFortement recommandé !\nhttps://igrbio.com"
+    wathsappShareText: "J'ai commandé chez igrBio.\nFortement recommandé !\n** https://igrbio.com",
+    viewDetails: "Plus de détails"
   },
 
   ar: {
@@ -65,7 +67,8 @@ const translations = {
     invalidPhone: "رقم الهاتف غير صالح. يجب أن يبدأ بـ 05 أو 06 أو 07 ويتكون من 10 أرقام.",
     currency: "د.م",
     each: "واحد",
-    wathsappShareText: "لقد طلبت من igrBio.\nأنصح به بشدة!\nhttps://igrbio.com"
+    wathsappShareText: "لقد طلبت من igrBio.\nأنصح به بشدة!\n** https://igrbio.com",
+    viewDetails: "مزيد من التفاصيل"
   }
 };
 
@@ -139,7 +142,7 @@ function slugify(name) {
 let products = []; // global variable to hold products
 
 // Function to load products from CSV and display them
-fetch("product.csv")
+fetch("/"+localStorage.getItem("lang")+"/product.csv")
 .then(response => response.text())
 .then(text => {
     products = parseCSV(text);
@@ -164,7 +167,6 @@ fetch("product.csv")
                                 <ul class="list-unstyled">
                                 <li><button class="btn btn-success text-white mt-2" onclick="openProductModal('${product.id}')"><i class="far fa-eye"></i></button></li>
                                 <li><button onclick="addToCart('${product.id}')" class="btn btn-success text-white mt-2"><i class="fas fa-cart-plus"></i></button></li>
-                                <li><a href="products/${slugify(product.title)}-${slugify(product.quantity)}.html" class="btn btn-success text-white mt-2"><i class="fas fa-arrow-right"></i></a></li>
                                 </ul>
                             </div>
                             </div>
@@ -231,7 +233,7 @@ function addToCart(productId) {
           quantity: "",
           total: 1
       }
-    
+      
     if(productId == -1) {
       // create pack object
       product = pack
@@ -317,7 +319,7 @@ function loadCart() {
 
         container.innerHTML += `
           <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-2">
-            <img src="../assets/img/igrBio/${item.image}" width="80" height="80" class="rounded" alt="${item.title}" loading="lazy" width="400" height="400">
+            <img src="/assets/img/igrBio/${item.image}" width="80" height="80" class="rounded" alt="${item.title}" loading="lazy" width="400" height="400">
             <div class="flex-grow-1 mx-2">
               <p class="mb-0 fw-bold">${item.title}</p>
               <small>${item.price} x ${item.total}</small> <small class="badge bg-light text-dark" style="font-size: 9px;">${item.quantity}</small>
@@ -432,7 +434,7 @@ function loadCartPage() {
                   <small class="badge bg-light text-dark" style="font-size: 9px;">${item.quantity}</small>
                 </h6>
                 <small class="d-flex align-items-center pt-2">
-                <button onclick="updateQuantity(${index}, -1, true)" class="btn btn-sm btn-outline-secondary">-</button>
+                  <button onclick="updateQuantity(${index}, -1, true)" class="btn btn-sm btn-outline-secondary">-</button>
                   <span class="mx-2">${item.total}</span>
                   <button onclick="updateQuantity(${index}, 1, true)" class="btn btn-sm btn-outline-secondary">+</button>
                 </small>
@@ -591,7 +593,7 @@ function openProductModal(productId) {
   document.getElementById("modalTitle").textContent = product.title;
   document.getElementById("modalImage").src = `../assets/img/igrBio/${product.image}`;
   document.getElementById("modalImage").alt = product.title;
-  document.getElementById("modalPrice").textContent = `${trs.currency} ${product.price}`;
+  document.getElementById("modalPrice").textContent = `${product.price} ${trs.currency}`;
   document.getElementById("modalDescription").textContent = product.description;
 
   document.getElementById("modalTags").innerHTML = `
@@ -600,11 +602,17 @@ function openProductModal(productId) {
     `
     
   document.getElementById("addProductBtn").innerHTML = `
-      <div class="btn btn-outline-success w-100 rounded py-2" onclick="addToCart(${productId})">
+      <div class="btn btn-success w-100 rounded py-2" onclick="addToCart(${productId})">
           <i class="fas fa-cart-plus"></i><small> ${trs.addToCart} </small>
       </div>
     `
-
+    
+  document.getElementById("viewDetailsBtn").innerHTML = `
+      <a href="products/${slugify(product.title)}-${slugify(product.quantity)}.html" class="btn btn-outline-success w-100 rounded py-2">
+          <i class="fas fa-eye"></i><small> ${trs.viewDetails} </small>
+      </a>
+    `
+  
   // Show the modal (Bootstrap 5)
   const modal = new bootstrap.Modal(document.getElementById("productModal"));
   modal.show();
