@@ -1,6 +1,7 @@
 import csv
 import os
 import re
+import random
 
 # ================== CONFIG ==================
 SITE_URL = "https://igrbio.com"
@@ -13,9 +14,17 @@ I18N = {
         "currency_code": "MAD",
         "quantity": "الكمية",
         "price": "السعر",
-        "back_info": "* هذه الصفحة تُستخدم فقط لعرض تفاصيل المنتج. عد إلى المتجر لاختيار منتجات متنوعة بفوائد مختلفة وبأحجام متعددة",
+        "back_info": "* هذه الصفحة تُستخدم لعرض تفاصيل المنتج. عد إلى المتجر لاختيار منتجات متنوعة بفوائد مختلفة وبأحجام متعددة",
         "back_label": "العودة إلى المتجر",
         "copyright_label": "© 2025 igrBio. جميع الحقوق محفوظة",
+        "cart": "سلة التسوق",
+        "clear_cart": "إفراغ السلة",
+        "total": "الإجمالي",
+        "view_cart_and_checkout": "عرض السلة وإتمام الشراء",
+        "reviews": "التعليقات",
+        "add_to_cart": "أضف إلى السلة",
+        "instock": "متوفر",
+        "rate_us": "قيمنا على جوجل",
         "nav": {
             "home": "الرئيسية",
             "about": "من نحن",
@@ -25,6 +34,11 @@ I18N = {
             "nav_language": "العربية",
             "nav_terms": "شروط الاستخدام",
             "nav_privacy": "سياسة الخصوصية"
+        },
+        "service": {
+            "auth": "ضمان 100% لمنتجات أصلية",
+            "back": "ضمان استرداد الأموال خلال 30 يومًا",
+            "ship": "شحن مجاني للطلبات فوق 300 درهم",
         }
     },
     "fr": {
@@ -33,9 +47,17 @@ I18N = {
         "currency_code": "MAD",
         "quantity": "Quantité",
         "price": "Prix",
-        "back_info": "* Cette page est utilisée uniquement pour afficher les détails du produit. Retournez à la boutique pour sélectionner et explorer une large gamme de produits utiles en différentes quantités",
+        "back_info": "* Cette page est utilisée pour afficher les détails du produit. Retournez à la boutique pour sélectionner et explorer une large gamme de produits utiles en différentes quantités",
         "back_label": "Retour à la boutique",
         "copyright_label": "© 2025 igrBio. Tous droits réservés",
+        "cart": "Panier",
+        "clear_cart": "Vider le Panier",
+        "total": "Total",
+        "view_cart_and_checkout": "Voir le panier et payer",
+        "reviews": "Avis",
+        "add_to_cart": "Ajouter au panier",
+        "instock": "en stock",
+        "rate_us": "Donnez-nous un avis sur Google",
         "nav": {
             "home": "Accueil",
             "about": "À propos",
@@ -45,6 +67,11 @@ I18N = {
             "nav_language": "Français",
             "nav_terms": "Conditions d'utilisation",
             "nav_privacy": "Politique de confidentialité"
+        },
+        "service": {
+            "auth": "Produits 100% authentiques garantis",
+            "back": "Garantie de remboursement de 30 jours",
+            "ship": "Livraison gratuite pour les commandes de plus de 300 MAD",
         }
     },
     "en": {
@@ -53,9 +80,17 @@ I18N = {
         "currency_code": "MAD",
         "quantity": "Quantity",
         "price": "Price",
-        "back_info": "* This page is used only to show the product details. Go back to the shop to select and explore a wide range of useful products in different quantities",
+        "back_info": "* This page is used to show the product details. Go back to the shop to select and explore a wide range of useful products in different quantities",
         "back_label": "Back to Shop",
         "copyright_label": "© 2025 igrBio. All rights reserved",
+        "cart": "Cart",
+        "clear_cart": "Clear Cart",
+        "total": "Total",
+        "view_cart_and_checkout": "View Cart & Checkout",
+        "reviews": "Reviews",
+        "add_to_cart": "Add to cart",
+        "instock": "in stock",
+        "rate_us": "Review us on Google",
         "nav": {
             "home": "Home",
             "about": "About",
@@ -65,6 +100,11 @@ I18N = {
             "nav_language": "English",
             "nav_terms": "Terms of Service",
             "nav_privacy": "Privacy Policy"
+        },
+        "service": {
+            "auth": "100% authentic products guaranteed",
+            "back": "30-day money-back guarantee",
+            "ship": "Free shipping on orders over MAD 300",
         }
     }
 }
@@ -187,6 +227,14 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                             </li>
                         </ul>
                     </div>
+                    
+                    <!-- Cart Icon -->
+                    <a onclick="toggleCart()" class="nav-icon position-relative text-decoration-none" href="#">
+                        <i class="fal fa-shopping-bag fa-lg d-block"></i>
+                        <small id="cart-count"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger text-white"
+                            style="display: none;">0</small>
+                    </a>
 
                 </div>
             </div>
@@ -220,6 +268,30 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         </div>
     </nav>
     <!-- End of Fixed Bottom Navbar -->
+    
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header d-flex justify-content-between align-items-center p-3 border-bottom">
+            <h5 class="m-0">{cart}</h5>
+            <a href="#" onclick="clearCart()" class="text-danger text-decoration-none">{clear_cart}</a>
+            <button onclick="toggleCart()" class="btn-close">X</button>
+        </div>
+
+        <div id="cart-items" class="cart-items p-3"></div>
+
+        <div class="cart-footer border-top p-3">
+            <div class="d-flex justify-content-between mb-3">
+            <strong>{total}</strong>
+            <strong id="cart-total">0</strong>
+            </div>
+            <a href="cart.html" class="btn btn-outline-success w-100">{view_cart_and_checkout}</a>
+        </div>
+    </div>
+    <!-- End Cart Sidebar -->
+    
+    
+    <span id="toast" class="toast">Message exemple</span>
+    <!-- End Header -->
 
 <!-- End Header -->
 
@@ -232,43 +304,103 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         ">
     <div class="container">
     <div class="row justify-content-center mb-4">
-        <div class="col-lg-8">
-        <div class="card product-card p-4">
+        <div class="col-lg-12">
+        <div class="bg-white shadow-0 p-4" style="border-radius: 10px;">
             <article itemscope itemtype="https://schema.org/Product">
-
-            <h1 itemprop="name" class="text-center mb-4">{title}</h1>
-
-            <div class="text-center mb-4">
-                <img src="../../assets/img/igrBio/products/{image}"
-                    alt="{title}"
-                    class="img-fluid rounded"
-                    width="600"
-                    height="600"
-                    itemprop="image">
-            </div>
-
-            <p itemprop="description">{description}</p>
-
-            <ul class="list-unstyled">
-                <li><strong>** {label_quantity} </strong> {quantity}</li>
-                <li><strong>** {label_price} </strong> {price} {currency}</li>
-            </ul>
-
-            <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                <meta itemprop="priceCurrency" content="{currency_code}">
-                <meta itemprop="price" content="{price}">
-                <link itemprop="availability" href="https://schema.org/InStock">
-            </div>
             
-            </br>
+                <div class="row">
+                    <div class="col-md-6 text-center mb-4">
+                        <img src="../../assets/img/igrBio/products/{image}"
+                            alt="{title}"
+                            class="img-fluid rounded"
+                            width="600"
+                            height="600"
+                            itemprop="image">
+                    </div>
+                    
+                    <div class="col-md-5 pt-5">
+                        <h1 itemprop="name" class="text-center mb-4">{title} <span class="instock">{instock}</span></h1>
+                        <p itemprop="description">{description}</p>
+                        <ul class="list-unstyled">
+                            <li><strong>{label_quantity} </strong> {quantity}</li>
+                            <li><strong>{label_price} </strong> {price} {currency}</li>
+                        </ul>
+                    
+                                                
+                        <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <meta itemprop="priceCurrency" content="{currency_code}">
+                            <meta itemprop="price" content="{price}">
+                            <link itemprop="availability" href="https://schema.org/InStock">
+                        </div>
+                        
+                        <div class="text-center mb-2 mt-4" onclick="addToCart({id})">
+                            <span class="btn btn-success w-100 py-2 rounded">
+                                <i class="fas fa-cart-plus px-2"></i>
+                                {add_to_cart}
+                            </span>
+                        </div>
+                        
+                        <div class="text-center mb-2 mt-2">
+                            <a href="../shop.html" class="btn btn-outline-success w-100 py-2 rounded">
+                                {back_label}
+                            </a>
+                        </div>
+                        
+                        <a href="../shop.html" class="text-muted mb-2 mt-5">{back_info}</a>
+                                            
+                        
+                        <div class="row text-center pt-5">
+                            <div class="m-auto">
+            
+                                <div class="row justify-content-between bg-white shadow-sm">
+                                    <div class="col-md-4">
+                                        <div class="py-3 px-2">
+                                            <i class="fas fa-truck text-success"></i>
+                                            <br>
+                                            <small>{service_ship}</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="py-3 px-2">
+                                            <i class="fas fa-undo text-success"></i>
+                                            <br>
+                                            <small>{service_back}</small>
+                                        </div>                           
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="py-3 px-2">
+                                            <i class="fas fa-shield-alt text-success"></i>
+                                            <br>
+                                            <small>{service_auth}</small>
+                                        </div>                             
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="reviews pt-5">
+                            <div class="stars">
+                                ★★★★★
+                            </div>
+                            <small class="review-count">5/5</small>
+                        </div>
+                        
+                        <!-- Google review CTA -->
+                        <a href="https://g.page/r/CZI-_LM-N46fEBM/review" target="_blank" class="btn btn-review">
+                            <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google"/>
+                            {rate_us}
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                
+                
 
-            <a href="../shop.html" class="text-muted mb-2 mt-5">{back_info}</a>
-
-            <div class="text-center mb-2 mt-3">
-                    <a href="../shop.html" class="btn btn-success w-100 py-2 rounded">
-                        {back_label}
-                    </a>
-            </div>
+                
+            
             </article>
         </div>
         </div>
@@ -278,7 +410,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
 <!-- Start Script -->
 <script src="../../assets/js/bootstrap.bundle.min.js"></script>
-<script src="../../assets/js/custom.js?v=3"></script>
+<script src="../../assets/js/custom.js?v=5"></script>
 <script type="application/ld+json">
 {schema}
 </script>
@@ -369,6 +501,18 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 # ================== LOAD ALL PRODUCTS ==================
 products_by_lang = {}
 
+def reviews_from_product_id(product_id, min_id=0, max_id=40,
+                            min_reviews=5, max_reviews=23,
+                            ):
+    # Linear scaling
+    base = min_reviews + (product_id - min_id) * (max_reviews - min_reviews) / (max_id - min_id)
+    
+    # Add randomness
+    reviews = int(round(base + 3))
+    
+    # Clamp to allowed range
+    return max(min_reviews, min(max_reviews, reviews))
+
 for lang in LANGUAGES:
     products_by_lang[lang] = {}
     csv_path = os.path.join(lang, "product.csv")
@@ -387,6 +531,8 @@ for lang in LANGUAGES:
         slug = slugify(f"{row['title']} {row['quantity']}")
         filename = f"{slug}.html"
         url = f"{SITE_URL}/{lang}/products/{filename}"
+        
+        reviews_number = reviews_from_product_id(int(row["id"]))
 
         # hreflang
         hreflang = []
@@ -442,6 +588,17 @@ for lang in LANGUAGES:
             nav_terms=I18N[lang]["nav"]["nav_terms"],
             nav_privacy=I18N[lang]["nav"]["nav_privacy"],
             copyright_label=I18N[lang]["copyright_label"],
+            cart=I18N[lang]["cart"],
+            clear_cart=I18N[lang]["clear_cart"],
+            total=I18N[lang]["total"],
+            view_cart_and_checkout=I18N[lang]["view_cart_and_checkout"],
+            reviews=I18N[lang]["reviews"]+" (*) ",
+            add_to_cart=I18N[lang]["add_to_cart"],
+            service_auth=I18N[lang]["service"]["auth"],
+            service_back=I18N[lang]["service"]["back"],
+            service_ship=I18N[lang]["service"]["ship"],
+            rate_us=I18N[lang]["rate_us"],
+            instock=I18N[lang]["instock"],
             url=url,
             hreflang_links="\n".join(hreflang),
             schema=schema

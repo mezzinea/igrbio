@@ -2,7 +2,7 @@
 /* Typography */
 body, ul, li, p, a, label, input, div {
   font-family: 'Roboto', sans-serif;
-  font-size: 18px !important;
+  font-size: 17px !important;
   font-weight: 300 !important;
 }
 .h1 {
@@ -19,6 +19,16 @@ body, ul, li, p, a, label, input, div {
   font-family: 'Roboto', sans-serif;
   font-size: 22px !important;
 }
+html[lang="ar"] {
+  font-family: 'Tajawal', sans-serif;
+}
+html[lang="fr"] {
+  font-family: 'Nunito', sans-serif;
+}
+html[lang="en"] {
+  font-family: 'Nunito', sans-serif;
+}
+
 /* General */
 .logo { font-weight: 500 !important;}
 .text-warning {  color: #ede861 !important;}
@@ -30,8 +40,12 @@ body, ul, li, p, a, label, input, div {
 .bg-black { background-color: #211e1e !important;}
 .bg-success { background-color: #469562 !important;}
 .btn-success {
-  background-color: #469562 !important;
-  border-color: #469562 !important;
+  background-color: #0b935d !important;
+  border-color: #0b935d !important;
+}
+.btn-success:hover{
+  background-color: #0a7349 !important;
+  border-color: #0a7349 !important;
 }
 .pagination .page-link:hover {color: #000;}
 .pagination .page-link:hover, .pagination .page-link.active {
@@ -331,9 +345,7 @@ body, ul, li, p, a, label, input, div {
 }
 
 .product-price {
-    font-size: 28px;
-    font-weight: 700;
-    color: #0c7532;
+    color: #13963b;
     margin-bottom: 15px;
 }
 
@@ -367,12 +379,13 @@ body, ul, li, p, a, label, input, div {
 .reviews {
     display: flex;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 }
 
 .stars {
     color: #f1c40f;
     margin-right: 10px;
+    margin-left: 10px;
 }
 
 .review-count {
@@ -713,6 +726,10 @@ body, ul, li, p, a, label, input, div {
     display: block;
 }
 
+.product-link:hover {
+  color: #2bc359;
+}
+
 /* Custom controls */
 .carousel-control-prev,
 .carousel-control-next {
@@ -917,4 +934,22 @@ body, ul, li, p, a, label, input, div {
 .btn-whatsapp img {
   width: 18px;
   height: 18px;
+}
+
+
+.instock  {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 4px 10px;
+  border: 1.5px solid #22c55e; /* green outline */
+  border-radius: 999px;        /* pill shape */
+
+  color: #16a34a;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  background-color: #ffffff;
 }
