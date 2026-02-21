@@ -346,7 +346,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                             </a>
                         </div>
                         
-                        <a href="../shop.html" class="text-muted mb-2 mt-5">{back_info}</a>
+                        <a href="../shop.html" class="text-muted mb-2 mt-5"><small>{back_info}</small></a>
                                             
                         
                         <div class="row text-center pt-5">
@@ -410,7 +410,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
 <!-- Start Script -->
 <script src="../../assets/js/bootstrap.bundle.min.js"></script>
-<script src="../../assets/js/custom.js?v=5"></script>
+<script src="../../assets/js/custom.js?v=6"></script>
 <script type="application/ld+json">
 {schema}
 </script>

@@ -32,7 +32,9 @@ const translations = {
     currency: "MAD",
     each: "each",
     wathsappShareText: "I ordered from igrBio.\nHighly recommended!\n** https://igrbio.com",
-    viewDetails: "More Details"
+    viewDetails: "More Details",
+    cartIsEmpty: "Your cart is currently empty",
+    goToShop: "go to shop"
   },
 
   fr: {
@@ -50,7 +52,9 @@ const translations = {
     currency: "MAD",
     each: "chacun",
     wathsappShareText: "J'ai commandé chez igrBio.\nFortement recommandé !\n** https://igrbio.com",
-    viewDetails: "Plus de détails"
+    viewDetails: "Plus de détails",
+    cartIsEmpty: "Votre panier est actuellement vide",
+    goToShop: "aller au magasin"
   },
 
   ar: {
@@ -68,7 +72,9 @@ const translations = {
     currency: "د.م",
     each: "واحد",
     wathsappShareText: "لقد طلبت من igrBio.\nأنصح به بشدة!\n** https://igrbio.com",
-    viewDetails: "مزيد من التفاصيل"
+    viewDetails: "مزيد من التفاصيل",
+    cartIsEmpty: "سلة التسوق الخاصة بك فارغة حاليًا",
+    goToShop: "اذهب إلى المتجر"
   }
 };
 
@@ -416,7 +422,21 @@ function loadCartPage() {
     cart = cart ? JSON.parse(cart) : [];
 
     const container = document.getElementById("cart-page-items");
+    
     container.innerHTML = "";
+    
+    if (cart.length === 0) {
+      container.innerHTML = `
+        <div class="text-center p-5">
+          <p>
+            ${trs.cartIsEmpty}
+          </p>
+          <button class="btn btn-success rounded py-2 px-5" onclick="window.location.href='shop.html'">
+            ${trs.goToShop}
+          </button>
+        </div>
+      `;
+    }
 
     let subtotal = 0;
 
@@ -556,6 +576,11 @@ document.getElementById("orderForm")?.addEventListener("submit", async function(
   const btn = document.getElementById("placeOrderBtn");
   btn.disabled = true;
   btn.textContent = trs.placingOrder;
+  
+  if (cart.length === 0) {
+    alert(trs.cartIsEmpty+ "\n" +trs.goToShop);
+    return;
+  }
 
   try {
 
@@ -625,6 +650,7 @@ function showReviewPopup() {
 
 function closePopup() {
   document.getElementById("reviewPopup").style.display = "none";
+  window.location.href = "/";
 }
 
 function copyLink() {
