@@ -410,7 +410,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
 <!-- Start Script -->
 <script src="../../assets/js/bootstrap.bundle.min.js"></script>
-<script src="../../assets/js/custom.js?v=5"></script>
+<script src="../../assets/js/custom.js?v=6"></script>
 <script type="application/ld+json">
 {schema}
 </script>
