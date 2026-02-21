@@ -346,7 +346,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                             </a>
                         </div>
                         
-                        <a href="../shop.html" class="text-muted mb-2 mt-5">{back_info}</a>
+                        <a href="../shop.html" class="text-muted mb-2 mt-5"><small>{back_info}</small></a>
                                             
                         
                         <div class="row text-center pt-5">

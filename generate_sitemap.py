@@ -34,14 +34,14 @@ def generate_sitemap():
             urls.append({
                 "loc": loc,
                 "lastmod": today,
-                "priority": "0.8"
+                "priority": "1"
             })
         for cat in categories:
             loc = f"{base_url}/{lang}/shop.html?type={cat}"
             urls.append({
                 "loc": loc,
                 "lastmod": today,
-                "priority": "0.8"
+                "priority": "1"
             })
 
     # --- Products from CSV ---
@@ -66,7 +66,7 @@ def generate_sitemap():
   <url>
     <loc>{escape(loc)}</loc>
     <lastmod>{today}</lastmod>
-    <priority>0.8</priority>
+    <priority>1</priority>
 """
                 # Single image per row
                 image_file = row.get("image", "").strip()
